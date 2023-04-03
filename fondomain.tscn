@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://c61ivsnf5vq7c"]
+
+[ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="1_k28nl"]
+[ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="2_sadlm"]
+[ext_resource type="Texture2D" uid="uid://c10fmbbdvhjyb" path="res://3 Objects/Fishing_hut.png" id="3_1031e"]
+[ext_resource type="Texture2D" uid="uid://cy0r535bh3dac" path="res://underwater-fantasy-files/PNG/layers/far.png" id="4_cmteu"]
+[ext_resource type="Texture2D" uid="uid://d4b30eawcrc7" path="res://underwater-fantasy-files/PNG/layers/sand.png" id="5_7id73"]
+[ext_resource type="Texture2D" uid="uid://dywqvlm46w4bc" path="res://underwater-fantasy-files/PNG/layers/foregound-merged.png" id="6_4qffv"]
+[ext_resource type="Texture2D" uid="uid://bqnp1xvonx611" path="res://3 Objects/Boat.png" id="7_vthyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6di"]
+size = Vector2(144, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6fq7"]
+size = Vector2(512, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqcql"]
+radius = 2.5531
+height = 11.5346
+
+[node name="Main" type="Node2D"]
+position = Vector2(402, 201)
+
+[node name="sky1" type="Sprite2D" parent="."]
+position = Vector2(-144, -125)
+scale = Vector2(1.07557, 0.972595)
+texture = ExtResource("1_k28nl")
+metadata/_edit_group_ = true
+
+[node name="sky2" type="Sprite2D" parent="sky1"]
+position = Vector2(0.929749, 31.8735)
+scale = Vector2(0.970798, 1.18402)
+texture = ExtResource("2_sadlm")
+
+[node name="hut" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="FishingHut" type="Sprite2D" parent="hut"]
+position = Vector2(-355, -138)
+texture = ExtResource("3_1031e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hut"]
+position = Vector2(-331, -143.5)
+shape = SubResource("RectangleShape2D_kn6di")
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(-18, -20)
+texture = ExtResource("4_cmteu")
+metadata/_edit_group_ = true
+
+[node name="Far" type="Sprite2D" parent="background2"]
+position = Vector2(-256, 0)
+texture = ExtResource("4_cmteu")
+
+[node name="Sand" type="Sprite2D" parent="background2"]
+position = Vector2(-255, -1)
+texture = ExtResource("5_7id73")
+
+[node name="Sand" type="Sprite2D" parent="background2/Sand"]
+position = Vector2(255, 0)
+texture = ExtResource("5_7id73")
+
+[node name="floor" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="floor" type="Sprite2D" parent="floor"]
+position = Vector2(-145, -9)
+texture = ExtResource("6_4qffv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(-146, 74)
+shape = SubResource("RectangleShape2D_c6fq7")
+
+[node name="Boat" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Boat" type="Sprite2D" parent="Boat"]
+position = Vector2(-137, -123)
+texture = ExtResource("7_vthyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat"]
+position = Vector2(-141, -118)
+scale = Vector2(7.83361, -0.346784)
+shape = SubResource("CapsuleShape2D_lqcql")
