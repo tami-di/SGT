@@ -13,3 +13,7 @@ config_version=5
 config/name="Ocean Fighters"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
