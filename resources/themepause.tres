@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cq6bnj2euox0a"]
+
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_ivx46"]
+
+[resource]
+Button/font_sizes/font_size = 27
+Button/fonts/font = ExtResource("2_ivx46")
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("2_ivx46")
+MarginContainer/constants/margin_bottom = 45
+MarginContainer/constants/margin_left = 45
+MarginContainer/constants/margin_right = 45
+MarginContainer/constants/margin_top = 45

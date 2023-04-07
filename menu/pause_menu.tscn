@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj4lc1uedeg7o"]
+
+[ext_resource type="Theme" uid="uid://bcm8gj1g3hwnm" path="res://resources/theme.tres" id="1_7yhvo"]
+[ext_resource type="Theme" uid="uid://cq6bnj2euox0a" path="res://resources/themepause.tres" id="1_30l4v"]
+[ext_resource type="Script" path="res://menu/pause_menu.gd" id="1_74jqp"]
+
+[node name="Pausemenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("1_30l4v")
+script = ExtResource("1_74jqp")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_7yhvo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_30l4v")
+text = "Pausa"
+horizontal_alignment = 1
+
+[node name="Resumen" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_30l4v")
+text = "Resumen"
+
+[node name="Retry" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_30l4v")
+text = "Retry"
+
+[node name="settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_30l4v")
+text = "Settings
+"
+
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_30l4v")
+text = "Exit
+"
