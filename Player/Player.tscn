@@ -8,8 +8,12 @@ radius = 6.0
 height = 34.0
 
 [node name="Player" type="CharacterBody2D"]
+<<<<<<< Updated upstream:Player/Player.tscn
 position = Vector2(-12, -25)
 script = ExtResource("1_tndm4")
+=======
+position = Vector2(25, 22)
+>>>>>>> Stashed changes:Player/area_2d.tscn
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
