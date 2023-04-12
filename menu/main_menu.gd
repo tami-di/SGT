@@ -10,9 +10,8 @@ func _ready():
 	
 func _on_play_pressed():
 	#en res:blabla va el nombre de la escena del juego
-	#get_tree().change_scene_to_file("res://scenes/main.tscn")
-	pass
-
+	get_tree().change_scene_to_file("res://main.tscn")
+	
 func _on_settings_pressed():
 	pass
 	
