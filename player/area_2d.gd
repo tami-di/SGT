@@ -7,8 +7,13 @@ const ACCELERATION = 200
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 500
 
+@onready var animation_player = $AnimationPlayer
+@onready var animation_tree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/playback")
+@onready var flip_hv = $flipHV
 
 func _physics_process(delta):
+	
 	print(position)
 	# Add the gravity.
 	if not is_on_floor():
@@ -31,3 +36,15 @@ func _physics_process(delta):
 	
 	
 	move_and_slide()
+	
+	#animation
+	
+	if abs(velocity.x) > 10:
+		#animation_player.play("run")
+		playback.travel("run")
+	else:
+		#animation_player.play("idle")
+		playback.travel("idle")
+	
+	if move_input:
+		flip_hv.scale.x = sign(move_input)
