@@ -5,9 +5,9 @@
 [resource]
 Button/font_sizes/font_size = 27
 Button/fonts/font = ExtResource("2_ivx46")
-Label/font_sizes/font_size = 60
+Label/font_sizes/font_size = 40
 Label/fonts/font = ExtResource("2_ivx46")
-MarginContainer/constants/margin_bottom = 45
-MarginContainer/constants/margin_left = 45
-MarginContainer/constants/margin_right = 45
-MarginContainer/constants/margin_top = 45
+MarginContainer/constants/margin_bottom = 25
+MarginContainer/constants/margin_left = 25
+MarginContainer/constants/margin_right = 25
+MarginContainer/constants/margin_top = 25

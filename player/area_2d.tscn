@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=16 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://Player/area_2d.gd" id="1_xdnqo"]
 [ext_resource type="Texture2D" uid="uid://csdjqvomvw4rq" path="res://1 Fisherman/Fisherman_walk.png" id="2_xf582"]
+[ext_resource type="PackedScene" uid="uid://bj4lc1uedeg7o" path="res://menu/pause_menu.tscn" id="3_rxgwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_070is"]
 size = Vector2(9, 27)
@@ -217,3 +218,7 @@ tree_root = SubResource("AnimationNodeStateMachine_0inxu")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
