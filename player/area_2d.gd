@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
-const ACCELERATION = 200
+const ACCELERATION = 400
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 500
 
@@ -35,16 +35,17 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION)
 	
 	
-	move_and_slide()
+	
 	
 	#animation
-	
-	if abs(velocity.x) > 10:
-		#animation_player.play("run")
-		playback.travel("run")
+	if abs(velocity.x) !=0 and move_input:
+		animation_player.play("run")
+		#playback.travel("run")
 	else:
 		#animation_player.play("idle")
 		playback.travel("idle")
 	
 	if move_input:
-		flip_hv.scale.x = sign(move_input)
+		flip_hv.scale.x =  sign(move_input)
+		
+	move_and_slide()
