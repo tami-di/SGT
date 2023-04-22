@@ -16,7 +16,7 @@ size = Vector2(144, 61)
 size = Vector2(512, 26)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqcql"]
-radius = 3.06372
+radius = 2.68076
 height = 11.5346
 
 [node name="Main" type="Node2D"]
@@ -72,6 +72,9 @@ texture = ExtResource("3_jyens")
 position = Vector2(-146, 74)
 shape = SubResource("RectangleShape2D_c6fq7")
 
+[node name="Player" parent="." instance=ExtResource("8_tpidr")]
+position = Vector2(-144, -200)
+
 [node name="Boat" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
 
@@ -83,6 +86,3 @@ texture = ExtResource("8_3c10u")
 position = Vector2(-141, -118)
 scale = Vector2(7.83361, -0.346784)
 shape = SubResource("CapsuleShape2D_lqcql")
-
-[node name="Player" parent="." instance=ExtResource("8_tpidr")]
-position = Vector2(-144, -200)

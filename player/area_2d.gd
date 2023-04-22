@@ -35,7 +35,7 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION)
 	
 	
-	
+
 	
 	#animation
 	if abs(velocity.x) !=0 and move_input:
@@ -49,3 +49,12 @@ func _physics_process(delta):
 		flip_hv.scale.x =  sign(move_input)
 		
 	move_and_slide()
+	if Input.is_action_just_pressed("attack"):
+		_attack()
+
+
+
+
+
+func _attack():
+	playback.call_deferred("travel", "attack")
