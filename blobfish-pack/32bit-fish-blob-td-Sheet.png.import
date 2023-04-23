@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1lr7cd16qhwn"
-path="res://.godot/imported/sprite Zafira.png-365a626a8a8f1e40595f3510b934e657.ctex"
+uid="uid://d3gacvmp4xv3n"
+path="res://.godot/imported/32bit-fish-blob-td-Sheet.png-abf421c1238f4e9f2c06b189d41626b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/sprite Zafira.png"
-dest_files=["res://.godot/imported/sprite Zafira.png-365a626a8a8f1e40595f3510b934e657.ctex"]
+source_file="res://blobfish-pack/32bit-fish-blob-td-Sheet.png"
+dest_files=["res://.godot/imported/32bit-fish-blob-td-Sheet.png-abf421c1238f4e9f2c06b189d41626b7.ctex"]
 
 [params]
 

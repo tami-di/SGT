@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baski0nnkrdmo"
-path="res://.godot/imported/Z5 - Copy.png-0089e761517f8b912b96686c61806c94.ctex"
+uid="uid://b2cxr1pm7k4u2"
+path="res://.godot/imported/8bit-sea-urchin.png-254bab37369e0be55bdd2dd7c9e01446.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Z5 - Copy.png"
-dest_files=["res://.godot/imported/Z5 - Copy.png-0089e761517f8b912b96686c61806c94.ctex"]
+source_file="res://blobfish-pack/8bit-sea-urchin.png"
+dest_files=["res://.godot/imported/8bit-sea-urchin.png-254bab37369e0be55bdd2dd7c9e01446.ctex"]
 
 [params]
 

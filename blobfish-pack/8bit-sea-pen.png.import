@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cntdeoy424pkq"
-path="res://.godot/imported/Z3 - Copy.png-75033b08e69bbcd9cc3b15e7e1fd9046.ctex"
+uid="uid://dtclwavj4chpw"
+path="res://.godot/imported/8bit-sea-pen.png-d0f91ebe4f1bd14bc026719252478dec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Z3 - Copy.png"
-dest_files=["res://.godot/imported/Z3 - Copy.png-75033b08e69bbcd9cc3b15e7e1fd9046.ctex"]
+source_file="res://blobfish-pack/8bit-sea-pen.png"
+dest_files=["res://.godot/imported/8bit-sea-pen.png-d0f91ebe4f1bd14bc026719252478dec.ctex"]
 
 [params]
 

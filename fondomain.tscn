@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://d4b30eawcrc7" path="res://underwater-fantasy-files/PNG/layers/sand.png" id="5_7id73"]
 [ext_resource type="Texture2D" uid="uid://dywqvlm46w4bc" path="res://underwater-fantasy-files/PNG/layers/foregound-merged.png" id="6_4qffv"]
 [ext_resource type="Texture2D" uid="uid://bqnp1xvonx611" path="res://3 Objects/Boat.png" id="7_vthyl"]
-[ext_resource type="Texture2D" uid="uid://sedo3le2jyy0" path="res://icon.svg" id="8_y6igh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6di"]
 size = Vector2(144, 61)
@@ -18,9 +17,6 @@ size = Vector2(512, 26)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqcql"]
 radius = 2.5531
 height = 11.5346
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym3qf"]
-size = Vector2(119, 34)
 
 [node name="Main" type="Node2D"]
 position = Vector2(402, 201)
@@ -86,14 +82,3 @@ texture = ExtResource("7_vthyl")
 position = Vector2(-141, -118)
 scale = Vector2(7.83361, -0.346784)
 shape = SubResource("CapsuleShape2D_lqcql")
-
-[node name="pescao" type="StaticBody2D" parent="."]
-
-[node name="Icon" type="Sprite2D" parent="pescao"]
-position = Vector2(-47.5, 19.5)
-scale = Vector2(0.976562, 0.304687)
-texture = ExtResource("8_y6igh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pescao"]
-position = Vector2(-48.5, 20)
-shape = SubResource("RectangleShape2D_ym3qf")
