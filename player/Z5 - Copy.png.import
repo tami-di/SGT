@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baski0nnkrdmo"
-path="res://.godot/imported/Z5 - Copy.png-0089e761517f8b912b96686c61806c94.ctex"
+path="res://.godot/imported/Z5 - Copy.png-9957d5e2e4b725220ab376811646d5fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Z5 - Copy.png"
-dest_files=["res://.godot/imported/Z5 - Copy.png-0089e761517f8b912b96686c61806c94.ctex"]
+source_file="res://Player/Z5 - Copy.png"
+dest_files=["res://.godot/imported/Z5 - Copy.png-9957d5e2e4b725220ab376811646d5fb.ctex"]
 
 [params]
 
