@@ -45,7 +45,7 @@ _data = {
 }
 
 [node name="Pez_01" type="CharacterBody2D"]
-position = Vector2(117, 69)
+position = Vector2(-5, 1)
 script = ExtResource("1_2dgtk")
 metadata/_edit_group_ = true
 
