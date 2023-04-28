@@ -131,4 +131,4 @@ z_index = 1
 position = Vector2(-315, -29)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-40, -123)
+position = Vector2(-42, -113)

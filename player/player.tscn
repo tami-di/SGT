@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bj4lc1uedeg7o" path="res://menu/pause_menu.tscn" id="3_rxgwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgfq7"]
-size = Vector2(15, 21)
+size = Vector2(9, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_070is"]
 size = Vector2(11, 28)
@@ -317,7 +317,7 @@ hframes = 6
 [node name="Area2D" type="Area2D" parent="flipHV"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flipHV/Area2D"]
-position = Vector2(10, -4)
+position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_sgfq7")
 disabled = true
 
