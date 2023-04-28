@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2mgiwr2a7td0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a1fw"]
+size = Vector2(210, 42)
+
+[node name="oceano" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(105, 0)
+shape = SubResource("RectangleShape2D_6a1fw")

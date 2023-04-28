@@ -8,6 +8,7 @@ size = Vector2(20, 7)
 
 [sub_resource type="Animation" id="Animation_7ii8j"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,7 +46,8 @@ _data = {
 }
 
 [node name="Pez_01" type="CharacterBody2D"]
-position = Vector2(278, 153)
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_2dgtk")
 metadata/_edit_group_ = true
 
