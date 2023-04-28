@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://coepl1vcfgsru"]
 
-[ext_resource type="Script" path="res://Player/area_2d.gd" id="1_xdnqo"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="Texture2D" uid="uid://csdjqvomvw4rq" path="res://1 Fisherman/Fisherman_walk.png" id="2_xf582"]
 [ext_resource type="Texture2D" uid="uid://do2vr3wllcb3p" path="res://1 Fisherman/Fisherman_attack.png" id="3_2ddee"]
 [ext_resource type="PackedScene" uid="uid://bj4lc1uedeg7o" path="res://menu/pause_menu.tscn" id="3_rxgwb"]
@@ -302,7 +302,9 @@ graph_offset = Vector2(49, 21)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-15, -33)
-script = ExtResource("1_xdnqo")
+script = ExtResource("1_78y61")
+JUMP_VELOCITY_WATER = -230.0
+JUMP_VELOCITY_AIRE = -500.0
 
 [node name="flipHV" type="Node2D" parent="."]
 position = Vector2(15, 33)
