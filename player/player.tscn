@@ -341,3 +341,8 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(140.886, -5.80545)
+zoom = Vector2(1.45, 1.45)
+process_callback = 0

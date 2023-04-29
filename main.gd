@@ -11,9 +11,11 @@ func _ready():
 	camera.enabled = true
 	camerazoom.enabled = false
 	player.alturaNivelAgua = markerAgua.position.y
+	#plaer.metodo(mark1,mark2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _input(event):
 	if event.is_action_pressed("camara"):
 		camera.enabled = !camera.enabled
 		camerazoom.enabled = !camerazoom.enabled
+
