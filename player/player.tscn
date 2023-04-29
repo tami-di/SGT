@@ -301,13 +301,19 @@ graph_offset = Vector2(49, 21)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7e8x0"]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(-15, -33)
+position = Vector2(-1, 0)
 script = ExtResource("1_78y61")
 JUMP_VELOCITY_WATER = -230.0
 JUMP_VELOCITY_AIRE = -500.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(140.886, -5.80545)
+zoom = Vector2(1.45, 1.45)
+process_callback = 0
+
 [node name="flipHV" type="Node2D" parent="."]
-position = Vector2(15, 33)
+position = Vector2(1, -9)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="flipHV"]
 position = Vector2(9, -5)
@@ -322,8 +328,7 @@ shape = SubResource("RectangleShape2D_sgfq7")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(16.5, 34)
+position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_070is")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

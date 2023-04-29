@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmqjv68gygjf3"]
+
+[ext_resource type="Texture2D" uid="uid://c10fmbbdvhjyb" path="res://3 Objects/Fishing_hut.png" id="1_7oto4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6di"]
+size = Vector2(145, 59.5)
+
+[node name="hut" type="StaticBody2D"]
+z_index = 1
+position = Vector2(2, -1)
+
+[node name="FishingHut" type="Sprite2D" parent="."]
+position = Vector2(-1, 3)
+texture = ExtResource("1_7oto4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22.5, 34.25)
+shape = SubResource("RectangleShape2D_kn6di")

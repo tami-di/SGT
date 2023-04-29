@@ -16,6 +16,7 @@ var gravity = 500
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var flip_hv = $flipHV
+@onready var camera = $Camera2D
 
 var alturaNivelAgua: int
 
@@ -82,8 +83,12 @@ func _physics_process(delta):
 	else:
 		desumergir()
 
-
-
-
 func _attack():
 	playback.call_deferred("travel", "attack")
+
+func set_camera_limits(supizq: Vector2, infder: Vector2):
+	camera.limit_bottom = infder.y
+	camera.limit_left = supizq.x
+	camera.limit_right = infder.x
+	camera.limit_top = supizq.y
+	

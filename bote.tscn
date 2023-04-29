@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxgi3csgysvah"]
+
+[ext_resource type="Texture2D" uid="uid://bqnp1xvonx611" path="res://3 Objects/Boat.png" id="1_lylc5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqcql"]
+radius = 2.80841
+height = 6.63806
+
+[node name="Boat" type="StaticBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Boat" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_lylc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 8)
+scale = Vector2(7.83361, -0.346784)
+shape = SubResource("CapsuleShape2D_lqcql")
