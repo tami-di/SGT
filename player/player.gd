@@ -83,13 +83,10 @@ func _physics_process(delta):
 	else:
 		desumergir()
 
-
-
-
 func _attack():
 	playback.call_deferred("travel", "attack")
 
-func ser_camera_limits(supizq: Vector2, infder: Vector2):
+func set_camera_limits(supizq: Vector2, infder: Vector2):
 	camera.limit_bottom = infder.y
 	camera.limit_left = supizq.x
 	camera.limit_right = infder.x

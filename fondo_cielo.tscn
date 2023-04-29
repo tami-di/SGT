@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dccneofneka52"]
+
+[ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="1_irvay"]
+[ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="2_dxhot"]
+
+[node name="cielo" type="Sprite2D"]
+position = Vector2(173, -3)
+scale = Vector2(1.07557, 0.972595)
+texture = ExtResource("1_irvay")
+
+[node name="sky2" type="Sprite2D" parent="."]
+position = Vector2(-0.929753, 24.6763)
+scale = Vector2(0.999005, 1.18402)
+texture = ExtResource("2_dxhot")

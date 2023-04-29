@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://pnqiuryqad8g"]
+
+[ext_resource type="Texture2D" uid="uid://cy0r535bh3dac" path="res://underwater-fantasy-files/PNG/layers/far.png" id="1_kicp0"]
+[ext_resource type="Texture2D" uid="uid://d4b30eawcrc7" path="res://underwater-fantasy-files/PNG/layers/sand.png" id="2_sgoam"]
+[ext_resource type="Texture2D" uid="uid://dywqvlm46w4bc" path="res://underwater-fantasy-files/PNG/layers/foregound-merged.png" id="3_mygeq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6fq7"]
+size = Vector2(512, 26)
+
+[node name="background2" type="Sprite2D"]
+position = Vector2(-17, 69)
+texture = ExtResource("1_kicp0")
+metadata/_edit_group_ = true
+
+[node name="Far" type="Sprite2D" parent="."]
+position = Vector2(-255.5, 0)
+scale = Vector2(0.996094, 1)
+texture = ExtResource("1_kicp0")
+
+[node name="Sand" type="Sprite2D" parent="."]
+position = Vector2(-255, -1)
+texture = ExtResource("2_sgoam")
+metadata/_edit_group_ = true
+
+[node name="Sand" type="Sprite2D" parent="Sand"]
+position = Vector2(255, 0)
+texture = ExtResource("2_sgoam")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(19, 19)
+metadata/_edit_group_ = true
+
+[node name="floor" type="Sprite2D" parent="floor"]
+position = Vector2(-145, -9)
+texture = ExtResource("3_mygeq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(-146, 74)
+shape = SubResource("RectangleShape2D_c6fq7")
