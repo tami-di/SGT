@@ -8,8 +8,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgfq7"]
 size = Vector2(9, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_070is"]
-size = Vector2(11, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvgvb"]
+size = Vector2(9, 27)
 
 [sub_resource type="Animation" id="Animation_1bv85"]
 length = 0.001
@@ -307,7 +307,7 @@ JUMP_VELOCITY_WATER = -230.0
 JUMP_VELOCITY_AIRE = -500.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(140.886, -5.80545)
+scale = Vector2(140.886, 1)
 zoom = Vector2(1.45, 1.45)
 process_callback = 0
 
@@ -328,8 +328,8 @@ shape = SubResource("RectangleShape2D_sgfq7")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -5)
-shape = SubResource("RectangleShape2D_070is")
+position = Vector2(1.5, -4.5)
+shape = SubResource("RectangleShape2D_wvgvb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
