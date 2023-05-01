@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dywqvlm46w4bc" path="res://underwater-fantasy-files/PNG/layers/foregound-merged.png" id="3_mygeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6fq7"]
-size = Vector2(512, 26)
+size = Vector2(596, 26)
 
 [node name="background2" type="Sprite2D"]
 position = Vector2(-17, 69)
@@ -35,5 +35,5 @@ position = Vector2(-145, -9)
 texture = ExtResource("3_mygeq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(-146, 74)
+position = Vector2(-188, 74)
 shape = SubResource("RectangleShape2D_c6fq7")

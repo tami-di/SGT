@@ -22,6 +22,11 @@ var alturaNivelAgua: int
 
 var isSumergido = false
 
+func _ready():
+	SPEED = SPEED_AIRE
+	JUMP_VELOCITY = JUMP_VELOCITY_AIRE
+	ACCELERATION = ACCELERATION_AIRE
+
 func sumergir():
 	if isSumergido:
 		return 

@@ -1,23 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=14 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k1ts0"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_qdj6d"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
 [ext_resource type="PackedScene" uid="uid://dmqjv68gygjf3" path="res://puerto.tscn" id="4_42e2w"]
+[ext_resource type="Texture2D" uid="uid://blxfj25ip3yjq" path="res://art/rock.png" id="4_hoy2w"]
 [ext_resource type="PackedScene" uid="uid://bxgi3csgysvah" path="res://bote.tscn" id="5_hbsdf"]
+[ext_resource type="PackedScene" uid="uid://bky04epc6tu5h" path="res://dirt_road.tscn" id="6_uvuur"]
 [ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="10_1m20l"]
 [ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player/player.tscn" id="11_dshym"]
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
+size = Vector2(44, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bm6yu"]
+size = Vector2(27, 765)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qw7hx"]
+size = Vector2(70, 509.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_k1ts0")
 
 [node name="Fondo" type="Node2D" parent="."]
 position = Vector2(401, 217)
-metadata/_edit_group_ = true
 
 [node name="todo_el_cielo" type="Node2D" parent="Fondo"]
 position = Vector2(-3, -4)
+
+[node name="cielo8" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
+position = Vector2(-1200, -227)
+
+[node name="cielo7" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
+position = Vector2(-667, -227)
 
 [node name="cielo" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
 position = Vector2(-134, -227)
@@ -39,7 +55,6 @@ position = Vector2(2531, -227)
 
 [node name="todo_el_oceano" type="Node2D" parent="Fondo"]
 position = Vector2(0, 208)
-metadata/_edit_group_ = true
 
 [node name="oceano" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
 position = Vector2(-19, 69)
@@ -66,13 +81,185 @@ offset_right = 2663.0
 offset_bottom = -26.0
 color = Color(0.243137, 0.47451, 0.866667, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Fondo/todo_el_oceano"]
+[node name="camino_tierra" type="Node2D" parent="Fondo"]
+
+[node name="dirt_road" parent="Fondo/camino_tierra" instance=ExtResource("6_uvuur")]
+position = Vector2(-975, -81)
+
+[node name="dirt_road2" parent="Fondo/camino_tierra" instance=ExtResource("6_uvuur")]
+position = Vector2(-802, -80)
+
+[node name="dirt_road3" parent="Fondo/camino_tierra" instance=ExtResource("6_uvuur")]
+position = Vector2(-618, -80)
+
+[node name="dirt_road4" parent="Fondo/camino_tierra" instance=ExtResource("6_uvuur")]
+position = Vector2(-1159, -81)
+
+[node name="dirt_road5" parent="Fondo/camino_tierra" instance=ExtResource("6_uvuur")]
+position = Vector2(-1341, -82)
+
+[node name="dirt_road6" parent="Fondo/camino_tierra" instance=ExtResource("6_uvuur")]
+position = Vector2(-1518, -83)
+
+[node name="fondo_rocas" type="Node2D" parent="Fondo"]
+
+[node name="Rock2" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-398, -121)
+scale = Vector2(0.1625, 0.19375)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock3" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-443, -129)
+scale = Vector2(0.1875, 0.207031)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock4" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-429, -125)
+scale = Vector2(0.15625, 0.169531)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock5" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-412, -121)
+scale = Vector2(0.125, 0.139062)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock6" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-404, -102.438)
+scale = Vector2(0.2125, 0.182031)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock7" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-422.5, -97.3906)
+scale = Vector2(0.24375, 0.204883)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock8" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-402, -69)
+scale = Vector2(0.325, 0.311133)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock9" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-428.5, -65.1094)
+scale = Vector2(0.33125, 0.323633)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock15" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-445.25, -51.0547)
+scale = Vector2(0.353125, 0.324316)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock10" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-474, 288)
+scale = Vector2(1.48437, 1.35557)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock11" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-491, 190)
+scale = Vector2(1.48437, 1.35557)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock12" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-484, 103)
+scale = Vector2(1.48437, 1.35557)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock13" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-477.688, 28.1113)
+scale = Vector2(0.696094, 0.663892)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock14" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-426, -20)
+scale = Vector2(0.479297, 0.463196)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock16" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-454.125, -88.0273)
+scale = Vector2(0.276562, 0.262158)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock17" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-444, -101)
+scale = Vector2(0.276562, 0.262158)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock18" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-472, -104)
+scale = Vector2(0.307031, 0.312329)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock19" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-502.406, -95.2744)
+scale = Vector2(0.407421, 0.39093)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock20" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-480.797, -46.8628)
+scale = Vector2(0.52246, 0.476715)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock21" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-527.398, 10.0686)
+scale = Vector2(0.61748, 0.450858)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock22" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-516, -52)
+scale = Vector2(0.32749, 0.325429)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock23" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-656, 310)
+scale = Vector2(1.39219, 1.11528)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock24" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-672, 163)
+scale = Vector2(1.39219, 1.11528)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock25" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-571, 66)
+scale = Vector2(0.683594, 0.551392)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock26" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-523, -8)
+scale = Vector2(0.683594, 0.551392)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock27" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-533, -93)
+scale = Vector2(0.354297, 0.294446)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock28" type="Sprite2D" parent="Fondo/fondo_rocas"]
+position = Vector2(-549, -42)
+scale = Vector2(0.427148, 0.390973)
+texture = ExtResource("4_hoy2w")
+
+[node name="hut" parent="Fondo" instance=ExtResource("4_42e2w")]
+position = Vector2(-485, -133)
+
+[node name="sobre_rocas" type="Node2D" parent="Fondo"]
+
+[node name="Rock2" type="Sprite2D" parent="Fondo/sobre_rocas"]
 z_index = 1
-offset_left = -403.0
-offset_top = -113.0
-offset_right = -228.0
-offset_bottom = -50.0
-color = Color(0.243137, 0.47451, 0.866667, 0.6)
+position = Vector2(-397, -65)
+scale = Vector2(0.1625, 0.19375)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock3" type="Sprite2D" parent="Fondo/sobre_rocas"]
+z_index = 1
+position = Vector2(-428, -70.5)
+scale = Vector2(0.35, 0.30625)
+texture = ExtResource("4_hoy2w")
+
+[node name="Rock4" type="Sprite2D" parent="Fondo/sobre_rocas"]
+z_index = 1
+position = Vector2(-483.5, -77)
+scale = Vector2(0.46875, 0.4)
+texture = ExtResource("4_hoy2w")
 
 [node name="muros" type="Node2D" parent="."]
 
@@ -82,26 +269,45 @@ position = Vector2(-2, 232)
 [node name="Muro2" parent="muros" instance=ExtResource("11_htl18")]
 position = Vector2(3069, 231)
 
-[node name="hut" parent="." instance=ExtResource("4_42e2w")]
-position = Vector2(2, 86)
+[node name="limnites_mundo" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limnites_mundo"]
+position = Vector2(-1090, -9)
+shape = SubResource("RectangleShape2D_tpokv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="limnites_mundo"]
+position = Vector2(3071.5, 218.5)
+shape = SubResource("RectangleShape2D_bm6yu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="limnites_mundo"]
+position = Vector2(-48, 345.75)
+shape = SubResource("RectangleShape2D_qw7hx")
 
 [node name="boat" parent="." instance=ExtResource("5_hbsdf")]
 position = Vector2(251, 99)
 
 [node name="Player" parent="." instance=ExtResource("11_dshym")]
-position = Vector2(230, 22)
+position = Vector2(-279, 88)
+JUMP_VELOCITY_AIRE = -160.0
 
 [node name="Pez_01" parent="." instance=ExtResource("10_1m20l")]
 z_index = 1
 position = Vector2(624, 286)
 
 [node name="markerAgua" type="Marker2D" parent="."]
+visible = false
 position = Vector2(661, 103)
 
 [node name="margenes" type="Node2D" parent="."]
 
 [node name="supizq" type="Marker2D" parent="margenes"]
-position = Vector2(21, -159)
+position = Vector2(-1068, -147)
 
 [node name="infder" type="Marker2D" parent="margenes"]
 position = Vector2(3060, 602)
+
+[node name="Rock2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 143)
+scale = Vector2(0.1625, 0.19375)
+texture = ExtResource("4_hoy2w")
