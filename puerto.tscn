@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://c10fmbbdvhjyb" path="res://3 Objects/Fishing_hut.png" id="1_7oto4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6di"]
-size = Vector2(143.843, 4.625)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1ln0v"]
+size = Vector2(143, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qx8x"]
 size = Vector2(953, 20)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q5wmn"]
+a = Vector2(55, -21)
+b = Vector2(-13, 10)
+
 [node name="hut" type="StaticBody2D"]
-z_index = 1
 position = Vector2(2, -1)
 
 [node name="FishingHut" type="Sprite2D" parent="."]
@@ -19,26 +20,13 @@ position = Vector2(-1, 3)
 texture = ExtResource("1_7oto4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(22.3554, 7)
-scale = Vector2(1.01005, 1.02244)
+position = Vector2(22, 7)
 shape = SubResource("RectangleShape2D_kn6di")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(-77, 30)
-shape = SubResource("CircleShape2D_1ln0v")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2(-68, 25)
-shape = SubResource("CircleShape2D_1ln0v")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2(-51, 15)
-shape = SubResource("CircleShape2D_1ln0v")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
-position = Vector2(-60, 20)
-shape = SubResource("CircleShape2D_1ln0v")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-532.5, 34)
+position = Vector2(-548, 34)
 shape = SubResource("RectangleShape2D_1qx8x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-105, 26)
+shape = SubResource("SegmentShape2D_q5wmn")
