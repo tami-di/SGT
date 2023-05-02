@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k1ts0"]
-[ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_qdj6d"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
 [ext_resource type="PackedScene" uid="uid://dmqjv68gygjf3" path="res://puerto.tscn" id="4_42e2w"]
 [ext_resource type="Texture2D" uid="uid://blxfj25ip3yjq" path="res://art/rock.png" id="4_hoy2w"]
@@ -20,66 +19,13 @@ size = Vector2(27, 765)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw7hx"]
 size = Vector2(70, 509.5)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0q6jp"]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_k1ts0")
 
 [node name="Fondo" type="Node2D" parent="."]
 position = Vector2(401, 217)
-
-[node name="todo_el_cielo" type="Node2D" parent="Fondo"]
-position = Vector2(-3, -4)
-
-[node name="cielo8" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(-1200, -227)
-
-[node name="cielo7" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(-667, -227)
-
-[node name="cielo" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(-134, -227)
-
-[node name="cielo2" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(399, -227)
-
-[node name="cielo3" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(932, -227)
-
-[node name="cielo4" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(1465, -227)
-
-[node name="cielo5" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(1998, -227)
-
-[node name="cielo6" parent="Fondo/todo_el_cielo" instance=ExtResource("2_qdj6d")]
-position = Vector2(2531, -227)
-
-[node name="todo_el_oceano" type="Node2D" parent="Fondo"]
-position = Vector2(0, 208)
-
-[node name="oceano" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
-position = Vector2(-19, 69)
-
-[node name="oceano2" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
-position = Vector2(492, 69)
-
-[node name="oceano3" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
-position = Vector2(1003, 69)
-
-[node name="oceano4" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
-position = Vector2(1514, 69)
-
-[node name="background2" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
-position = Vector2(2025, 69)
-
-[node name="background3" parent="Fondo/todo_el_oceano" instance=ExtResource("4_2k1fi")]
-position = Vector2(2536, 69)
-
-[node name="ColorRect" type="ColorRect" parent="Fondo/todo_el_oceano"]
-offset_left = -401.0
-offset_top = -322.0
-offset_right = 2663.0
-offset_bottom = -26.0
-color = Color(0.243137, 0.47451, 0.866667, 1)
 
 [node name="camino_tierra" type="Node2D" parent="Fondo"]
 
@@ -149,26 +95,31 @@ scale = Vector2(0.353125, 0.324316)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock10" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-474, 288)
 scale = Vector2(1.48437, 1.35557)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock11" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-491, 190)
 scale = Vector2(1.48437, 1.35557)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock12" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-484, 103)
 scale = Vector2(1.48437, 1.35557)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock13" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-477.688, 28.1113)
 scale = Vector2(0.696094, 0.663892)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock14" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-426, -20)
 scale = Vector2(0.479297, 0.463196)
 texture = ExtResource("4_hoy2w")
@@ -209,11 +160,13 @@ scale = Vector2(0.32749, 0.325429)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock23" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-656, 310)
 scale = Vector2(1.39219, 1.11528)
 texture = ExtResource("4_hoy2w")
 
 [node name="Rock24" type="Sprite2D" parent="Fondo/fondo_rocas"]
+z_index = 2
 position = Vector2(-672, 163)
 scale = Vector2(1.39219, 1.11528)
 texture = ExtResource("4_hoy2w")
@@ -261,6 +214,11 @@ position = Vector2(-483.5, -77)
 scale = Vector2(0.46875, 0.4)
 texture = ExtResource("4_hoy2w")
 
+[node name="Rock5" type="Sprite2D" parent="Fondo/sobre_rocas"]
+position = Vector2(-399, -74)
+scale = Vector2(0.1625, 0.19375)
+texture = ExtResource("4_hoy2w")
+
 [node name="muros" type="Node2D" parent="."]
 
 [node name="Muro" parent="muros" instance=ExtResource("11_htl18")]
@@ -269,17 +227,17 @@ position = Vector2(-2, 232)
 [node name="Muro2" parent="muros" instance=ExtResource("11_htl18")]
 position = Vector2(3069, 231)
 
-[node name="limnites_mundo" type="StaticBody2D" parent="."]
+[node name="limites_mundo" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limnites_mundo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limites_mundo"]
 position = Vector2(-1090, -9)
 shape = SubResource("RectangleShape2D_tpokv")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="limnites_mundo"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="limites_mundo"]
 position = Vector2(3071.5, 218.5)
 shape = SubResource("RectangleShape2D_bm6yu")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="limnites_mundo"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="limites_mundo"]
 position = Vector2(-48, 345.75)
 shape = SubResource("RectangleShape2D_qw7hx")
 
@@ -295,19 +253,21 @@ z_index = 1
 position = Vector2(624, 286)
 
 [node name="markerAgua" type="Marker2D" parent="."]
-visible = false
 position = Vector2(661, 103)
 
 [node name="margenes" type="Node2D" parent="."]
 
 [node name="supizq" type="Marker2D" parent="margenes"]
-position = Vector2(-1068, -147)
+position = Vector2(-1068, -150)
 
 [node name="infder" type="Marker2D" parent="margenes"]
 position = Vector2(3060, 602)
 
-[node name="Rock2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(2, 143)
-scale = Vector2(0.1625, 0.19375)
-texture = ExtResource("4_hoy2w")
+[node name="piso_global" type="StaticBody2D" parent="."]
+position = Vector2(159, 565)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso_global"]
+shape = SubResource("WorldBoundaryShape2D_0q6jp")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_2k1fi")]

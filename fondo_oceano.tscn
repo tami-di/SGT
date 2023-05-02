@@ -1,39 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://pnqiuryqad8g"]
+[gd_scene load_steps=4 format=3 uid="uid://pnqiuryqad8g"]
 
 [ext_resource type="Texture2D" uid="uid://cy0r535bh3dac" path="res://underwater-fantasy-files/PNG/layers/far.png" id="1_kicp0"]
 [ext_resource type="Texture2D" uid="uid://d4b30eawcrc7" path="res://underwater-fantasy-files/PNG/layers/sand.png" id="2_sgoam"]
 [ext_resource type="Texture2D" uid="uid://dywqvlm46w4bc" path="res://underwater-fantasy-files/PNG/layers/foregound-merged.png" id="3_mygeq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6fq7"]
-size = Vector2(596, 26)
+[node name="fondo_oceano" type="Node"]
 
-[node name="background2" type="Sprite2D"]
-position = Vector2(-17, 69)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="fondo" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 408)
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(512, 0)
+
+[node name="background2" type="Sprite2D" parent="ParallaxBackground/fondo"]
 texture = ExtResource("1_kicp0")
+centered = false
 metadata/_edit_group_ = true
 
-[node name="Far" type="Sprite2D" parent="."]
-position = Vector2(-255.5, 0)
-scale = Vector2(0.996094, 1)
+[node name="Far" type="Sprite2D" parent="ParallaxBackground/fondo"]
+position = Vector2(256, 0)
 texture = ExtResource("1_kicp0")
+centered = false
 
-[node name="Sand" type="Sprite2D" parent="."]
-position = Vector2(-255, -1)
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/fondo"]
+offset_top = -305.0
+offset_right = 512.0
+offset_bottom = 2.0
+color = Color(0.243137, 0.47451, 0.866667, 1)
+
+[node name="medio" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 408)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sand" type="Sprite2D" parent="ParallaxBackground/medio"]
 texture = ExtResource("2_sgoam")
+centered = false
 metadata/_edit_group_ = true
 
-[node name="Sand" type="Sprite2D" parent="Sand"]
-position = Vector2(255, 0)
+[node name="Sand2" type="Sprite2D" parent="ParallaxBackground/medio"]
 texture = ExtResource("2_sgoam")
+centered = false
+offset = Vector2(256, 0)
 
-[node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(19, 19)
-metadata/_edit_group_ = true
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
 
-[node name="floor" type="Sprite2D" parent="floor"]
-position = Vector2(-145, -9)
+[node name="frente" type="ParallaxLayer" parent="ParallaxBackground2"]
+position = Vector2(0, 408)
+motion_scale = Vector2(1.2, 1)
+motion_mirroring = Vector2(512, 0)
+
+[node name="floor2" type="Sprite2D" parent="ParallaxBackground2/frente"]
 texture = ExtResource("3_mygeq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(-188, 74)
-shape = SubResource("RectangleShape2D_c6fq7")
+centered = false

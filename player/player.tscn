@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=25 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
+[ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
 [ext_resource type="Texture2D" uid="uid://csdjqvomvw4rq" path="res://1 Fisherman/Fisherman_walk.png" id="2_xf582"]
 [ext_resource type="Texture2D" uid="uid://do2vr3wllcb3p" path="res://1 Fisherman/Fisherman_attack.png" id="3_2ddee"]
 [ext_resource type="PackedScene" uid="uid://bj4lc1uedeg7o" path="res://menu/pause_menu.tscn" id="3_rxgwb"]
@@ -8,8 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgfq7"]
 size = Vector2(9, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvgvb"]
-size = Vector2(9, 27)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0ag5"]
+radius = 4.5
 
 [sub_resource type="Animation" id="Animation_1bv85"]
 length = 0.001
@@ -302,6 +303,7 @@ graph_offset = Vector2(49, 21)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-1, 0)
+collision_layer = 2
 script = ExtResource("1_78y61")
 JUMP_VELOCITY_WATER = -230.0
 JUMP_VELOCITY_AIRE = -500.0
@@ -310,6 +312,8 @@ JUMP_VELOCITY_AIRE = -500.0
 scale = Vector2(140.886, 1)
 zoom = Vector2(1.45, 1.45)
 process_callback = 0
+
+[node name="cielo" parent="Camera2D" instance=ExtResource("2_nl2v7")]
 
 [node name="flipHV" type="Node2D" parent="."]
 position = Vector2(1, -9)
@@ -329,7 +333,7 @@ disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4.5)
-shape = SubResource("RectangleShape2D_wvgvb")
+shape = SubResource("CapsuleShape2D_o0ag5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
