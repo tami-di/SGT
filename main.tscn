@@ -245,7 +245,8 @@ shape = SubResource("RectangleShape2D_qw7hx")
 position = Vector2(251, 99)
 
 [node name="Player" parent="." instance=ExtResource("11_dshym")]
-position = Vector2(-279, 88)
+z_index = 1
+position = Vector2(-320, 60)
 JUMP_VELOCITY_AIRE = -160.0
 
 [node name="Pez_01" parent="." instance=ExtResource("10_1m20l")]
