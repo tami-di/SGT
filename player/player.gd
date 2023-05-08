@@ -24,11 +24,15 @@ var isSumergido = false
 
 var inBoat := false
 
+@onready var sprite_2d = $flipHV/Sprite2D
+
+var inMovement := false
+
 func _ready():
 	SPEED = SPEED_AIRE
 	JUMP_VELOCITY = JUMP_VELOCITY_AIRE
 	ACCELERATION = ACCELERATION_AIRE
-
+	animation_tree.active = true
 func sumergir():
 	if isSumergido:
 		return 
@@ -58,19 +62,20 @@ func _physics_process(delta):
 	var move_input = Input.get_axis("move_left","move_right") if not inBoat else 0
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION)
 	
-	
-	
 	#animation
+	playback.travel("idle")
 	if abs(velocity.x) !=0 and move_input:
-		animation_player.play("run")
-		#playback.travel("run")
-	else:
-		#animation_player.play("idle")
-		playback.travel("idle")
-	
+		playback.travel("run")
+		inMovement = true
+		
 	if move_input:
 		flip_hv.scale.x =  sign(move_input)
-		
+	prints(inBoat,inMovement)
+	if inBoat:
+		if inMovement:
+			playback.travel("remar")
+		else:
+			playback.travel("idle_remar")
 	move_and_slide()
 	if Input.is_action_just_pressed("attack"):
 		_attack()

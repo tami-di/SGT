@@ -19,7 +19,9 @@ func _physics_process(delta):
 		boat.flip_h = direction < 0
 		player.flip_hv.scale.x = sign(direction)
 		velocity.x = direction * SPEED
+		player.inMovement = true
 	else:
+		player.inMovement = false
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_collide(velocity*delta)
 	player.position.x = markerBoat.global_position.x
