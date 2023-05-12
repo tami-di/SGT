@@ -33,6 +33,7 @@ func _ready():
 	JUMP_VELOCITY = JUMP_VELOCITY_AIRE
 	ACCELERATION = ACCELERATION_AIRE
 	animation_tree.active = true
+	
 func sumergir():
 	if isSumergido:
 		return 
@@ -80,13 +81,28 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		_attack()
 	
+	
+	if Input.is_action_pressed("fish") and inBoat: 
+		_fish()
+		queue_redraw()
+	
 	if position.y > alturaNivelAgua:
 		sumergir()
 	else:
 		desumergir()
+		
 
 func _attack():
 	playback.call_deferred("travel", "attack")
+	
+func _fish():
+	playback.travel("fish")
+
+
+func _draw():
+	if Input.is_action_pressed("fish") and inBoat: 
+		draw_line(Vector2.ZERO,get_local_mouse_position(),Color.DIM_GRAY,2.0)
+
 
 func set_camera_limits(supizq: Vector2, infder: Vector2):
 	camera.limit_bottom = infder.y

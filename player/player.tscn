@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=45 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ckh4tp1eaacje" path="res://1 Fisherman/Fisherman_row.png" id="6_w24yo"]
 [ext_resource type="Texture2D" uid="uid://dqnx45eb15w22" path="res://1 Fisherman/Fisherman_death.png" id="7_6rxe7"]
 [ext_resource type="Texture2D" uid="uid://dn2lhj1aahem2" path="res://1 Fisherman/Fisherman_idle.png" id="7_76v02"]
+[ext_resource type="Texture2D" uid="uid://b5cljy0mf3ywx" path="res://1 Fisherman/Fisherman_fish.png" id="8_tylhq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yf0hx"]
 load_path = "res://.godot/imported/Fisherman_attack.png-65a14591e7478c5359a86ba560236fdd.ctex"
@@ -252,6 +253,79 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_28sjv"]
+resource_name = "fish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flipHV/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_tylhq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flipHV/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("flipHV/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("flipHV/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("flipHV/Sprite2D:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("flipHV/Sprite2D:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5)
 }
 
 [sub_resource type="Animation" id="Animation_t8dkh"]
@@ -525,6 +599,7 @@ _data = {
 "RESET": SubResource("Animation_1bv85"),
 "attack": SubResource("Animation_1ieox"),
 "death": SubResource("Animation_xgla5"),
+"fish": SubResource("Animation_28sjv"),
 "idle": SubResource("Animation_t8dkh"),
 "idle_remar": SubResource("Animation_2udc1"),
 "remar": SubResource("Animation_q12d1"),
@@ -536,6 +611,9 @@ animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a1y18"]
 animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nw6tn"]
+animation = &"fish"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ydeju"]
 animation = &"idle"
@@ -577,11 +655,18 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vvmt6"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_40y4s"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lj7j6"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0inxu"]
 states/attack/node = SubResource("AnimationNodeAnimation_b6weu")
 states/attack/position = Vector2(595.666, 204.778)
 states/death/node = SubResource("AnimationNodeAnimation_a1y18")
 states/death/position = Vector2(779.667, 100)
+states/fish/node = SubResource("AnimationNodeAnimation_nw6tn")
+states/fish/position = Vector2(267.824, 253.033)
 states/idle/node = SubResource("AnimationNodeAnimation_ydeju")
 states/idle/position = Vector2(412.514, 99.2144)
 states/idle_remar/node = SubResource("AnimationNodeAnimation_l2icy")
@@ -590,8 +675,8 @@ states/remar/node = SubResource("AnimationNodeAnimation_7klmh")
 states/remar/position = Vector2(411.205, 300.285)
 states/run/node = SubResource("AnimationNodeAnimation_vh5wc")
 states/run/position = Vector2(646.333, 99.4815)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6")]
-graph_offset = Vector2(-40.1757, 62)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6"), "fish", "idle_remar", SubResource("AnimationNodeStateMachineTransition_40y4s"), "idle_remar", "fish", SubResource("AnimationNodeStateMachineTransition_lj7j6")]
+graph_offset = Vector2(-40.1757, 161.7)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7e8x0"]
 
