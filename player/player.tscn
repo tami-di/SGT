@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=52 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -9,12 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://dqnx45eb15w22" path="res://1 Fisherman/Fisherman_death.png" id="7_6rxe7"]
 [ext_resource type="Texture2D" uid="uid://dn2lhj1aahem2" path="res://1 Fisherman/Fisherman_idle.png" id="7_76v02"]
 [ext_resource type="Texture2D" uid="uid://b5cljy0mf3ywx" path="res://1 Fisherman/Fisherman_fish.png" id="8_tylhq"]
+[ext_resource type="Texture2D" uid="uid://bldfd1waje0x2" path="res://1 Fisherman/Fisherman_attack2.png" id="9_5uk2u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yf0hx"]
 load_path = "res://.godot/imported/Fisherman_attack.png-65a14591e7478c5359a86ba560236fdd.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgfq7"]
-size = Vector2(9, 27)
+size = Vector2(21.75, 30.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0ag5"]
 radius = 4.5
@@ -200,6 +201,70 @@ tracks/6/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(-7, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0.6)
+}
+
+[sub_resource type="Animation" id="Animation_jdw1t"]
+resource_name = "attack_2"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flipHV/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_5uk2u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flipHV/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 4, 4, 4, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("flipHV/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.486389, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 1, 1, 1, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("flipHV/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("flipHV/Area2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.529513, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_xgla5"]
@@ -598,6 +663,7 @@ tracks/5/keys = {
 _data = {
 "RESET": SubResource("Animation_1bv85"),
 "attack": SubResource("Animation_1ieox"),
+"attack_2": SubResource("Animation_jdw1t"),
 "death": SubResource("Animation_xgla5"),
 "fish": SubResource("Animation_28sjv"),
 "idle": SubResource("Animation_t8dkh"),
@@ -608,6 +674,9 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b6weu"]
 animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6sh2k"]
+animation = &"attack_2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a1y18"]
 animation = &"death"
@@ -660,9 +729,21 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lj7j6"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7t8aq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_robvt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rsoow"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwn7h"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0inxu"]
 states/attack/node = SubResource("AnimationNodeAnimation_b6weu")
 states/attack/position = Vector2(595.666, 204.778)
+states/attack_2/node = SubResource("AnimationNodeAnimation_6sh2k")
+states/attack_2/position = Vector2(522.609, -8.23333)
 states/death/node = SubResource("AnimationNodeAnimation_a1y18")
 states/death/position = Vector2(779.667, 100)
 states/fish/node = SubResource("AnimationNodeAnimation_nw6tn")
@@ -675,8 +756,8 @@ states/remar/node = SubResource("AnimationNodeAnimation_7klmh")
 states/remar/position = Vector2(411.205, 300.285)
 states/run/node = SubResource("AnimationNodeAnimation_vh5wc")
 states/run/position = Vector2(646.333, 99.4815)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6"), "fish", "idle_remar", SubResource("AnimationNodeStateMachineTransition_40y4s"), "idle_remar", "fish", SubResource("AnimationNodeStateMachineTransition_lj7j6")]
-graph_offset = Vector2(-40.1757, 161.7)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6"), "fish", "idle_remar", SubResource("AnimationNodeStateMachineTransition_40y4s"), "idle_remar", "fish", SubResource("AnimationNodeStateMachineTransition_lj7j6"), "idle", "attack_2", SubResource("AnimationNodeStateMachineTransition_7t8aq"), "run", "attack_2", SubResource("AnimationNodeStateMachineTransition_robvt"), "attack_2", "idle", SubResource("AnimationNodeStateMachineTransition_rsoow"), "attack_2", "run", SubResource("AnimationNodeStateMachineTransition_uwn7h")]
+graph_offset = Vector2(-89.391, -60.9)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7e8x0"]
 
@@ -704,11 +785,12 @@ hframes = 6
 position = Vector2(-9, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flipHV/Area2D"]
-position = Vector2(9, -5)
+position = Vector2(25.125, -14.25)
 shape = SubResource("RectangleShape2D_sgfq7")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_o0ag5")
 

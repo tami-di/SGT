@@ -80,7 +80,8 @@ func _physics_process(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("attack"):
 		_attack()
-	
+	if Input.is_action_just_pressed("attack_2"):
+		_attack_2()
 	
 	if Input.is_action_pressed("fish") and inBoat: 
 		_fish()
@@ -94,7 +95,8 @@ func _physics_process(delta):
 
 func _attack():
 	playback.call_deferred("travel", "attack")
-	
+func _attack_2():
+	playback.call_deferred("travel", "attack_2")	
 func _fish():
 	playback.travel("fish")
 
