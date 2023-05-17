@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=46 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -15,6 +15,9 @@ load_path = "res://.godot/imported/Fisherman_attack.png-65a14591e7478c5359a86ba5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgfq7"]
 size = Vector2(9, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_txyrx"]
+radius = 5.09902
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0ag5"]
 radius = 4.5
@@ -257,6 +260,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_28sjv"]
 resource_name = "fish"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -300,10 +304,10 @@ tracks/3/path = NodePath("flipHV/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 0]
+"values": [0]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -676,7 +680,7 @@ states/remar/position = Vector2(411.205, 300.285)
 states/run/node = SubResource("AnimationNodeAnimation_vh5wc")
 states/run/position = Vector2(646.333, 99.4815)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6"), "fish", "idle_remar", SubResource("AnimationNodeStateMachineTransition_40y4s"), "idle_remar", "fish", SubResource("AnimationNodeStateMachineTransition_lj7j6")]
-graph_offset = Vector2(-40.1757, 161.7)
+graph_offset = Vector2(-18.9093, 161.7)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7e8x0"]
 
@@ -685,6 +689,7 @@ collision_layer = 2
 script = ExtResource("1_78y61")
 JUMP_VELOCITY_WATER = -230.0
 JUMP_VELOCITY_AIRE = -500.0
+HOOK_VELOCITY = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(140.886, 1)
@@ -708,6 +713,17 @@ position = Vector2(9, -5)
 shape = SubResource("RectangleShape2D_sgfq7")
 disabled = true
 
+[node name="flipfish" type="Node2D" parent="flipHV"]
+position = Vector2(49, 7)
+
+[node name="Area2DFish" type="Area2D" parent="flipHV/flipfish"]
+collision_layer = 0
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionFish" type="CollisionShape2D" parent="flipHV/flipfish/Area2DFish"]
+shape = SubResource("CircleShape2D_txyrx")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_o0ag5")
@@ -726,3 +742,5 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
 visible = false
+
+[connection signal="body_entered" from="flipHV/flipfish/Area2DFish" to="." method="_on_area_2d_fish_body_entered"]

@@ -10,7 +10,7 @@ var player: CharacterBody2D
 @onready var boat = $Boat
 
 func _physics_process(delta):
-	if not playerInBoat:
+	if not playerInBoat or player.fishing:
 		return
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
