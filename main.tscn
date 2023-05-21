@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dsp40t5dn2evn"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_k1ts0"]
+[ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
 [ext_resource type="PackedScene" uid="uid://dmqjv68gygjf3" path="res://puerto.tscn" id="4_42e2w"]
 [ext_resource type="Texture2D" uid="uid://blxfj25ip3yjq" path="res://art/rock.png" id="4_hoy2w"]
@@ -22,7 +22,7 @@ size = Vector2(70, 509.5)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0q6jp"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_k1ts0")
+script = ExtResource("1_pw5bg")
 
 [node name="Fondo" type="Node2D" parent="."]
 position = Vector2(401, 217)
