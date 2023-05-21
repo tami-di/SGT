@@ -13,8 +13,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bm6yu"]
-size = Vector2(27, 765)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4dclj"]
+normal = Vector2(-0.999978, 0.00666652)
+distance = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw7hx"]
 size = Vector2(70, 509.5)
@@ -225,7 +226,7 @@ texture = ExtResource("4_hoy2w")
 position = Vector2(-2, 232)
 
 [node name="Muro2" parent="muros" instance=ExtResource("11_htl18")]
-position = Vector2(3069, 231)
+position = Vector2(3048, 234)
 
 [node name="limites_mundo" type="StaticBody2D" parent="."]
 
@@ -234,8 +235,8 @@ position = Vector2(-1090, -9)
 shape = SubResource("RectangleShape2D_tpokv")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="limites_mundo"]
-position = Vector2(3071.5, 218.5)
-shape = SubResource("RectangleShape2D_bm6yu")
+position = Vector2(3060, 286)
+shape = SubResource("WorldBoundaryShape2D_4dclj")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="limites_mundo"]
 position = Vector2(-48, 345.75)
@@ -248,10 +249,6 @@ position = Vector2(251, 99)
 z_index = 1
 position = Vector2(-320, 60)
 JUMP_VELOCITY_AIRE = -160.0
-
-[node name="Pez_01" parent="." instance=ExtResource("10_1m20l")]
-z_index = 1
-position = Vector2(624, 286)
 
 [node name="markerAgua" type="Marker2D" parent="."]
 position = Vector2(661, 103)
@@ -272,3 +269,9 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape2D_0q6jp")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_2k1fi")]
+
+[node name="enemigos" type="Node" parent="."]
+
+[node name="Pez_01" parent="enemigos" instance=ExtResource("10_1m20l")]
+z_index = 1
+position = Vector2(624, 286)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=55 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -14,8 +14,10 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yf0hx"]
 load_path = "res://.godot/imported/Fisherman_attack.png-65a14591e7478c5359a86ba560236fdd.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgfq7"]
-size = Vector2(21.75, 30.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vpnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r7rm"]
+size = Vector2(33.25, 44)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_txyrx"]
 radius = 5.09902
@@ -76,7 +78,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("flipHV/Area2D/CollisionShape2D:disabled")
+tracks/4/path = NodePath("flipHV/attack1Area/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -99,25 +101,37 @@ tracks/5/keys = {
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath("flipHV/Sprite2D:position:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(8)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/path = NodePath("flipHV/Sprite2D:position:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("flipHV/attack2Area/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1ieox"]
@@ -174,18 +188,18 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("flipHV/Area2D/CollisionShape2D:disabled")
+tracks/4/path = NodePath("flipHV/attack1Area/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("flipHV/Sprite2D:position:x")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -196,7 +210,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath("flipHV/Sprite2D:position:y")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -260,14 +274,14 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("flipHV/Area2D/CollisionShape2D:disabled")
+tracks/4/path = NodePath("flipHV/attack2Area/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.529513, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.529513, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_xgla5"]
@@ -376,7 +390,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("flipHV/Sprite2D:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -387,7 +401,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("flipHV/Sprite2D:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -451,18 +465,18 @@ tracks/3/keys = {
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("flipHV/Sprite2D:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("flipHV/Sprite2D:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -494,7 +508,7 @@ tracks/1/path = NodePath("flipHV/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("6_w24yo")]
@@ -506,10 +520,22 @@ tracks/2/path = NodePath("flipHV/Sprite2D:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("flipHV/Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_q12d1"]
@@ -566,7 +592,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("flipHV/Sprite2D:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -577,7 +603,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("flipHV/Sprite2D:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -642,7 +668,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("flipHV/Sprite2D:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -653,7 +679,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("flipHV/Sprite2D:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -743,6 +769,8 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwn7h"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iweb6"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0inxu"]
 states/attack/node = SubResource("AnimationNodeAnimation_b6weu")
 states/attack/position = Vector2(595.666, 204.778)
@@ -760,15 +788,15 @@ states/remar/node = SubResource("AnimationNodeAnimation_7klmh")
 states/remar/position = Vector2(411.205, 300.285)
 states/run/node = SubResource("AnimationNodeAnimation_vh5wc")
 states/run/position = Vector2(646.333, 99.4815)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6"), "fish", "idle_remar", SubResource("AnimationNodeStateMachineTransition_40y4s"), "idle_remar", "fish", SubResource("AnimationNodeStateMachineTransition_lj7j6"), "idle", "attack_2", SubResource("AnimationNodeStateMachineTransition_7t8aq"), "run", "attack_2", SubResource("AnimationNodeStateMachineTransition_robvt"), "attack_2", "idle", SubResource("AnimationNodeStateMachineTransition_rsoow"), "attack_2", "run", SubResource("AnimationNodeStateMachineTransition_uwn7h")]
-graph_offset = Vector2(-89.391, -60.9)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ov2j6"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_aogu5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_s5o3g"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_bvkao"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_38xp5"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_om7wt"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_6fpay"), "idle", "idle_remar", SubResource("AnimationNodeStateMachineTransition_i1ahf"), "idle_remar", "idle", SubResource("AnimationNodeStateMachineTransition_8podv"), "idle_remar", "remar", SubResource("AnimationNodeStateMachineTransition_uhgcm"), "remar", "idle_remar", SubResource("AnimationNodeStateMachineTransition_qx3hb"), "death", "End", SubResource("AnimationNodeStateMachineTransition_vvmt6"), "fish", "idle_remar", SubResource("AnimationNodeStateMachineTransition_40y4s"), "idle_remar", "fish", SubResource("AnimationNodeStateMachineTransition_lj7j6"), "idle", "attack_2", SubResource("AnimationNodeStateMachineTransition_7t8aq"), "run", "attack_2", SubResource("AnimationNodeStateMachineTransition_robvt"), "attack_2", "idle", SubResource("AnimationNodeStateMachineTransition_rsoow"), "attack_2", "run", SubResource("AnimationNodeStateMachineTransition_uwn7h"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_iweb6")]
+graph_offset = Vector2(-1.391, 14.2294)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7e8x0"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_78y61")
-JUMP_VELOCITY_WATER = -230.0
+JUMP_VELOCITY_WATER = -20.0
 JUMP_VELOCITY_AIRE = -500.0
 HOOK_VELOCITY = 100
 
@@ -782,16 +810,28 @@ process_callback = 0
 [node name="flipHV" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="flipHV"]
-position = Vector2(8, 5)
+position = Vector2(8, -7)
 texture = SubResource("CompressedTexture2D_yf0hx")
 hframes = 6
 
-[node name="Area2D" type="Area2D" parent="flipHV"]
+[node name="attack1Area" type="Area2D" parent="flipHV"]
 position = Vector2(-9, 5)
+collision_layer = 0
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="flipHV/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flipHV/attack1Area"]
 position = Vector2(25.125, -14.25)
-shape = SubResource("RectangleShape2D_sgfq7")
+shape = SubResource("CircleShape2D_3vpnn")
+disabled = true
+
+[node name="attack2Area" type="Area2D" parent="flipHV"]
+position = Vector2(-9, 5)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flipHV/attack2Area"]
+position = Vector2(29, -14)
+shape = SubResource("RectangleShape2D_2r7rm")
 disabled = true
 
 [node name="flipfish" type="Node2D" parent="flipHV"]
@@ -806,7 +846,6 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_txyrx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_o0ag5")
 
@@ -825,4 +864,6 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
 visible = false
 
+[connection signal="body_entered" from="flipHV/attack1Area" to="." method="_on_attack_1_area_body_entered"]
+[connection signal="body_entered" from="flipHV/attack2Area" to="." method="_on_attack_2_area_body_entered"]
 [connection signal="body_entered" from="flipHV/flipfish/Area2DFish" to="." method="_on_area_2d_fish_body_entered"]

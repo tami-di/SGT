@@ -15,7 +15,12 @@ var ACCELERATION = 400
 
 @export var ROD_LENGTH= 500
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 500
+var gravity
+
+@export var gravityAir = 500
+
+@export var gravityWater = 50
+
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
@@ -25,6 +30,11 @@ var gravity = 500
 @onready var area_2d_fish = $flipHV/flipfish/Area2DFish
 @onready var collision_fish = $flipHV/flipfish/Area2DFish/CollisionFish
 
+@export var damageA1 = 2
+
+@export var damageA2 = 4
+
+@export var health = 5
 
 var fishing := false
 
@@ -34,6 +44,7 @@ var isSumergido = false
 
 var inBoat := false
 
+var isAlive:= true
 
 @onready var sprite_2d = $flipHV/Sprite2D
 
@@ -44,6 +55,9 @@ func _ready():
 	JUMP_VELOCITY = JUMP_VELOCITY_AIRE
 	ACCELERATION = ACCELERATION_AIRE
 	animation_tree.active = true
+	area_2d_fish.monitoring = false
+	area_2d_fish.monitorable = false
+	gravity = gravityAir
 	
 func sumergir():
 	if isSumergido:
@@ -52,7 +66,8 @@ func sumergir():
 	#print("Se sumerge")
 	isSumergido = true
 	modulate = underWaterColor
-	
+	gravity = gravityWater
+	velocity.y/=1000
 
 func desumergir():
 	if not isSumergido:
@@ -61,6 +76,15 @@ func desumergir():
 	#print("Se desumerge")
 	isSumergido = false
 	modulate = Color.WHITE
+	gravity = gravityAir
+
+func _input(event):
+	if event.is_action_pressed("attack") and not inBoat:
+		_attack()
+	elif event.is_action_pressed("fish") and inBoat and not fishing and not inMovement: 
+		_fish()
+	elif event.is_action_pressed("attack_2") and not inBoat:
+		_attack_2()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -75,7 +99,6 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION)
 	
 	#animation
-	
 	if move_input:
 		flip_hv.scale.x =  sign(move_input)
 	#prints(inBoat,inMovement)
@@ -90,6 +113,8 @@ func _physics_process(delta):
 			camera.position.y = clamp(HOOK_VELOCITY*delta*rod_input + area_2d_fish.position.y,0,ROD_LENGTH)
 			if area_2d_fish.position.y == 0: 
 				fishing= false 
+				area_2d_fish.monitoring = false
+				area_2d_fish.monitorable = false
 				playback.travel("idle_remar")
 	else: 
 		if abs(velocity.x) !=0 and move_input:
@@ -98,21 +123,12 @@ func _physics_process(delta):
 		else: 
 			playback.travel("idle")
 	move_and_slide()
-	if Input.is_action_just_pressed("attack") and not inBoat:
-		_attack()
 	
-	if Input.is_action_just_pressed("fish") and inBoat and not fishing and not inMovement: 
-		_fish()
-	if Input.is_action_just_pressed("attack_2"):
-		_attack_2()
 	if position.y > alturaNivelAgua:
 		sumergir()
 	else:
 		desumergir()
 	
-	
-		
-
 func _attack():
 	playback.call_deferred("travel", "attack")
 func _attack_2():
@@ -121,9 +137,24 @@ func _fish():
 	fishing = true
 	area_2d_fish.position.y +=1
 	playback.travel("fish")
-	
+	area_2d_fish.monitoring = true
+	area_2d_fish.monitorable = true
 
+func death():
+	print("se murio")
+	if not isAlive:
+		return
+	playback.travel("death")
+	velocity.x = 0
+	velocity.y +=gravityWater
+	isAlive = false
 
+func take_damage(damage):
+	print("recibi daño")
+	health-=damage
+	if health<=0:
+		health=0
+		death()
 func _process(delta):
 	queue_redraw()
 
@@ -144,5 +175,12 @@ func set_camera_limits(supizq: Vector2, infder: Vector2):
 
 
 func _on_area_2d_fish_body_entered(body):
-	print("sii")
-	pass # Replace with function body.
+	print("ta pescando")
+
+
+func _on_attack_1_area_body_entered(body):
+	body.take_damage(damageA1)
+
+
+func _on_attack_2_area_body_entered(body):
+	body.take_damage(damageA2)
