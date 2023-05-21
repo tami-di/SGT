@@ -100,15 +100,10 @@ func _physics_process(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("attack") and not inBoat:
 		_attack()
-<<<<<<< HEAD
-	
-	if Input.is_action_just_pressed("fish") and inBoat and not fishing and not inMovement: 
-=======
-	if Input.is_action_just_pressed("attack_2"):
+	if Input.is_action_just_pressed("attack_2") and not inBoat:
 		_attack_2()
 	
-	if Input.is_action_pressed("fish") and inBoat: 
->>>>>>> 5b4203e5406ec23fe5a3c34da3ad634572ce8eea
+	if Input.is_action_just_pressed("fish") and inBoat and not fishing and not inMovement:  
 		_fish()
 		
 	
