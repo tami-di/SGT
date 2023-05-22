@@ -5,5 +5,5 @@ extends EnemigoBase
 var damage = 1
 
 func _on_attack_player_body_entered(body):
-	print("morio al pescador")
+	print("mordio al pescador")
 	body.take_damage(damage)

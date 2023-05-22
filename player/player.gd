@@ -19,7 +19,7 @@ var gravity
 
 @export var gravityAir = 500
 
-@export var gravityWater = 50
+@export var gravityWater = 500
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
@@ -34,7 +34,7 @@ var gravity
 
 @export var damageA2 = 4
 
-@export var health = 5
+@export var health = 50
 
 var fishing := false
 
@@ -79,7 +79,9 @@ func desumergir():
 	gravity = gravityAir
 
 func _input(event):
-	if event.is_action_pressed("attack") and not inBoat:
+	if not isAlive:
+		return 
+	elif event.is_action_pressed("attack") and not inBoat:
 		_attack()
 	elif event.is_action_pressed("fish") and inBoat and not fishing and not inMovement: 
 		_fish()
@@ -90,8 +92,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
 	# Handle Jump.
+	if not isAlive:
+		return
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or isSumergido) and not fishing:
 		velocity.y = JUMP_VELOCITY
 	
@@ -144,9 +147,7 @@ func death():
 	print("se murio")
 	if not isAlive:
 		return
-	playback.travel("death")
 	velocity.x = 0
-	velocity.y +=gravityWater
 	isAlive = false
 
 func take_damage(damage):
