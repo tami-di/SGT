@@ -44,6 +44,9 @@ func take_damage(damage):
 	prints("vida pescao:",health)
 	if health <= 0:
 		health=0
+		
+		Contador.contador += 1
+		print(Contador.contador)
 		death()
 
 func angryBehavior(delta):

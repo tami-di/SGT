@@ -30,11 +30,17 @@ var gravity
 @onready var area_2d_fish = $flipHV/flipfish/Area2DFish
 @onready var collision_fish = $flipHV/flipfish/Area2DFish/CollisionFish
 
+@onready var hud = $CanvasLayer/HUD
+
 @export var damageA1 = 2
 
 @export var damageA2 = 4
 
-@export var health = 50
+@export var health = 100 :
+	set(value):
+		health = value
+		hud.set_health(health)
+	
 
 var fishing := false
 
@@ -45,6 +51,8 @@ var isSumergido = false
 var inBoat := false
 
 var isAlive:= true
+
+const MAX_HEALTH= 100
 
 @onready var sprite_2d = $flipHV/Sprite2D
 
