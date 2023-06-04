@@ -1,8 +1,23 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcm8gj1g3hwnm"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bcm8gj1g3hwnm"]
 
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_lrte1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hfow"]
+bg_color = Color(0.686275, 0.12549, 0.145098, 0.917647)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0bfa"]
+bg_color = Color(0.141176, 0.737255, 0.180392, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [resource]
+default_font_size = 0
 Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("2_lrte1")
 Label/font_sizes/font_size = 60
@@ -11,3 +26,5 @@ MarginContainer/constants/margin_bottom = 35
 MarginContainer/constants/margin_left = 35
 MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
+ProgressBar/styles/background = SubResource("StyleBoxFlat_3hfow")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_j0bfa")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=20 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bxgi3csgysvah" path="res://bote.tscn" id="5_hbsdf"]
 [ext_resource type="PackedScene" uid="uid://bky04epc6tu5h" path="res://dirt_road.tscn" id="6_uvuur"]
 [ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="10_1m20l"]
+[ext_resource type="Texture2D" uid="uid://dva6rhqx1xnxc" path="res://blobfish-pack/32bit-fish-blob-Sheet.png" id="10_61qv3"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="10_cbchh"]
 [ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player/player.tscn" id="11_dshym"]
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="12_wkuy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -21,6 +24,35 @@ distance = 4.0
 size = Vector2(70, 509.5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0q6jp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy25y"]
+bg_color = Color(0.247059, 0.439216, 0.764706, 0.776471)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_rgbl8"]
+default_font_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("12_wkuy4")
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("12_wkuy4")
+MarginContainer/constants/margin_bottom = 35
+MarginContainer/constants/margin_left = 35
+MarginContainer/constants/margin_right = 35
+MarginContainer/constants/margin_top = 35
+
+[sub_resource type="Theme" id="Theme_4hlww"]
+default_font_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("12_wkuy4")
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("12_wkuy4")
+MarginContainer/constants/margin_bottom = 35
+MarginContainer/constants/margin_left = 35
+MarginContainer/constants/margin_right = 35
+MarginContainer/constants/margin_top = 35
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pw5bg")
@@ -247,7 +279,7 @@ position = Vector2(251, 99)
 
 [node name="Player" parent="." instance=ExtResource("11_dshym")]
 z_index = 1
-position = Vector2(-548, 64)
+position = Vector2(-614, 33)
 JUMP_VELOCITY_AIRE = -160.0
 
 [node name="markerAgua" type="Marker2D" parent="."]
@@ -287,3 +319,34 @@ position = Vector2(215, 412)
 
 [node name="Pez_05" parent="enemigos" instance=ExtResource("10_1m20l")]
 position = Vector2(1900, 276)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("10_cbchh")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 418.0
+offset_top = 4.0
+offset_right = 508.0
+offset_bottom = 31.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xy25y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(488, 17)
+texture = ExtResource("10_61qv3")
+hframes = 3
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 431.0
+offset_top = 9.0
+offset_right = 455.0
+offset_bottom = 28.0
+theme = SubResource("Theme_rgbl8")
+text = "0"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 449.0
+offset_top = 9.0
+offset_right = 472.0
+offset_bottom = 28.0
+theme = SubResource("Theme_4hlww")
+text = "/5"
