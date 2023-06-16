@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="10_1m20l"]
 [ext_resource type="Texture2D" uid="uid://dva6rhqx1xnxc" path="res://blobfish-pack/32bit-fish-blob-Sheet.png" id="10_61qv3"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="10_cbchh"]
-[ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player/player.tscn" id="11_dshym"]
+[ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player.tscn" id="11_dshym"]
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="12_wkuy4"]
 
