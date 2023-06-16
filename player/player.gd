@@ -184,8 +184,10 @@ func set_camera_limits(supizq: Vector2, infder: Vector2):
 
 
 func _on_area_2d_fish_body_entered(body):
+	body.is_atrapado(area_2d_fish.position)
+	fishing= false
 	print("ta pescando")
-
+	var tween = create_tween().tween_property(camera,"position",Vector2.ZERO,2)
 
 func _on_attack_1_area_body_entered(body):
 	body.take_damage(damageA1)
