@@ -13,6 +13,7 @@ var limiteAltura: Vector2
 var player
 var velChill: Vector2
 var velAngry: Vector2
+var atrapado= false 
 @export var health = 10
 var isAlive: bool = true
 
@@ -65,17 +66,26 @@ func chillBehavior(delta):
 	pivote.scale.x = signoChill if signoChill !=0 else 1
 	sprite_2d.scale.y = 1
 func _physics_process(delta):
+	
+	if atrapado: 
+		return 
+		
+	
+	
+	
 	if isAlive:
 		if player:
 			angryBehavior(delta)
 		else:
 			chillBehavior(delta)
-			
+	
+	
 	if global_position.y <= limiteAltura.y:
 		velocity.y = clamp(velocity.y,0,SPEED_ANGRY)
 	move_and_slide()
 
-
+func is_atrapado(hook:Vector2): 
+	atrapado = true
 func _on_vision_area_body_entered(body):
 	if player:
 		return
