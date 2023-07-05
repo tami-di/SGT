@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://umvtf88bckab"]
+[gd_scene load_steps=14 format=3 uid="uid://cftw85llv5de3"]
 
-[ext_resource type="Script" path="res://Enemies/tortuga.gd" id="1_fd7eh"]
-[ext_resource type="Texture2D" uid="uid://v3t6hou3mq44" path="res://art/art_enemy/tortuga/Idle.png" id="1_trl35"]
+[ext_resource type="Script" path="res://Enemies/tortuga.gd" id="1_wjveh"]
+[ext_resource type="Texture2D" uid="uid://v3t6hou3mq44" path="res://art/art_enemy/tortuga/Idle.png" id="2_thas4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l7j2"]
 radius = 89.0898
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_trl35")]
+"values": [ExtResource("2_thas4")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -65,7 +65,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_trl35")]
+"values": [ExtResource("2_thas4")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -118,7 +118,7 @@ radius = 246.073
 [node name="tortuga" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_fd7eh")
+script = ExtResource("1_wjveh")
 SPEED = 300.0
 
 [node name="pivote" type="Node2D" parent="."]
@@ -140,7 +140,7 @@ position = Vector2(11, -2)
 shape = SubResource("RectangleShape2D_jifty")
 
 [node name="Sprite2D" type="Sprite2D" parent="pivote"]
-texture = ExtResource("1_trl35")
+texture = ExtResource("2_thas4")
 hframes = 4
 frame = 1
 

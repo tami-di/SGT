@@ -20,7 +20,7 @@ var isAlive: bool = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 func _ready():
 	velChill.x = SPEED
-	animation_player.play("movement")
+	animation_player.play("idle")
 	if velChill.x < 0:
 		pivote.scale.x *= -1
 	$pivote/visionArea.body_entered.connect(_on_vision_area_body_entered)
