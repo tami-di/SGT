@@ -39,6 +39,8 @@ var gravity
 @export var health = 100 :
 	set(value):
 		health = value
+		if health == 0:
+			death()
 		hud.set_health(health)
 	
 
@@ -153,6 +155,7 @@ func _fish():
 
 func death():
 	print("se murio")
+	playback.call_deferred("travel", "death")
 	if not isAlive:
 		return
 	velocity.x = 0
