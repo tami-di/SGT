@@ -356,7 +356,7 @@ text = "/5"
 position = Vector2(82, 215)
 
 [node name="tortuga2" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(558, 428)
+position = Vector2(576, 476)
 
 [node name="tortuga3" parent="." instance=ExtResource("13_mkk4k")]
 position = Vector2(1052, 475)

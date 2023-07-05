@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://umvtf88bckab"]
 
 [ext_resource type="Script" path="res://Enemies/tortuga.gd" id="1_fd7eh"]
-[ext_resource type="Texture2D" uid="uid://v3t6hou3mq44" path="res://art/art_enemy/tortuga/Idle.png" id="1_trl35"]
+[ext_resource type="Texture2D" uid="uid://b8yco48p0suvy" path="res://art/art_enemy/tortuga/Walk.png" id="2_psnbw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l7j2"]
 radius = 89.0898
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_trl35")]
+"values": [ExtResource("2_psnbw")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -36,15 +36,27 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("pivote/Sprite2D:frame")
+tracks/2/path = NodePath("pivote/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivote/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -52,9 +64,10 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_x7b0o"]
-resource_name = "idle"
+resource_name = "walk"
+length = 1.2
 loop_mode = 1
-step = 0.25
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,7 +78,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_trl35")]
+"values": [ExtResource("2_psnbw")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,25 +90,37 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("pivote/Sprite2D:frame")
+tracks/2/path = NodePath("pivote/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivote/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_csr17"]
 _data = {
 "RESET": SubResource("Animation_tctph"),
-"idle": SubResource("Animation_x7b0o")
+"walk": SubResource("Animation_x7b0o")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x7p3w"]
@@ -140,9 +165,8 @@ position = Vector2(11, -2)
 shape = SubResource("RectangleShape2D_jifty")
 
 [node name="Sprite2D" type="Sprite2D" parent="pivote"]
-texture = ExtResource("1_trl35")
-hframes = 4
-frame = 1
+texture = ExtResource("2_psnbw")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1.5)
@@ -156,7 +180,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_t1xn8")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]
