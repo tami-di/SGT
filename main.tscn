@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=21 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player/player.tscn" id="11_dshym"]
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="12_wkuy4"]
+[ext_resource type="PackedScene" uid="uid://umvtf88bckab" path="res://Enemies/tortuga.tscn" id="13_mkk4k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -350,3 +351,21 @@ offset_right = 472.0
 offset_bottom = 28.0
 theme = SubResource("Theme_4hlww")
 text = "/5"
+
+[node name="tortuga" parent="." instance=ExtResource("13_mkk4k")]
+position = Vector2(82, 215)
+
+[node name="tortuga2" parent="." instance=ExtResource("13_mkk4k")]
+position = Vector2(576, 476)
+
+[node name="tortuga3" parent="." instance=ExtResource("13_mkk4k")]
+position = Vector2(1052, 475)
+
+[node name="tortuga4" parent="." instance=ExtResource("13_mkk4k")]
+position = Vector2(1037, 288)
+
+[node name="tortuga5" parent="." instance=ExtResource("13_mkk4k")]
+position = Vector2(1404, 305)
+
+[node name="tortuga6" parent="." instance=ExtResource("13_mkk4k")]
+position = Vector2(105, 520)

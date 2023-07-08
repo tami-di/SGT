@@ -1,16 +1,9 @@
-extends CharacterBody2D
+extends EnemigoBase
 
+@onready var attack_player = $pivote/attackPlayer
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-@onready var animation_tree = $AnimationTree
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var damage = 2
 
-func _ready():
-	animation_tree.active = true
-	animation_tree.play("idle")
-
-func _physics_process(delta):
-
-	move_and_slide()
+func _on_attack_player_body_entered(body):
+	print("mordio al pescador")
+	body.take_damage(damage)
