@@ -51,7 +51,6 @@ func take_damage(damage):
 		death()
 
 func angryBehavior(delta):
-	animation_player.play("walk")
 	var direction = global_position.direction_to(player.global_position)
 	if direction.x*velAngry.x < 0:
 		sprite_2d.scale.y *= -1

@@ -321,6 +321,24 @@ position = Vector2(215, 412)
 [node name="Pez_05" parent="enemigos" instance=ExtResource("10_1m20l")]
 position = Vector2(1900, 276)
 
+[node name="tortuga" parent="enemigos" instance=ExtResource("13_mkk4k")]
+position = Vector2(82, 215)
+
+[node name="tortuga2" parent="enemigos" instance=ExtResource("13_mkk4k")]
+position = Vector2(576, 476)
+
+[node name="tortuga3" parent="enemigos" instance=ExtResource("13_mkk4k")]
+position = Vector2(1052, 475)
+
+[node name="tortuga4" parent="enemigos" instance=ExtResource("13_mkk4k")]
+position = Vector2(1037, 288)
+
+[node name="tortuga5" parent="enemigos" instance=ExtResource("13_mkk4k")]
+position = Vector2(1404, 305)
+
+[node name="tortuga6" parent="enemigos" instance=ExtResource("13_mkk4k")]
+position = Vector2(105, 520)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("10_cbchh")
 
@@ -351,21 +369,3 @@ offset_right = 472.0
 offset_bottom = 28.0
 theme = SubResource("Theme_4hlww")
 text = "/5"
-
-[node name="tortuga" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(82, 215)
-
-[node name="tortuga2" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(576, 476)
-
-[node name="tortuga3" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(1052, 475)
-
-[node name="tortuga4" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(1037, 288)
-
-[node name="tortuga5" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(1404, 305)
-
-[node name="tortuga6" parent="." instance=ExtResource("13_mkk4k")]
-position = Vector2(105, 520)
