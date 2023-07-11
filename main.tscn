@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=22 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="12_wkuy4"]
 [ext_resource type="PackedScene" uid="uid://umvtf88bckab" path="res://Enemies/tortuga.tscn" id="13_mkk4k"]
+[ext_resource type="PackedScene" uid="uid://xvtuu3b3r3ah" path="res://Enemies/anguila.tscn" id="14_8gs33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -369,3 +370,18 @@ offset_right = 472.0
 offset_bottom = 28.0
 theme = SubResource("Theme_4hlww")
 text = "/5"
+
+[node name="anguila" parent="." instance=ExtResource("14_8gs33")]
+position = Vector2(258, 208)
+
+[node name="anguila2" parent="." instance=ExtResource("14_8gs33")]
+position = Vector2(2585, 464)
+
+[node name="anguila3" parent="." instance=ExtResource("14_8gs33")]
+position = Vector2(2796, 209)
+
+[node name="anguila4" parent="." instance=ExtResource("14_8gs33")]
+position = Vector2(2251, 293)
+
+[node name="anguila5" parent="." instance=ExtResource("14_8gs33")]
+position = Vector2(2111, 528)

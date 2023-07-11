@@ -13,7 +13,7 @@ radius = 89.0898
 size = Vector2(38, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jw8k"]
-size = Vector2(33, 9.25)
+size = Vector2(38.5, 12.625)
 
 [sub_resource type="Animation" id="Animation_tctph"]
 length = 0.001
@@ -330,7 +330,8 @@ radius = 246.073
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_irliw")
-SPEED = 40.0
+SPEED = 10.0
+SPEED_ANGRY = 200.0
 
 [node name="pivote" type="Node2D" parent="."]
 
@@ -355,7 +356,7 @@ texture = ExtResource("2_bq04f")
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 2)
+position = Vector2(-2.75, 1.6875)
 shape = SubResource("RectangleShape2D_3jw8k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
