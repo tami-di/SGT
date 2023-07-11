@@ -5,7 +5,12 @@ extends EnemigoBase
 var damage = 10
 
 func _on_attack_player_body_entered(body):
-	print("mordio al pescador")
+	print("Anguila electrocutó al pescador")
 	body.take_damage(damage)
 	animation_player.play("attack")
-	print("ataque tortuga")
+
+
+
+
+func _on_attack_player_body_exited(body):
+	pass # Replace with function body.
