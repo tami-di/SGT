@@ -292,8 +292,8 @@ radius = 246.073
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_fd7eh")
-SPEED = 50.0
-SPEED_ANGRY = 70.0
+SPEED = 20.0
+SPEED_ANGRY = 30.0
 
 [node name="pivote" type="Node2D" parent="."]
 
