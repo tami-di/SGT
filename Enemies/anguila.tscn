@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://xvtuu3b3r3ah"]
+[gd_scene load_steps=29 format=3 uid="uid://xvtuu3b3r3ah"]
 
 [ext_resource type="Script" path="res://Enemies/anguila.gd" id="1_irliw"]
 [ext_resource type="Texture2D" uid="uid://re5cf1ewfep5" path="res://art/art_enemy/anguila/Walk.png" id="2_bq04f"]
 [ext_resource type="Texture2D" uid="uid://76563o61toqk" path="res://art/art_enemy/anguila/Attack.png" id="3_wa371"]
 [ext_resource type="Texture2D" uid="uid://4tsi6t6h35hh" path="res://art/art_enemy/anguila/Death.png" id="4_l5g3y"]
 [ext_resource type="Texture2D" uid="uid://dajdc8dbphioo" path="res://art/art_enemy/anguila/Hurt.png" id="5_bw34j"]
+[ext_resource type="Texture2D" uid="uid://budfkrm0kt3xf" path="res://art/art_enemy/anguila/Idle.png" id="6_hem70"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l7j2"]
 radius = 89.0898
@@ -299,12 +300,66 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_54afc"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivote/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_hem70")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivote/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivote/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivote/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_csr17"]
 _data = {
 "RESET": SubResource("Animation_tctph"),
 "attack": SubResource("Animation_edxmw"),
 "death": SubResource("Animation_bptc0"),
 "hurt": SubResource("Animation_fmsm7"),
+"idle": SubResource("Animation_54afc"),
 "walk": SubResource("Animation_x7b0o")
 }
 
@@ -317,18 +372,38 @@ animation = &"death"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gq3l2"]
 animation = &"hurt"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jdxoh"]
+animation = &"idle"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xlune"]
 animation = &"walk"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d1u3p"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gohbl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tovqn"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p5fki"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hrwrs"]
+states/Start/position = Vector2(112, 95.8519)
 states/attack/node = SubResource("AnimationNodeAnimation_besyg")
-states/attack/position = Vector2(608, 75.3333)
+states/attack/position = Vector2(446.222, 35.3333)
 states/death/node = SubResource("AnimationNodeAnimation_n0s2m")
-states/death/position = Vector2(488, 98)
+states/death/position = Vector2(776, 100.222)
 states/hurt/node = SubResource("AnimationNodeAnimation_gq3l2")
-states/hurt/position = Vector2(622.667, 131.333)
+states/hurt/position = Vector2(446.667, 172.667)
+states/idle/node = SubResource("AnimationNodeAnimation_jdxoh")
+states/idle/position = Vector2(557.333, 96.4691)
 states/walk/node = SubResource("AnimationNodeAnimation_xlune")
-states/walk/position = Vector2(316, 99.3333)
+states/walk/position = Vector2(280, 97.358)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d1u3p"), "death", "End", SubResource("AnimationNodeStateMachineTransition_gohbl"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_tovqn"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_p5fki")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
