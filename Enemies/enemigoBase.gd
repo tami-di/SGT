@@ -66,12 +66,8 @@ func chillBehavior(delta):
 	pivote.scale.x = signoChill if signoChill !=0 else 1
 	sprite_2d.scale.y = 1
 func _physics_process(delta):
-	
 	if atrapado: 
 		return 
-		
-	
-	
 	
 	if isAlive:
 		if player:

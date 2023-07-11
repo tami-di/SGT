@@ -307,37 +307,48 @@ shape = SubResource("WorldBoundaryShape2D_0q6jp")
 [node name="enemigos" type="Node" parent="."]
 
 [node name="Pez_01" parent="enemigos" instance=ExtResource("10_1m20l")]
+visible = false
 z_index = 1
 position = Vector2(784, 222)
 
 [node name="Pez_02" parent="enemigos" instance=ExtResource("10_1m20l")]
+visible = false
 position = Vector2(1344, 440)
 
 [node name="Pez_03" parent="enemigos" instance=ExtResource("10_1m20l")]
+visible = false
 position = Vector2(2991, 307)
 
 [node name="Pez_04" parent="enemigos" instance=ExtResource("10_1m20l")]
+visible = false
 position = Vector2(215, 412)
 
 [node name="Pez_05" parent="enemigos" instance=ExtResource("10_1m20l")]
+visible = false
 position = Vector2(1900, 276)
 
 [node name="tortuga" parent="enemigos" instance=ExtResource("13_mkk4k")]
+visible = false
 position = Vector2(82, 215)
 
 [node name="tortuga2" parent="enemigos" instance=ExtResource("13_mkk4k")]
+visible = false
 position = Vector2(576, 476)
 
 [node name="tortuga3" parent="enemigos" instance=ExtResource("13_mkk4k")]
+visible = false
 position = Vector2(1052, 475)
 
 [node name="tortuga4" parent="enemigos" instance=ExtResource("13_mkk4k")]
+visible = false
 position = Vector2(1037, 288)
 
 [node name="tortuga5" parent="enemigos" instance=ExtResource("13_mkk4k")]
+visible = false
 position = Vector2(1404, 305)
 
 [node name="tortuga6" parent="enemigos" instance=ExtResource("13_mkk4k")]
+visible = false
 position = Vector2(105, 520)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -375,13 +386,17 @@ text = "/5"
 position = Vector2(258, 208)
 
 [node name="anguila2" parent="." instance=ExtResource("14_8gs33")]
+visible = false
 position = Vector2(2585, 464)
 
 [node name="anguila3" parent="." instance=ExtResource("14_8gs33")]
+visible = false
 position = Vector2(2796, 209)
 
 [node name="anguila4" parent="." instance=ExtResource("14_8gs33")]
+visible = false
 position = Vector2(2251, 293)
 
 [node name="anguila5" parent="." instance=ExtResource("14_8gs33")]
+visible = false
 position = Vector2(2111, 528)
