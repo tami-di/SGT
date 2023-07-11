@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xvtuu3b3r3ah"]
+[gd_scene load_steps=22 format=3 uid="uid://xvtuu3b3r3ah"]
 
 [ext_resource type="Script" path="res://Enemies/anguila.gd" id="1_irliw"]
 [ext_resource type="Texture2D" uid="uid://re5cf1ewfep5" path="res://art/art_enemy/anguila/Walk.png" id="2_bq04f"]
@@ -308,17 +308,27 @@ _data = {
 "walk": SubResource("Animation_x7b0o")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x7p3w"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_besyg"]
+animation = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11yco"]
-advance_mode = 2
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n0s2m"]
+animation = &"death"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t1xn8"]
-states/Start/position = Vector2(184, 100.889)
-states/idle/node = SubResource("AnimationNodeAnimation_x7p3w")
-states/idle/position = Vector2(322.667, 102)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_11yco")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gq3l2"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xlune"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hrwrs"]
+states/attack/node = SubResource("AnimationNodeAnimation_besyg")
+states/attack/position = Vector2(608, 75.3333)
+states/death/node = SubResource("AnimationNodeAnimation_n0s2m")
+states/death/position = Vector2(488, 98)
+states/hurt/node = SubResource("AnimationNodeAnimation_gq3l2")
+states/hurt/position = Vector2(622.667, 131.333)
+states/walk/node = SubResource("AnimationNodeAnimation_xlune")
+states/walk/position = Vector2(316, 99.3333)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
@@ -364,7 +374,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_t1xn8")
+tree_root = SubResource("AnimationNodeStateMachine_hrwrs")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
@@ -376,3 +386,4 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_cuadw")
 
 [connection signal="body_entered" from="pivote/attackPlayer" to="." method="_on_attack_player_body_entered"]
+[connection signal="body_exited" from="pivote/attackPlayer" to="." method="_on_attack_player_body_exited"]

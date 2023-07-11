@@ -13,4 +13,4 @@ func _on_attack_player_body_entered(body):
 
 
 func _on_attack_player_body_exited(body):
-	pass # Replace with function body.
+	animation_player.play("walk")
