@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://xvtuu3b3r3ah"]
+[gd_scene load_steps=31 format=3 uid="uid://xvtuu3b3r3ah"]
 
 [ext_resource type="Script" path="res://Enemies/anguila.gd" id="1_irliw"]
 [ext_resource type="Texture2D" uid="uid://re5cf1ewfep5" path="res://art/art_enemy/anguila/Walk.png" id="2_bq04f"]
@@ -369,6 +369,9 @@ animation = &"attack"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n0s2m"]
 animation = &"death"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqfyd"]
+animation = &"hurt"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gq3l2"]
 animation = &"hurt"
 
@@ -390,20 +393,28 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p5fki"]
 switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tku0u"]
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hrwrs"]
-states/Start/position = Vector2(112, 95.8519)
+states/Start/position = Vector2(121.333, 98.6157)
 states/attack/node = SubResource("AnimationNodeAnimation_besyg")
-states/attack/position = Vector2(446.222, 35.3333)
+states/attack/position = Vector2(437.482, 99.1376)
 states/death/node = SubResource("AnimationNodeAnimation_n0s2m")
 states/death/position = Vector2(776, 100.222)
 states/hurt/node = SubResource("AnimationNodeAnimation_gq3l2")
-states/hurt/position = Vector2(446.667, 172.667)
+states/hurt/position = Vector2(280, 218)
+"states/hurt 2/node" = SubResource("AnimationNodeAnimation_tqfyd")
+"states/hurt 2/position" = Vector2(589.889, 217.815)
 states/idle/node = SubResource("AnimationNodeAnimation_jdxoh")
-states/idle/position = Vector2(557.333, 96.4691)
+states/idle/position = Vector2(590.667, 96.1125)
 states/walk/node = SubResource("AnimationNodeAnimation_xlune")
 states/walk/position = Vector2(280, 97.358)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d1u3p"), "death", "End", SubResource("AnimationNodeStateMachineTransition_gohbl"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_tovqn"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_p5fki")]
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d1u3p"), "death", "End", SubResource("AnimationNodeStateMachineTransition_gohbl"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_tovqn"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_p5fki"), "hurt 2", "idle", SubResource("AnimationNodeStateMachineTransition_tku0u")]
+graph_offset = Vector2(1, 58.9961)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
