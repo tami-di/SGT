@@ -58,7 +58,7 @@ func angryBehavior(delta):
 	velocity = velAngry
 	pivote.scale.x = 1
 	pivote.rotation = direction.angle()
-
+	
 func chillBehavior(delta):
 	pivote.rotation = 0
 	velocity = velChill
@@ -68,14 +68,11 @@ func chillBehavior(delta):
 func _physics_process(delta):
 	if atrapado: 
 		return 
-	
 	if isAlive:
 		if player:
 			angryBehavior(delta)
 		else:
 			chillBehavior(delta)
-	
-	
 	if global_position.y <= limiteAltura.y:
 		velocity.y = clamp(velocity.y,0,SPEED_ANGRY)
 	move_and_slide()

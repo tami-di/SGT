@@ -390,7 +390,6 @@ collision_mask = 5
 [node name="pivote" type="Node2D" parent="."]
 
 [node name="visionArea" type="Area2D" parent="pivote"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -425,7 +424,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 

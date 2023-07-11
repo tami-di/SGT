@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=20 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -6,13 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://blxfj25ip3yjq" path="res://art/rock.png" id="4_hoy2w"]
 [ext_resource type="PackedScene" uid="uid://bxgi3csgysvah" path="res://bote.tscn" id="5_hbsdf"]
 [ext_resource type="PackedScene" uid="uid://bky04epc6tu5h" path="res://dirt_road.tscn" id="6_uvuur"]
-[ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="10_1m20l"]
 [ext_resource type="Texture2D" uid="uid://dva6rhqx1xnxc" path="res://blobfish-pack/32bit-fish-blob-Sheet.png" id="10_61qv3"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="10_cbchh"]
 [ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player/player.tscn" id="11_dshym"]
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="12_wkuy4"]
-[ext_resource type="PackedScene" uid="uid://umvtf88bckab" path="res://Enemies/tortuga.tscn" id="13_mkk4k"]
 [ext_resource type="PackedScene" uid="uid://xvtuu3b3r3ah" path="res://Enemies/anguila.tscn" id="14_8gs33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
@@ -306,50 +304,8 @@ shape = SubResource("WorldBoundaryShape2D_0q6jp")
 
 [node name="enemigos" type="Node" parent="."]
 
-[node name="Pez_01" parent="enemigos" instance=ExtResource("10_1m20l")]
-visible = false
-z_index = 1
-position = Vector2(784, 222)
-
-[node name="Pez_02" parent="enemigos" instance=ExtResource("10_1m20l")]
-visible = false
-position = Vector2(1344, 440)
-
-[node name="Pez_03" parent="enemigos" instance=ExtResource("10_1m20l")]
-visible = false
-position = Vector2(2991, 307)
-
-[node name="Pez_04" parent="enemigos" instance=ExtResource("10_1m20l")]
-visible = false
-position = Vector2(215, 412)
-
-[node name="Pez_05" parent="enemigos" instance=ExtResource("10_1m20l")]
-visible = false
-position = Vector2(1900, 276)
-
-[node name="tortuga" parent="enemigos" instance=ExtResource("13_mkk4k")]
-visible = false
-position = Vector2(82, 215)
-
-[node name="tortuga2" parent="enemigos" instance=ExtResource("13_mkk4k")]
-visible = false
-position = Vector2(576, 476)
-
-[node name="tortuga3" parent="enemigos" instance=ExtResource("13_mkk4k")]
-visible = false
-position = Vector2(1052, 475)
-
-[node name="tortuga4" parent="enemigos" instance=ExtResource("13_mkk4k")]
-visible = false
-position = Vector2(1037, 288)
-
-[node name="tortuga5" parent="enemigos" instance=ExtResource("13_mkk4k")]
-visible = false
-position = Vector2(1404, 305)
-
-[node name="tortuga6" parent="enemigos" instance=ExtResource("13_mkk4k")]
-visible = false
-position = Vector2(105, 520)
+[node name="anguila" parent="enemigos" instance=ExtResource("14_8gs33")]
+position = Vector2(258, 208)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("10_cbchh")
@@ -381,22 +337,3 @@ offset_right = 472.0
 offset_bottom = 28.0
 theme = SubResource("Theme_4hlww")
 text = "/5"
-
-[node name="anguila" parent="." instance=ExtResource("14_8gs33")]
-position = Vector2(258, 208)
-
-[node name="anguila2" parent="." instance=ExtResource("14_8gs33")]
-visible = false
-position = Vector2(2585, 464)
-
-[node name="anguila3" parent="." instance=ExtResource("14_8gs33")]
-visible = false
-position = Vector2(2796, 209)
-
-[node name="anguila4" parent="." instance=ExtResource("14_8gs33")]
-visible = false
-position = Vector2(2251, 293)
-
-[node name="anguila5" parent="." instance=ExtResource("14_8gs33")]
-visible = false
-position = Vector2(2111, 528)
