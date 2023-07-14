@@ -16,7 +16,6 @@ var velAngry: Vector2
 var atrapado= false 
 @export var health = 10
 var isAlive: bool = true
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 func _ready():
 	velChill.x = SPEED
@@ -65,6 +64,8 @@ func chillBehavior(delta):
 	var signoChill = sign(velChill.x)
 	pivote.scale.x = signoChill if signoChill !=0 else 1
 	sprite_2d.scale.y = 1
+	
+	
 func _physics_process(delta):
 	if atrapado: 
 		return 
@@ -73,6 +74,8 @@ func _physics_process(delta):
 			angryBehavior(delta)
 		else:
 			chillBehavior(delta)
+	if not isAlive:
+		animation_player.play("death")
 	if global_position.y <= limiteAltura.y:
 		velocity.y = clamp(velocity.y,0,SPEED_ANGRY)
 	move_and_slide()
