@@ -34,7 +34,7 @@ func death():
 	velocity.x = 0
 	velocity.y = velMuerte
 	isAlive = false
-	attack_Player.disabled = true
+	attack_Player.set_deferred()
 	#animation_player.play("death")
 	animation_player.stop()
 	
