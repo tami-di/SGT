@@ -16,6 +16,7 @@ var velAngry: Vector2
 var atrapado= false 
 @export var health = 10
 var isAlive: bool = true
+var globalDelta
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 func _ready():
 	velChill.x = SPEED
@@ -24,10 +25,12 @@ func _ready():
 		pivote.scale.x *= -1
 	$pivote/visionArea.body_entered.connect(_on_vision_area_body_entered)
 	$followArea.body_exited.connect(_on_follow_area_body_exited)
+
 func flip():
 	velChill.x *= -1
 
 func death():
+	print("Se murio")
 	if not isAlive:
 		return
 	pivote.scale.y = -1
@@ -43,10 +46,11 @@ func take_damage(damage):
 	if not isAlive:
 		return
 	health-=damage
+	animation_player.play("hurt")
+	animation_player.play("walk")
 	prints("vida pescao:",health)
 	if health <= 0:
 		health=0
-		
 		Contador.contador += 1
 		print(Contador.contador)
 		death()
@@ -69,6 +73,8 @@ func chillBehavior(delta):
 	
 	
 func _physics_process(delta):
+	globalDelta = delta
+	print(global_position)
 	if atrapado: 
 		return 
 	if isAlive:
@@ -90,3 +96,6 @@ func _on_vision_area_body_entered(body):
 
 func _on_follow_area_body_exited(body):
 	player = null
+	
+func getDelta():
+	return globalDelta

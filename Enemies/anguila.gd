@@ -1,7 +1,6 @@
 extends EnemigoBase
 
 var damage = 10
-var stop = false
 
 func _on_attack_player_body_entered(body):
 	print("Anguila electrocutó al pescador")
