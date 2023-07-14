@@ -145,7 +145,8 @@ func _physics_process(delta):
 func _attack():
 	playback.call_deferred("travel", "attack")
 func _attack_2():
-	playback.call_deferred("travel", "attack_2")	
+	playback.call_deferred("travel", "attack_2")
+
 func _fish():
 	fishing = true
 	area_2d_fish.position.y +=1
@@ -161,15 +162,19 @@ func death():
 	velocity.x = 0
 	isAlive = false
 
-func take_damage(damage):
+func take_damage(damage,body):
 	print("recibi daño")
 	health-=damage
 	if health<=0:
 		health=0
 		death()
+	else:
+		knockBack(body)
 func _process(delta):
 	queue_redraw()
 
+func knockBack(body):
+	pass
 func _draw():
 	if fishing: 
 		var fish= flipfish.position* flip_hv.scale.x
@@ -193,8 +198,8 @@ func _on_area_2d_fish_body_entered(body):
 	var tween = create_tween().tween_property(camera,"position",Vector2.ZERO,2)
 
 func _on_attack_1_area_body_entered(body):
-	body.take_damage(damageA1)
+	body.take_damage(damageA1,self)
 
 
 func _on_attack_2_area_body_entered(body):
-	body.take_damage(damageA2)
+	body.take_damage(damageA2,self)

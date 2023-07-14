@@ -45,9 +45,7 @@ func death():
 	#animation_player.play("death")
 	#animation_player.stop()
 	
-	
-	
-func take_damage(damage):
+func take_damage(damage,body):
 	if not isAlive:
 		return
 	health-=damage
@@ -60,7 +58,11 @@ func take_damage(damage):
 		Contador.contador += 1
 		print(Contador.contador)
 		death()
-
+	else:
+		player = body
+		knockBack(body)
+func knockBack(body):
+	pass
 func angryBehavior(delta):
 	var direction = global_position.direction_to(player.global_position)
 	if direction.x*velAngry.x < 0:
@@ -77,7 +79,6 @@ func chillBehavior(delta):
 	pivote.scale.x = signoChill if signoChill !=0 else 1
 	sprite_2d.scale.y = 1
 	
-	
 func _physics_process(delta):
 	globalDelta = delta
 	if atrapado: 
@@ -93,6 +94,7 @@ func _physics_process(delta):
 
 func is_atrapado(hook:Vector2): 
 	atrapado = true
+
 func _on_vision_area_body_entered(body):
 	if player:
 		return
