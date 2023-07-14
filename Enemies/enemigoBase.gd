@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var SPEED = 110.0
 @export var SPEED_ANGRY = 150.0
 @export var velMuerte = -10
-
+@onready var attack_Player = $pivote/attackPlayer/CollisionShape2D
 @onready var pivote = $pivote
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $pivote/Sprite2D
@@ -34,7 +34,10 @@ func death():
 	velocity.x = 0
 	velocity.y = velMuerte
 	isAlive = false
+	attack_Player.disabled = true
+	#animation_player.play("death")
 	animation_player.stop()
+	
 	
 	
 func take_damage(damage):
@@ -74,8 +77,6 @@ func _physics_process(delta):
 			angryBehavior(delta)
 		else:
 			chillBehavior(delta)
-	if not isAlive:
-		animation_player.play("death")
 	if global_position.y <= limiteAltura.y:
 		velocity.y = clamp(velocity.y,0,SPEED_ANGRY)
 	move_and_slide()
