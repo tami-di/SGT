@@ -17,10 +17,13 @@ var atrapado= false
 @export var health = 10
 var isAlive: bool = true
 var globalDelta
+@onready var animationTree = $AnimationTree
+@onready var playback = $AnimationTree.get("parameters/playback")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 func _ready():
 	velChill.x = SPEED
-	animation_player.play("walk")
+	animationTree.active = true
+	#animation_player.play("walk")
 	if velChill.x < 0:
 		pivote.scale.x *= -1
 	$pivote/visionArea.body_entered.connect(_on_vision_area_body_entered)
@@ -31,14 +34,16 @@ func flip():
 
 func death():
 	print("Se murio")
+	$pivote/attackPlayer.body_entered.disconnect(_on_attack_player_body_entered)
 	if not isAlive:
 		return
 	pivote.scale.y = -1
 	velocity.x = 0
 	velocity.y = velMuerte
 	isAlive = false
+	playback.call_deferred("travel", "death")
 	#animation_player.play("death")
-	animation_player.stop()
+	#animation_player.stop()
 	
 	
 	
@@ -46,8 +51,9 @@ func take_damage(damage):
 	if not isAlive:
 		return
 	health-=damage
-	animation_player.play("hurt")
-	animation_player.play("walk")
+	playback.travel("hurt")
+	#animation_player.play("hurt")
+	#animation_player.play("walk")
 	prints("vida pescao:",health)
 	if health <= 0:
 		health=0
@@ -74,7 +80,6 @@ func chillBehavior(delta):
 	
 func _physics_process(delta):
 	globalDelta = delta
-	print(global_position)
 	if atrapado: 
 		return 
 	if isAlive:
@@ -99,3 +104,9 @@ func _on_follow_area_body_exited(body):
 	
 func getDelta():
 	return globalDelta
+
+func getPlayBack():
+	return playback
+
+func _on_attack_player_body_entered(body):
+	pass

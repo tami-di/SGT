@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://xvtuu3b3r3ah"]
+[gd_scene load_steps=28 format=3 uid="uid://xvtuu3b3r3ah"]
 
 [ext_resource type="Script" path="res://Enemies/anguila.gd" id="1_irliw"]
 [ext_resource type="Texture2D" uid="uid://re5cf1ewfep5" path="res://art/art_enemy/anguila/Walk.png" id="2_bq04f"]
@@ -340,20 +340,14 @@ _data = {
 "walk": SubResource("Animation_x7b0o")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_besyg"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_daybb"]
 animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n0s2m"]
 animation = &"death"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqfyd"]
-animation = &"hurt"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gq3l2"]
 animation = &"hurt"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jdxoh"]
-animation = &"idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xlune"]
 animation = &"walk"
@@ -362,36 +356,30 @@ animation = &"walk"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gohbl"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tovqn"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p5fki"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tku0u"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pn32j"]
 switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hrwrs"]
+states/End/position = Vector2(642.667, 118.667)
 states/Start/position = Vector2(121.333, 98.6157)
-states/attack/node = SubResource("AnimationNodeAnimation_besyg")
-states/attack/position = Vector2(437.482, 99.1376)
+states/attack/node = SubResource("AnimationNodeAnimation_daybb")
+states/attack/position = Vector2(401, 156.996)
 states/death/node = SubResource("AnimationNodeAnimation_n0s2m")
-states/death/position = Vector2(776, 100.222)
+states/death/position = Vector2(518.667, 118.889)
 states/hurt/node = SubResource("AnimationNodeAnimation_gq3l2")
-states/hurt/position = Vector2(280, 218)
-"states/hurt 2/node" = SubResource("AnimationNodeAnimation_tqfyd")
-"states/hurt 2/position" = Vector2(589.889, 217.815)
-states/idle/node = SubResource("AnimationNodeAnimation_jdxoh")
-states/idle/position = Vector2(590.667, 96.1125)
+states/hurt/position = Vector2(279.111, 195.333)
 states/walk/node = SubResource("AnimationNodeAnimation_xlune")
-states/walk/position = Vector2(280, 97.358)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d1u3p"), "death", "End", SubResource("AnimationNodeStateMachineTransition_gohbl"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_tovqn"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_p5fki"), "hurt 2", "idle", SubResource("AnimationNodeStateMachineTransition_tku0u")]
-graph_offset = Vector2(1, 58.9961)
+states/walk/position = Vector2(279.259, 97.7016)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d1u3p"), "death", "End", SubResource("AnimationNodeStateMachineTransition_gohbl"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_tovqn"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_pn32j")]
+graph_offset = Vector2(1, 21.1394)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
@@ -439,6 +427,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_hrwrs")
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]
@@ -449,4 +438,3 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_cuadw")
 
 [connection signal="body_entered" from="pivote/attackPlayer" to="." method="_on_attack_player_body_entered"]
-[connection signal="body_exited" from="pivote/attackPlayer" to="." method="_on_attack_player_body_exited"]
