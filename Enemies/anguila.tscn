@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://budfkrm0kt3xf" path="res://art/art_enemy/anguila/Idle.png" id="6_hem70"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l7j2"]
-radius = 89.0898
+radius = 14.0357
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jifty"]
 size = Vector2(38, 14)
@@ -412,7 +412,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivote/visionArea"]
-position = Vector2(99, 0)
+position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_1l7j2")
 
 [node name="attackPlayer" type="Area2D" parent="pivote"]
