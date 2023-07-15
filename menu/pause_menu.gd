@@ -26,7 +26,7 @@ func _on_resume_pressed():
 func _on_retry_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
-
+	
 func _on_settings_pressed():
 	pass
 	

@@ -27,6 +27,7 @@ scale = Vector2(1.04032, 1.26838)
 texture = ExtResource("4_s46om")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

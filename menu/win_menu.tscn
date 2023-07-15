@@ -1,0 +1,192 @@
+[gd_scene load_steps=22 format=3 uid="uid://bg6gh73dnvnhx"]
+
+[ext_resource type="Theme" uid="uid://cq6bnj2euox0a" path="res://resources/themepause.tres" id="1_e5q3f"]
+[ext_resource type="Theme" uid="uid://bcm8gj1g3hwnm" path="res://resources/theme.tres" id="1_tog2p"]
+[ext_resource type="Script" path="res://menu/win_menu.gd" id="2_7s81n"]
+[ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="3_dbp5l"]
+[ext_resource type="Texture2D" uid="uid://dva6rhqx1xnxc" path="res://blobfish-pack/32bit-fish-blob-Sheet.png" id="4_htlm1"]
+[ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="4_nrg2p"]
+[ext_resource type="Texture2D" uid="uid://b55i4jg5f0l5b" path="res://art/art_enemy/medusa/Idle.png" id="5_rqtox"]
+[ext_resource type="Texture2D" uid="uid://v3t6hou3mq44" path="res://art/art_enemy/tortuga/Idle.png" id="6_qji61"]
+[ext_resource type="Texture2D" uid="uid://budfkrm0kt3xf" path="res://art/art_enemy/anguila/Idle.png" id="7_2hrk3"]
+[ext_resource type="Texture2D" uid="uid://buwk2eg36v2kr" path="res://art/art_enemy/pez_linterna/Idle.png" id="8_atvmr"]
+[ext_resource type="Texture2D" uid="uid://2v4chkd2mebm" path="res://art/art_enemy/tiburon/Idle.png" id="9_37s84"]
+[ext_resource type="Texture2D" uid="uid://7owlxtjhdvhc" path="res://art/art_enemy/pulpo/Idle.png" id="10_iomut"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gwgkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0bx4"]
+atlas = ExtResource("4_htlm1")
+region = Rect2(33, 9, 28, 11)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfmtt"]
+font_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4h3u"]
+atlas = ExtResource("5_rqtox")
+region = Rect2(66, 13, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqt2h"]
+atlas = ExtResource("6_qji61")
+region = Rect2(104, 17, 31, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d4no"]
+atlas = ExtResource("7_2hrk3")
+region = Rect2(51, 20, 36, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8wed"]
+atlas = ExtResource("8_atvmr")
+region = Rect2(3, 16, 30, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5ch6"]
+atlas = ExtResource("9_37s84")
+region = Rect2(1, 13, 44, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tard"]
+atlas = ExtResource("10_iomut")
+region = Rect2(3, 9, 35, 32)
+
+[node name="win_menu" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_e5q3f")
+script = ExtResource("2_7s81n")
+
+[node name="Background2" type="Sprite2D" parent="."]
+process_mode = 3
+position = Vector2(42, 152)
+scale = Vector2(1.34611, 1.37168)
+texture = ExtResource("3_dbp5l")
+metadata/_edit_group_ = true
+
+[node name="Background1" type="Sprite2D" parent="Background2"]
+texture = ExtResource("4_nrg2p")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_tog2p")
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "FInal score"
+label_settings = SubResource("LabelSettings_gwgkw")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_n0bx4")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_c4h3u")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_eqt2h")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4d4no")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j8wed")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_c5ch6")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4tard")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="total" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="playAgain" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Play again"
+
+[node name="mainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "main menu"

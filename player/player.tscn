@@ -914,7 +914,6 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("12_6nghg")]
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
-visible = false
 
 [connection signal="body_entered" from="flipHV/attack1Area" to="." method="_on_attack_1_area_body_entered"]
 [connection signal="body_entered" from="flipHV/attack2Area" to="." method="_on_attack_2_area_body_entered"]
