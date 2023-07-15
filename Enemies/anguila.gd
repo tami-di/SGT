@@ -10,4 +10,4 @@ func _on_attack_player_body_entered(body):
 
 func contar():
 	print("EL PESCADO FUE RECOGIDO")
-	Contador.contador_pescado +=1
+	Contador.contador_anguila +=1

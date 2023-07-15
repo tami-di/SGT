@@ -11,4 +11,4 @@ func _on_attack_player_body_entered(body):
 	print("terminó animacion ataque")
 
 func contar():
-	Contador.contador_tortuga+=1
+	Contador.contador_medusa+=1
