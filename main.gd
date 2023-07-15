@@ -7,6 +7,8 @@ extends Node2D
 @onready var markerAgua = $markerAgua
 @onready var enemigos = $enemigos
 @onready var win_state = $winState
+@onready var win_menu = $CanvasLayer/win_menu
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,4 +32,6 @@ func _input(event):
 
 
 func _on_win_state_body_entered(body):
-	pass # Replace with function body.
+	get_tree().paused = true
+	win_menu.visible = true
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=29 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://xvtuu3b3r3ah" path="res://Enemies/anguila.tscn" id="20_u0ku6"]
 [ext_resource type="PackedScene" uid="uid://dipfslqc1jtoa" path="res://Enemies/pulpo.tscn" id="21_66lpd"]
 [ext_resource type="PackedScene" uid="uid://diuxf38ewrl2x" path="res://Enemies/pez_linterna.tscn" id="22_5fdrq"]
+[ext_resource type="PackedScene" uid="uid://bg6gh73dnvnhx" path="res://menu/win_menu.tscn" id="23_j0ou1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -326,10 +327,17 @@ position = Vector2(365, 251)
 position = Vector2(169, 297)
 
 [node name="winState" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winState"]
 position = Vector2(-105, 64)
 shape = SubResource("RectangleShape2D_sru6f")
 disabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="win_menu" parent="CanvasLayer" instance=ExtResource("23_j0ou1")]
+offset_left = 176.0
+offset_right = -173.0
 
 [connection signal="body_entered" from="winState" to="." method="_on_win_state_body_entered"]
