@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=22 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5o78c80wpku" path="res://contadores/contador_pez_linterna.tscn" id="14_mkily"]
 [ext_resource type="PackedScene" uid="uid://dqrelvmcxhdnv" path="res://contadores/contador_pulpo.tscn" id="15_thlid"]
 [ext_resource type="PackedScene" uid="uid://wd7ueqyegd0v" path="res://contadores/contador_tiburon.tscn" id="16_m8fbj"]
+[ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="17_4kuue"]
 [ext_resource type="PackedScene" uid="uid://4f0gvd4qbpua" path="res://contadores/contador_tortuga.tscn" id="17_gjo8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
@@ -312,3 +313,21 @@ position = Vector2(1404, 305)
 
 [node name="tortuga6" parent="enemigos" instance=ExtResource("13_mkk4k")]
 position = Vector2(105, 520)
+
+[node name="Pez_01" parent="enemigos" instance=ExtResource("17_4kuue")]
+position = Vector2(317, 370)
+
+[node name="Pez_02" parent="enemigos" instance=ExtResource("17_4kuue")]
+position = Vector2(498, 184)
+
+[node name="Pez_03" parent="enemigos" instance=ExtResource("17_4kuue")]
+position = Vector2(838, 327)
+
+[node name="Pez_04" parent="enemigos" instance=ExtResource("17_4kuue")]
+position = Vector2(122, 451)
+
+[node name="Pez_05" parent="enemigos" instance=ExtResource("17_4kuue")]
+position = Vector2(1332, 461)
+
+[node name="Pez_06" parent="enemigos" instance=ExtResource("17_4kuue")]
+position = Vector2(1121, 164)
