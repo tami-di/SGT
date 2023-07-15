@@ -60,6 +60,8 @@ const MAX_HEALTH= 100
 
 var inMovement := false
 
+var collisionFish0 := Vector2.ZERO
+
 func _ready():
 	SPEED = SPEED_AIRE
 	JUMP_VELOCITY = JUMP_VELOCITY_AIRE
@@ -105,7 +107,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if not isAlive:
 		return
-	if Input.is_action_just_pressed("jump") and (not is_on_floor() and isSumergido) and not fishing:
+	if Input.is_action_just_pressed("jump") and ((not is_on_floor() or (is_on_floor() and isSumergido)) and isSumergido) and not fishing:
 		velocity.y = JUMP_VELOCITY
 	
 	var move_input = Input.get_axis("move_left","move_right") if not inBoat else 0
@@ -119,17 +121,22 @@ func _physics_process(delta):
 		if inMovement:
 			playback.travel("remar")
 		elif not fishing:
+			collision_fish.set_deferred("disabled",true)
 			playback.travel("idle_remar")
-		else: 
+		else:
 			var rod_input = Input.get_axis("move_up","move_down")
+			if rod_input:
+				collision_fish.set_deferred("disabled",false)
 			area_2d_fish.position.y = clamp(HOOK_VELOCITY*delta*rod_input + area_2d_fish.position.y,0,ROD_LENGTH)
 			camera.position.y = clamp(HOOK_VELOCITY*delta*rod_input + area_2d_fish.position.y,0,ROD_LENGTH)
-			if area_2d_fish.position.y == 0: 
+			if area_2d_fish.position.y == 0:
+				rod_input = null
 				fishing= false 
 				area_2d_fish.monitoring = false
 				area_2d_fish.monitorable = false
 				playback.travel("idle_remar")
-	else: 
+	else:
+		collision_fish.set_deferred("disabled",true)
 		if abs(velocity.x) !=0 and move_input:
 			playback.travel("run")
 			inMovement = true
@@ -148,6 +155,8 @@ func _attack_2():
 	playback.call_deferred("travel", "attack_2")
 
 func _fish():
+	
+	collision_fish.set_deferred("disabled",false)
 	fishing = true
 	area_2d_fish.position.y +=1
 	playback.travel("fish")
@@ -192,11 +201,14 @@ func set_camera_limits(supizq: Vector2, infder: Vector2):
 func _fishing_end(body):
 	fishCaught=false
 	body.atrapado=false
-
+	fishing = false
+	collision_fish.set_deferred("disabled",true)
+	collision_fish.position = collisionFish0
 #primero: bloquear al pez, mover la camara arriba
 #jugador salto, altura del pez
 # soltar pez y devolver control al jugador 
 func _on_area_2d_fish_body_entered(body):
+	collision_fish.set_deferred("disabled",true)
 	body.is_atrapado(area_2d_fish.position)
 	fishing= false
 	fishCaught= true
@@ -207,10 +219,10 @@ func _on_area_2d_fish_body_entered(body):
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera,"position",Vector2.ZERO,1)
 	#animacion ide
-	
 	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self,"position",Vector2(position.x,body.position.y),2)
 	tween.tween_callback(_fishing_end.bind(body)).set_delay(0.5)
+	area_2d_fish.position.y = 0
 	
 
 func _on_attack_1_area_body_entered(body):
