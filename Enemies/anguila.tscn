@@ -1,18 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://xvtuu3b3r3ah"]
+[gd_scene load_steps=28 format=3 uid="uid://xvtuu3b3r3ah"]
 
+[ext_resource type="Script" path="res://Enemies/anguila.gd" id="1_irliw"]
 [ext_resource type="Texture2D" uid="uid://re5cf1ewfep5" path="res://art/art_enemy/anguila/Walk.png" id="2_bq04f"]
 [ext_resource type="Texture2D" uid="uid://76563o61toqk" path="res://art/art_enemy/anguila/Attack.png" id="3_wa371"]
 [ext_resource type="Texture2D" uid="uid://4tsi6t6h35hh" path="res://art/art_enemy/anguila/Death.png" id="4_l5g3y"]
 [ext_resource type="Texture2D" uid="uid://dajdc8dbphioo" path="res://art/art_enemy/anguila/Hurt.png" id="5_bw34j"]
+[ext_resource type="Texture2D" uid="uid://budfkrm0kt3xf" path="res://art/art_enemy/anguila/Idle.png" id="6_hem70"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l7j2"]
-radius = 89.0898
+radius = 14.0357
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jifty"]
 size = Vector2(38, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jw8k"]
-size = Vector2(33, 9.25)
+size = Vector2(38.5, 12.625)
 
 [sub_resource type="Animation" id="Animation_tctph"]
 length = 0.001
@@ -64,18 +66,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("pivote/attackPlayer/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_edxmw"]
 resource_name = "attack"
@@ -120,22 +110,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("pivote/attackPlayer/CollisionShape2D:disabled")
+tracks/3/path = NodePath("pivote/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("pivote/Sprite2D:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -246,6 +224,59 @@ tracks/3/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_54afc"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivote/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_hem70")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivote/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivote/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivote/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_x7b0o"]
 resource_name = "walk"
 length = 0.6
@@ -305,20 +336,50 @@ _data = {
 "attack": SubResource("Animation_edxmw"),
 "death": SubResource("Animation_bptc0"),
 "hurt": SubResource("Animation_fmsm7"),
+"idle": SubResource("Animation_54afc"),
 "walk": SubResource("Animation_x7b0o")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x7p3w"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_daybb"]
+animation = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11yco"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n0s2m"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gq3l2"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xlune"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d1u3p"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t1xn8"]
-states/Start/position = Vector2(184, 100.889)
-states/idle/node = SubResource("AnimationNodeAnimation_x7p3w")
-states/idle/position = Vector2(322.667, 102)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_11yco")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gohbl"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tovqn"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pn32j"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hrwrs"]
+states/End/position = Vector2(642.667, 118.667)
+states/Start/position = Vector2(121.333, 98.6157)
+states/attack/node = SubResource("AnimationNodeAnimation_daybb")
+states/attack/position = Vector2(401, 156.996)
+states/death/node = SubResource("AnimationNodeAnimation_n0s2m")
+states/death/position = Vector2(518.667, 118.889)
+states/hurt/node = SubResource("AnimationNodeAnimation_gq3l2")
+states/hurt/position = Vector2(279.111, 195.333)
+states/walk/node = SubResource("AnimationNodeAnimation_xlune")
+states/walk/position = Vector2(279.259, 97.7016)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d1u3p"), "death", "End", SubResource("AnimationNodeStateMachineTransition_gohbl"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_tovqn"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_pn32j")]
+graph_offset = Vector2(1, 21.1394)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
@@ -328,6 +389,9 @@ radius = 246.073
 [node name="anguila" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
+script = ExtResource("1_irliw")
+SPEED = 10.0
+SPEED_ANGRY = 200.0
 
 [node name="pivote" type="Node2D" parent="."]
 
@@ -336,7 +400,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivote/visionArea"]
-position = Vector2(99, 0)
+position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_1l7j2")
 
 [node name="attackPlayer" type="Area2D" parent="pivote"]
@@ -352,7 +416,7 @@ texture = ExtResource("2_bq04f")
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 2)
+position = Vector2(-2.75, 1.6875)
 shape = SubResource("RectangleShape2D_3jw8k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -361,8 +425,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_t1xn8")
+tree_root = SubResource("AnimationNodeStateMachine_hrwrs")
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]
@@ -371,3 +436,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="followArea"]
 shape = SubResource("CircleShape2D_cuadw")
+
+[connection signal="body_entered" from="pivote/attackPlayer" to="." method="_on_attack_player_body_entered"]
