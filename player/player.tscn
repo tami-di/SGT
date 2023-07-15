@@ -894,7 +894,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionFish" type="CollisionShape2D" parent="flipHV/flipfish/Area2DFish"]
 shape = SubResource("CircleShape2D_txyrx")
-disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

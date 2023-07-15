@@ -14,7 +14,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Inicializar ambas cámaras como visibles
-	Contador.restart()
 	camerazoom.enabled = true
 	player.alturaNivelAgua = markerAgua.position.y
 	player.set_camera_limits(supizq.position,infder.position)
