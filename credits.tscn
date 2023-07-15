@@ -1,0 +1,132 @@
+[gd_scene load_steps=13 format=3 uid="uid://b017mumnamvw3"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_fyji6"]
+[ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="1_gh8d4"]
+[ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="2_78xll"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="3_12d3m"]
+[ext_resource type="FontFile" uid="uid://01crv8llbfxj" path="res://LieraSans-LightItalic.ttf" id="4_w3ogy"]
+[ext_resource type="FontFile" uid="uid://cituy6rvr102v" path="res://LieraSans-Regular.ttf" id="5_wvbwg"]
+[ext_resource type="FontFile" uid="uid://bx4v6cge4qlqd" path="res://LieraSans-Bold.ttf" id="7_me7g5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ar0ow"]
+line_spacing = 2.0
+font = ExtResource("4_w3ogy")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_us0f5"]
+line_spacing = 2.0
+font = ExtResource("5_wvbwg")
+font_size = 8
+font_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c47tp"]
+font = ExtResource("3_12d3m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_s08i2"]
+font = ExtResource("7_me7g5")
+font_size = 12
+
+[sub_resource type="Theme" id="Theme_xr2g6"]
+default_font_size = 8
+Button/fonts/font = ExtResource("5_wvbwg")
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyji6")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(256.25, 143)
+scale = Vector2(1.03528, 1.05147)
+texture = ExtResource("1_gh8d4")
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(257.5, 145)
+scale = Vector2(1.03427, 1.05882)
+texture = ExtResource("2_78xll")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Panel"]
+offset_left = 7.0
+offset_top = 53.0
+offset_right = 257.0
+offset_bottom = 254.0
+text = "fisherman, boat, house, enemies
+
+enemy fish
+
+background rocks 
+
+background sky 
+
+floor 
+
+underwater background
+"
+label_settings = SubResource("LabelSettings_ar0ow")
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 43.0
+offset_right = 256.0
+offset_bottom = 244.0
+text = "CraftPix.net 2D Game Assets (opengameart.org)
+
+rapidpunches (opengameart.org)
+
+FunwithPixels (opengameart.org) 
+
+Anokolisa (itch.io)
+
+brunorobert (itch.io)
+
+ansimuz (itch.io) 
+"
+label_settings = SubResource("LabelSettings_us0f5")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 225.0
+offset_top = 6.0
+offset_right = 287.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "Credits"
+label_settings = SubResource("LabelSettings_c47tp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 21.0
+offset_right = 54.0
+offset_bottom = 44.0
+text = "Sprites"
+label_settings = SubResource("LabelSettings_s08i2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="back" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = SubResource("Theme_xr2g6")
+text = "back"

@@ -58,6 +58,14 @@ size_flags_vertical = 3
 theme = ExtResource("2_qjc71")
 text = "Settings"
 
+[node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_qjc71")
+text = "Credits
+"
+
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
