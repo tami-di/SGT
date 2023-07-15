@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=27 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -17,6 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://wd7ueqyegd0v" path="res://contadores/contador_tiburon.tscn" id="16_m8fbj"]
 [ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="17_4kuue"]
 [ext_resource type="PackedScene" uid="uid://4f0gvd4qbpua" path="res://contadores/contador_tortuga.tscn" id="17_gjo8f"]
+[ext_resource type="PackedScene" uid="uid://cftw85llv5de3" path="res://Enemies/medusa.tscn" id="18_pj2nb"]
+[ext_resource type="PackedScene" uid="uid://dqst3m447oshu" path="res://Enemies/tiburon.tscn" id="19_6mcub"]
+[ext_resource type="PackedScene" uid="uid://xvtuu3b3r3ah" path="res://Enemies/anguila.tscn" id="20_u0ku6"]
+[ext_resource type="PackedScene" uid="uid://dipfslqc1jtoa" path="res://Enemies/pulpo.tscn" id="21_66lpd"]
+[ext_resource type="PackedScene" uid="uid://diuxf38ewrl2x" path="res://Enemies/pez_linterna.tscn" id="22_5fdrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -297,37 +302,22 @@ shape = SubResource("WorldBoundaryShape2D_0q6jp")
 [node name="enemigos" type="Node" parent="."]
 
 [node name="tortuga" parent="enemigos" instance=ExtResource("13_mkk4k")]
-position = Vector2(100, 208)
-
-[node name="tortuga2" parent="enemigos" instance=ExtResource("13_mkk4k")]
-position = Vector2(576, 476)
-
-[node name="tortuga3" parent="enemigos" instance=ExtResource("13_mkk4k")]
-position = Vector2(1052, 475)
-
-[node name="tortuga4" parent="enemigos" instance=ExtResource("13_mkk4k")]
-position = Vector2(1037, 288)
-
-[node name="tortuga5" parent="enemigos" instance=ExtResource("13_mkk4k")]
-position = Vector2(1404, 305)
-
-[node name="tortuga6" parent="enemigos" instance=ExtResource("13_mkk4k")]
-position = Vector2(105, 520)
+position = Vector2(122, 161)
 
 [node name="Pez_01" parent="enemigos" instance=ExtResource("17_4kuue")]
-position = Vector2(317, 370)
+position = Vector2(133, 262)
 
-[node name="Pez_02" parent="enemigos" instance=ExtResource("17_4kuue")]
-position = Vector2(498, 184)
+[node name="medusa" parent="enemigos" instance=ExtResource("18_pj2nb")]
+position = Vector2(251, 179)
 
-[node name="Pez_03" parent="enemigos" instance=ExtResource("17_4kuue")]
-position = Vector2(838, 327)
+[node name="tiburon" parent="enemigos" instance=ExtResource("19_6mcub")]
+position = Vector2(256, 286)
 
-[node name="Pez_04" parent="enemigos" instance=ExtResource("17_4kuue")]
-position = Vector2(122, 451)
+[node name="anguila" parent="enemigos" instance=ExtResource("20_u0ku6")]
+position = Vector2(344, 178)
 
-[node name="Pez_05" parent="enemigos" instance=ExtResource("17_4kuue")]
-position = Vector2(1332, 461)
+[node name="pulpo" parent="enemigos" instance=ExtResource("21_66lpd")]
+position = Vector2(365, 251)
 
-[node name="Pez_06" parent="enemigos" instance=ExtResource("17_4kuue")]
-position = Vector2(1121, 164)
+[node name="pez_linterna" parent="enemigos" instance=ExtResource("22_5fdrq")]
+position = Vector2(175, 297)

@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqst3m447oshu"]
+[gd_scene load_steps=26 format=3 uid="uid://dqst3m447oshu"]
 
 [ext_resource type="Script" path="res://Enemies/tiburon.gd" id="1_of1m0"]
 [ext_resource type="Texture2D" uid="uid://ck246bjlao05q" path="res://art/art_enemy/tiburon/Walk.png" id="2_r2jsa"]
 [ext_resource type="Texture2D" uid="uid://d3ajqvjbecbk7" path="res://art/art_enemy/tiburon/Attack.png" id="3_a1s1s"]
-[ext_resource type="Texture2D" uid="uid://hgh2t8o6nyo" path="res://art/art_enemy/tiburon/Death.png" id="4_ixpvk"]
+[ext_resource type="Texture2D" uid="uid://2v4chkd2mebm" path="res://art/art_enemy/tiburon/Idle.png" id="4_jtsrb"]
 [ext_resource type="Texture2D" uid="uid://fsvcm4yovddo" path="res://art/art_enemy/tiburon/Hurt.png" id="5_3e261"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l7j2"]
@@ -77,6 +77,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("pivote/Sprite2D:frame_coords")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_lyvxl"]
 resource_name = "attack"
@@ -144,7 +156,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_6papd"]
 resource_name = "death"
-length = 0.6
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -155,7 +167,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_ixpvk")]
+"values": [ExtResource("4_jtsrb")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -167,7 +179,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -184,14 +196,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("pivote/Sprite2D:frame")
+tracks/3/path = NodePath("pivote/Sprite2D:frame_coords")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_7l5th"]
@@ -307,17 +319,44 @@ _data = {
 "walk": SubResource("Animation_rl3be")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x7p3w"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5mvv2"]
+animation = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11yco"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrvra"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_prcok"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2347d"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fe750"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7wli3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wxrvv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4pth1"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t1xn8"]
 states/Start/position = Vector2(184, 100.889)
-states/idle/node = SubResource("AnimationNodeAnimation_x7p3w")
-states/idle/position = Vector2(322.667, 102)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_11yco")]
+states/attack/node = SubResource("AnimationNodeAnimation_5mvv2")
+states/attack/position = Vector2(429.333, 42)
+states/death/node = SubResource("AnimationNodeAnimation_yrvra")
+states/death/position = Vector2(721.333, 100.667)
+states/hurt/node = SubResource("AnimationNodeAnimation_prcok")
+states/hurt/position = Vector2(448, 158)
+states/walk/node = SubResource("AnimationNodeAnimation_2347d")
+states/walk/position = Vector2(300, 88.6667)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_fe750"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_7wli3"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_wxrvv"), "death", "End", SubResource("AnimationNodeStateMachineTransition_4pth1")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
@@ -328,6 +367,9 @@ radius = 246.073
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_of1m0")
+SPEED = 20.0
+SPEED_ANGRY = 30.0
+health = 1
 
 [node name="pivote" type="Node2D" parent="."]
 

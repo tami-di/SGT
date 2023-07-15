@@ -34,13 +34,15 @@ func flip():
 	velChill.x *= -1
 
 func death():
-	print("Se murio")
-	$pivote/attackPlayer.body_entered.disconnect(_on_attack_player_body_entered)
+	velocity.y = velMuerte
 	if not isAlive:
 		return
+	$pivote/attackPlayer.body_entered.disconnect(_on_attack_player_body_entered)
+	chillBehavior(getDelta())
+	collisionBody.set_deferred("disabled",false)
+	player = null
 	pivote.scale.y = -1
 	velocity.x = 0
-	velocity.y = velMuerte
 	isAlive = false
 	playback.call_deferred("travel", "death")
 
@@ -83,6 +85,8 @@ func _physics_process(delta):
 			angryBehavior(delta)
 		else:
 			chillBehavior(delta)
+	if not isAlive:
+		death()
 	if global_position.y <= limiteAltura.y:
 		velocity.y = clamp(velocity.y,0,SPEED_ANGRY)
 	move_and_slide()

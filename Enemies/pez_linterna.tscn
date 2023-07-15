@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://diuxf38ewrl2x"]
+[gd_scene load_steps=26 format=3 uid="uid://diuxf38ewrl2x"]
 
 [ext_resource type="Script" path="res://Enemies/pez_linterna.gd" id="1_j18ar"]
 [ext_resource type="Texture2D" uid="uid://n27rb5rir68y" path="res://art/art_enemy/pez_linterna/Walk.png" id="2_72b7x"]
@@ -144,7 +144,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_4b2po"]
 resource_name = "death"
-length = 0.6
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -188,10 +188,10 @@ tracks/3/path = NodePath("pivote/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_sg6h8"]
@@ -307,17 +307,44 @@ _data = {
 "walk": SubResource("Animation_6mxn8")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x7p3w"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u12ll"]
+animation = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11yco"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jh4a3"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1hgw"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_72df4"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wj5jh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bns2"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mpbi3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7olg4"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t1xn8"]
 states/Start/position = Vector2(184, 100.889)
-states/idle/node = SubResource("AnimationNodeAnimation_x7p3w")
-states/idle/position = Vector2(322.667, 102)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_11yco")]
+states/attack/node = SubResource("AnimationNodeAnimation_u12ll")
+states/attack/position = Vector2(378.667, 160.667)
+states/death/node = SubResource("AnimationNodeAnimation_jh4a3")
+states/death/position = Vector2(761.333, 101.111)
+states/hurt/node = SubResource("AnimationNodeAnimation_b1hgw")
+states/hurt/position = Vector2(450.667, 47.3333)
+states/walk/node = SubResource("AnimationNodeAnimation_72df4")
+states/walk/position = Vector2(314.667, 94)
+transitions = ["hurt", "walk", SubResource("AnimationNodeStateMachineTransition_wj5jh"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_3bns2"), "Start", "walk", SubResource("AnimationNodeStateMachineTransition_mpbi3"), "death", "End", SubResource("AnimationNodeStateMachineTransition_7olg4")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
@@ -328,7 +355,9 @@ radius = 246.073
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_j18ar")
-SPEED = 300.0
+SPEED = 20.0
+SPEED_ANGRY = 30.0
+health = 1
 
 [node name="pivote" type="Node2D" parent="."]
 

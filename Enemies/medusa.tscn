@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cftw85llv5de3"]
+[gd_scene load_steps=26 format=3 uid="uid://cftw85llv5de3"]
 
 [ext_resource type="Script" path="res://Enemies/medusa.gd" id="1_a42ad"]
 [ext_resource type="Texture2D" uid="uid://jaw6ywue8tyd" path="res://art/art_enemy/medusa/Walk.png" id="2_2m737"]
@@ -168,7 +168,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_nbrp0"]
 resource_name = "death"
-length = 0.6
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -212,22 +212,10 @@ tracks/3/path = NodePath("pivote/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_8n60h"]
@@ -297,6 +285,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_3ymbc"]
 resource_name = "walk"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -367,17 +356,45 @@ _data = {
 "walk": SubResource("Animation_3ymbc")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x7p3w"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iao63"]
+animation = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11yco"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4segr"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oelcu"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8y8rt"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_casir"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4f35x"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bufex"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t6nf7"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t1xn8"]
 states/Start/position = Vector2(184, 100.889)
-states/idle/node = SubResource("AnimationNodeAnimation_x7p3w")
-states/idle/position = Vector2(322.667, 102)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_11yco")]
+states/attack/node = SubResource("AnimationNodeAnimation_iao63")
+states/attack/position = Vector2(325.333, 198)
+states/death/node = SubResource("AnimationNodeAnimation_4segr")
+states/death/position = Vector2(772, 97.852)
+states/hurt/node = SubResource("AnimationNodeAnimation_oelcu")
+states/hurt/position = Vector2(484, 99.136)
+states/walk/node = SubResource("AnimationNodeAnimation_8y8rt")
+states/walk/position = Vector2(325.333, 99.136)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_casir"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_4f35x"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_bufex"), "death", "End", SubResource("AnimationNodeStateMachineTransition_t6nf7")]
+graph_offset = Vector2(0, 57.9333)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cao57"]
 
@@ -388,7 +405,9 @@ radius = 246.073
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_a42ad")
-SPEED = 300.0
+SPEED = 20.0
+SPEED_ANGRY = 30.0
+health = 1
 
 [node name="pivote" type="Node2D" parent="."]
 
@@ -434,4 +453,3 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_cuadw")
 
 [connection signal="body_entered" from="pivote/attackPlayer" to="." method="_on_attack_player_body_entered"]
-[connection signal="body_exited" from="pivote/attackPlayer" to="." method="_on_attack_player_body_exited"]
