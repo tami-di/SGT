@@ -30,7 +30,6 @@ func _input(event):
 	if event.is_action_pressed("camara"):
 		camerazoom.enabled = !camerazoom.enabled
 
-
 func _on_win_state_body_entered(body):
 	get_tree().paused = true
 	win_menu.visible = true

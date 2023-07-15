@@ -337,7 +337,9 @@ disabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="win_menu" parent="CanvasLayer" instance=ExtResource("23_j0ou1")]
-offset_left = 176.0
-offset_right = -173.0
+offset_left = 180.0
+offset_top = -10.0
+offset_right = -169.0
+offset_bottom = 11.0
 
 [connection signal="body_entered" from="winState" to="." method="_on_win_state_body_entered"]

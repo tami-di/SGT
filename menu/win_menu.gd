@@ -42,6 +42,7 @@ func _on_playAgain_pressed():
 	
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu/main_menu.tscn")
+	get_tree().paused = false
 	
 func getTotal():
 	var x1 = Contador.contador_pescado * pescadoValue

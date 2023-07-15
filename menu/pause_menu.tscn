@@ -19,6 +19,7 @@ theme = ExtResource("1_30l4v")
 script = ExtResource("1_74jqp")
 
 [node name="Background2" type="Sprite2D" parent="."]
+process_mode = 3
 position = Vector2(263, 149)
 scale = Vector2(1.06049, 1.06985)
 texture = ExtResource("4_4o042")
