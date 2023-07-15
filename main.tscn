@@ -335,6 +335,7 @@ shape = SubResource("RectangleShape2D_sru6f")
 disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="win_menu" parent="CanvasLayer" instance=ExtResource("23_j0ou1")]
 offset_left = 180.0

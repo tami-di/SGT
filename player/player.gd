@@ -105,7 +105,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if not isAlive:
 		return
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or isSumergido) and not fishing:
+	if Input.is_action_just_pressed("jump") and (!is_on_floor() and isSumergido) and not fishing:
 		velocity.y = JUMP_VELOCITY
 	
 	var move_input = Input.get_axis("move_left","move_right") if not inBoat else 0
