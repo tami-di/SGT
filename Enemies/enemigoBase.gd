@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var SPEED = 110.0
 @export var SPEED_ANGRY = 150.0
 @export var velMuerte = -10
-
+@onready var collisionBody = $CollisionShape2D
 @onready var pivote = $pivote
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $pivote/Sprite2D
@@ -45,9 +45,6 @@ func take_damage(damage):
 	prints("vida pescao:",health)
 	if health <= 0:
 		health=0
-		
-		Contador.contador += 1
-		print(Contador.contador)
 		death()
 
 func angryBehavior(delta):
@@ -94,3 +91,6 @@ func _on_vision_area_body_entered(body):
 
 func _on_follow_area_body_exited(body):
 	player = null
+
+func delete():
+	queue_free()

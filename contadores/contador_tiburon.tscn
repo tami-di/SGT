@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://wd7ueqyegd0v"]
+
+[ext_resource type="Texture2D" uid="uid://2v4chkd2mebm" path="res://art/art_enemy/tiburon/Idle.png" id="1_7ann8"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_622ah"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs2gh"]
+bg_color = Color(0.247059, 0.439216, 0.764706, 0.776471)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_83jlb"]
+default_font_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("2_622ah")
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("2_622ah")
+MarginContainer/constants/margin_bottom = 35
+MarginContainer/constants/margin_left = 35
+MarginContainer/constants/margin_right = 35
+MarginContainer/constants/margin_top = 35
+
+[node name="contadorTiburon" type="CanvasLayer"]
+
+[node name="Panel2" type="Panel" parent="."]
+offset_right = 84.0
+offset_bottom = 27.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gs2gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54, 13)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_7ann8")
+hframes = 4
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 32.0
+offset_bottom = 25.0
+theme = SubResource("Theme_83jlb")
+text = "0"

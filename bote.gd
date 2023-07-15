@@ -8,7 +8,6 @@ var playerInBoat:= false
 @onready var markerBoat = $Marker2D
 var player: CharacterBody2D
 @onready var boat = $Boat
-
 func _physics_process(delta):
 	if not playerInBoat or player.fishing:
 		return
@@ -37,3 +36,15 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	playerInBoat = false
 	body.inBoat = false
+	
+func _on_area_fishing_body_entered(body):
+	print("pasa por aqui")
+	print(playerInBoat,body.isAlive)
+	if body.isAlive and playerInBoat:
+		return
+	elif not body.isAlive and not playerInBoat:
+		return
+	else:
+		body.delete()
+		Contador.contador += 1
+		print(Contador.contador)

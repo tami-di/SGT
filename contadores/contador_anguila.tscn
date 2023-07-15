@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dry5lgeiboron"]
+
+[ext_resource type="Texture2D" uid="uid://budfkrm0kt3xf" path="res://art/art_enemy/anguila/Idle.png" id="1_ahbyc"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_50ddy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs2gh"]
+bg_color = Color(0.247059, 0.439216, 0.764706, 0.776471)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_83jlb"]
+default_font_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("2_50ddy")
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("2_50ddy")
+MarginContainer/constants/margin_bottom = 35
+MarginContainer/constants/margin_left = 35
+MarginContainer/constants/margin_right = 35
+MarginContainer/constants/margin_top = 35
+
+[node name="contadorAnguila" type="CanvasLayer"]
+
+[node name="Panel2" type="Panel" parent="."]
+offset_right = 70.0
+offset_bottom = 27.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gs2gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(42, 12)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_ahbyc")
+hframes = 4
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 25.0
+theme = SubResource("Theme_83jlb")
+text = "0"

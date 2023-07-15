@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxgi3csgysvah"]
+[gd_scene load_steps=6 format=3 uid="uid://bxgi3csgysvah"]
 
 [ext_resource type="Script" path="res://bote.gd" id="1_caebl"]
 [ext_resource type="Texture2D" uid="uid://bqnp1xvonx611" path="res://3 Objects/Boat.png" id="1_lylc5"]
@@ -8,6 +8,9 @@ size = Vector2(53, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx27l"]
 size = Vector2(46, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydnww"]
+size = Vector2(49, 12.5)
 
 [node name="Boat" type="StaticBody2D"]
 script = ExtResource("1_caebl")
@@ -35,5 +38,14 @@ shape = SubResource("RectangleShape2D_yx27l")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -15)
 
+[node name="areaFishing" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaFishing"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_ydnww")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="areaFishing" to="." method="_on_area_fishing_body_entered"]
