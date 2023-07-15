@@ -43,7 +43,7 @@ var gravity
 			death()
 		hud.set_health(health)
 	
-
+var boat= null
 var fishing := false
 
 var alturaNivelAgua: int
@@ -53,7 +53,7 @@ var isSumergido = false
 var inBoat := false
 
 var isAlive:= true
-
+var fishCaught:= false 
 const MAX_HEALTH= 100
 
 @onready var sprite_2d = $flipHV/Sprite2D
@@ -189,13 +189,29 @@ func set_camera_limits(supizq: Vector2, infder: Vector2):
 	camera.limit_right = infder.x
 	camera.limit_top = supizq.y
 	
+func _fishing_end(body):
+	fishCaught=false
+	body.atrapado=false
 
-
+#primero: bloquear al pez, mover la camara arriba
+#jugador salto, altura del pez
+# soltar pez y devolver control al jugador 
 func _on_area_2d_fish_body_entered(body):
 	body.is_atrapado(area_2d_fish.position)
 	fishing= false
+	fishCaught= true
+	boat.exit_boat(self)
+	body.player= self
 	print("ta pescando")
-	var tween = create_tween().tween_property(camera,"position",Vector2.ZERO,2)
+	playback.travel("idle")
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera,"position",Vector2.ZERO,1)
+	#animacion ide
+	
+	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self,"position",Vector2(position.x,body.position.y),2)
+	tween.tween_callback(_fishing_end.bind(body)).set_delay(0.5)
+	
 
 func _on_attack_1_area_body_entered(body):
 	body.take_damage(damageA1,self)

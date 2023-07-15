@@ -33,7 +33,11 @@ func _on_area_2d_body_entered(body):
 	playerInBoat = true
 	body.inBoat = true
 	player = body
-
+	body.boat = self
+	
 func _on_area_2d_body_exited(body):
+	exit_boat(body)
+	
+func exit_boat(body):
 	playerInBoat = false
 	body.inBoat = false
