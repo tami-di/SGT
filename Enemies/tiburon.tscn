@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqst3m447oshu"]
+[gd_scene load_steps=20 format=3 uid="uid://dqst3m447oshu"]
 
+[ext_resource type="Script" path="res://Enemies/tiburon.gd" id="1_of1m0"]
 [ext_resource type="Texture2D" uid="uid://ck246bjlao05q" path="res://art/art_enemy/tiburon/Walk.png" id="2_r2jsa"]
 [ext_resource type="Texture2D" uid="uid://d3ajqvjbecbk7" path="res://art/art_enemy/tiburon/Attack.png" id="3_a1s1s"]
 [ext_resource type="Texture2D" uid="uid://hgh2t8o6nyo" path="res://art/art_enemy/tiburon/Death.png" id="4_ixpvk"]
@@ -326,11 +327,11 @@ radius = 246.073
 [node name="tiburon" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
+script = ExtResource("1_of1m0")
 
 [node name="pivote" type="Node2D" parent="."]
 
 [node name="visionArea" type="Area2D" parent="pivote"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -372,3 +373,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="followArea"]
 shape = SubResource("CircleShape2D_cuadw")
+
+[connection signal="body_entered" from="pivote/attackPlayer" to="." method="_on_attack_player_body_entered"]

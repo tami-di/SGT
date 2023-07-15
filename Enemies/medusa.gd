@@ -10,5 +10,5 @@ func _on_attack_player_body_entered(body):
 	body.take_damage(damage)
 	print("terminó animacion ataque")
 
-func _on_attack_player_body_exited(body):
-	animation_player.play("walk")
+func contar():
+	Contador.contador_tortuga+=1

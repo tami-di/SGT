@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dipfslqc1jtoa"]
+[gd_scene load_steps=20 format=3 uid="uid://dipfslqc1jtoa"]
 
+[ext_resource type="Script" path="res://Enemies/pulpo.gd" id="1_hor31"]
 [ext_resource type="Texture2D" uid="uid://def8s3axhvkfy" path="res://art/art_enemy/pulpo/Walk.png" id="2_h03mg"]
 [ext_resource type="Texture2D" uid="uid://uvby8x54bwi7" path="res://art/art_enemy/pulpo/Attack.png" id="3_adc1q"]
 [ext_resource type="Texture2D" uid="uid://ca53g8eqe1e28" path="res://art/art_enemy/pulpo/Death.png" id="4_hbdk1"]
@@ -326,11 +327,11 @@ radius = 246.073
 [node name="pulpo" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
+script = ExtResource("1_hor31")
 
 [node name="pivote" type="Node2D" parent="."]
 
 [node name="visionArea" type="Area2D" parent="pivote"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -366,9 +367,10 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="followArea"]
 shape = SubResource("CircleShape2D_cuadw")
+
+[connection signal="body_entered" from="pivote/attackPlayer" to="." method="_on_attack_player_body_entered"]
