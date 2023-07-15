@@ -83,9 +83,9 @@ func _physics_process(delta):
 	if isAlive:
 		if player:
 			if player.inBoat:
-				angryBehavior(delta)
-			else:
 				chillBehavior(delta)
+			else:
+				angryBehavior(delta)
 		else:
 			chillBehavior(delta)
 	if not isAlive:
