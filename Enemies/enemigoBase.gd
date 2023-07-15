@@ -83,9 +83,9 @@ func _physics_process(delta):
 	if isAlive:
 		if player:
 			if player.inBoat:
-				angryBehavior(delta)
-			else:
 				chillBehavior(delta)
+			else:
+				angryBehavior(delta)
 		else:
 			chillBehavior(delta)
 	if not isAlive:
@@ -99,8 +99,6 @@ func is_atrapado(hook:Vector2):
 
 func _on_vision_area_body_entered(body):
 	if player:
-		return
-	if body.inBoat:
 		return
 	player = body
 	velAngry.x = 1

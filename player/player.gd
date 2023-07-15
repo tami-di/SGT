@@ -107,13 +107,14 @@ func _input(event):
 		attack_2.play()
 
 func _physics_process(delta):
+	collision_fish.set_deferred("disabled",true)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	# Handle Jump.
 	if not isAlive:
 		return
-	if Input.is_action_just_pressed("jump") and (not is_on_floor() and isSumergido) and not fishing:
+	if Input.is_action_just_pressed("jump") and (not is_on_floor() or isSumergido) and not fishing:
 		velocity.y = JUMP_VELOCITY
 	
 	var move_input = Input.get_axis("move_left","move_right") if not inBoat else 0
@@ -129,10 +130,12 @@ func _physics_process(delta):
 		elif not fishing:
 			playback.travel("idle_remar")
 		else: 
+			collision_fish.set_deferred("disabled",false)
 			var rod_input = Input.get_axis("move_up","move_down")
 			area_2d_fish.position.y = clamp(HOOK_VELOCITY*delta*rod_input + area_2d_fish.position.y,0,ROD_LENGTH)
 			camera.position.y = clamp(HOOK_VELOCITY*delta*rod_input + area_2d_fish.position.y,0,ROD_LENGTH)
-			if area_2d_fish.position.y == 0: 
+			if area_2d_fish.position.y == 0:
+				collision_fish.set_deferred("disabled",true)
 				fishing= false 
 				area_2d_fish.monitoring = false
 				area_2d_fish.monitorable = false
@@ -220,6 +223,7 @@ func _on_area_2d_fish_body_entered(body):
 	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self,"position",Vector2(position.x,body.position.y),2)
 	tween.tween_callback(_fishing_end.bind(body)).set_delay(0.5)
+	area_2d_fish.position.y = 0
 	
 
 func _on_attack_1_area_body_entered(body):
