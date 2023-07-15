@@ -414,6 +414,7 @@ shape = SubResource("RectangleShape2D_jifty")
 [node name="Sprite2D" type="Sprite2D" parent="pivote"]
 texture = ExtResource("2_bq04f")
 hframes = 6
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.75, 1.6875)
@@ -427,7 +428,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_hrwrs")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]

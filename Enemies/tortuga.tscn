@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://umvtf88bckab"]
+[gd_scene load_steps=26 format=3 uid="uid://umvtf88bckab"]
 
 [ext_resource type="Script" path="res://Enemies/tortuga.gd" id="1_fd7eh"]
 [ext_resource type="Texture2D" uid="uid://b8yco48p0suvy" path="res://art/art_enemy/tortuga/Walk.png" id="2_psnbw"]
-[ext_resource type="Texture2D" uid="uid://bx43558os636v" path="res://art/art_enemy/tortuga/Death.png" id="3_oujw0"]
+[ext_resource type="Texture2D" uid="uid://v3t6hou3mq44" path="res://art/art_enemy/tortuga/Idle.png" id="4_agurn"]
 [ext_resource type="Texture2D" uid="uid://clmkwa6r2r0y4" path="res://art/art_enemy/tortuga/Hurt.png" id="4_k251s"]
 [ext_resource type="Texture2D" uid="uid://s8e8wy7lji37" path="res://art/art_enemy/tortuga/Attack.png" id="5_35s6b"]
 
@@ -120,7 +120,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_aov5c"]
 resource_name = "death"
-length = 0.6
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -131,7 +131,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_oujw0")]
+"values": [ExtResource("4_agurn")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -143,7 +143,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -164,10 +164,10 @@ tracks/3/path = NodePath("pivote/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_ajoic"]
@@ -285,6 +285,47 @@ _data = {
 "walk": SubResource("Animation_x7b0o")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0icx5"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mrr1v"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x4i4x"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ybul"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lud1i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6l77t"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mmhq7"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_inbcj"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_by30h"]
+states/attack/node = SubResource("AnimationNodeAnimation_0icx5")
+states/attack/position = Vector2(466.667, 99.3333)
+states/death/node = SubResource("AnimationNodeAnimation_mrr1v")
+states/death/position = Vector2(765.333, 98.6497)
+states/hurt/node = SubResource("AnimationNodeAnimation_x4i4x")
+states/hurt/position = Vector2(321.778, 207.333)
+states/walk/node = SubResource("AnimationNodeAnimation_2ybul")
+states/walk/position = Vector2(321.333, 99.7778)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_lud1i"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_6l77t"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_mmhq7"), "death", "End", SubResource("AnimationNodeStateMachineTransition_inbcj")]
+graph_offset = Vector2(0, 43.3843)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ei5f6"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_cuadw"]
 radius = 246.073
 
@@ -325,6 +366,12 @@ shape = SubResource("RectangleShape2D_3jw8k")
 libraries = {
 "": SubResource("AnimationLibrary_csr17")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_by30h")
+anim_player = NodePath("../AnimationPlayer")
+advance_expression_base_node = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ei5f6")
 
 [node name="followArea" type="Area2D" parent="."]
 collision_layer = 0
