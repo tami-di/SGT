@@ -237,7 +237,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_rl3be"]
 resource_name = "walk"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -385,6 +384,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cao57")
 
 [node name="followArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 

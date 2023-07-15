@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=30 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dipfslqc1jtoa" path="res://Enemies/pulpo.tscn" id="21_66lpd"]
 [ext_resource type="PackedScene" uid="uid://diuxf38ewrl2x" path="res://Enemies/pez_linterna.tscn" id="22_5fdrq"]
 [ext_resource type="PackedScene" uid="uid://bg6gh73dnvnhx" path="res://menu/win_menu.tscn" id="23_j0ou1"]
+[ext_resource type="AudioStream" uid="uid://2yxeq6b7hnkw" path="res://MUSIC/chillmood-[AudioTrimmer.com].mp3" id="24_gp08r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -37,7 +38,7 @@ size = Vector2(70, 509.5)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0q6jp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sru6f"]
-size = Vector2(55.375, 68.25)
+size = Vector2(56.75, 48.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pw5bg")
@@ -245,22 +246,6 @@ position = Vector2(-2, 232)
 [node name="Muro2" parent="muros" instance=ExtResource("11_htl18")]
 position = Vector2(3048, 234)
 
-[node name="contadores" type="Node" parent="."]
-
-[node name="contadorMedusa" parent="contadores" instance=ExtResource("12_fql41")]
-
-[node name="contadorTiburon" parent="contadores" instance=ExtResource("16_m8fbj")]
-
-[node name="contadorAnguila" parent="contadores" instance=ExtResource("11_g81rr")]
-
-[node name="contadorPezLinterna" parent="contadores" instance=ExtResource("14_mkily")]
-
-[node name="contadorPulpo" parent="contadores" instance=ExtResource("15_thlid")]
-
-[node name="contadorTortuga" parent="contadores" instance=ExtResource("17_gjo8f")]
-
-[node name="contadorPescado" parent="contadores" instance=ExtResource("13_a2mo6")]
-
 [node name="limites_mundo" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limites_mundo"]
@@ -303,6 +288,22 @@ shape = SubResource("WorldBoundaryShape2D_0q6jp")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_2k1fi")]
 
+[node name="contadores" type="Node" parent="."]
+
+[node name="contadorMedusa" parent="contadores" instance=ExtResource("12_fql41")]
+
+[node name="contadorTiburon" parent="contadores" instance=ExtResource("16_m8fbj")]
+
+[node name="contadorAnguila" parent="contadores" instance=ExtResource("11_g81rr")]
+
+[node name="contadorPezLinterna" parent="contadores" instance=ExtResource("14_mkily")]
+
+[node name="contadorPulpo" parent="contadores" instance=ExtResource("15_thlid")]
+
+[node name="contadorTortuga" parent="contadores" instance=ExtResource("17_gjo8f")]
+
+[node name="contadorPescado" parent="contadores" instance=ExtResource("13_a2mo6")]
+
 [node name="enemigos" type="Node" parent="."]
 
 [node name="tortuga" parent="enemigos" instance=ExtResource("13_mkk4k")]
@@ -330,16 +331,22 @@ position = Vector2(169, 297)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winState"]
-position = Vector2(-17, 75)
+position = Vector2(-105, 64)
 shape = SubResource("RectangleShape2D_sru6f")
 disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="win_menu" parent="CanvasLayer" instance=ExtResource("23_j0ou1")]
 offset_left = 180.0
 offset_top = -10.0
 offset_right = -169.0
 offset_bottom = 11.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_gp08r")
+volume_db = -32.01
+autoplay = true
 
 [connection signal="body_entered" from="winState" to="." method="_on_win_state_body_entered"]

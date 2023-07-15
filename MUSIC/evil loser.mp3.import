@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbtthqngir1jv"
+path="res://.godot/imported/evil loser.mp3-9bd675e7e6bf717b93d73a7d922ffc8f.mp3str"
+
+[deps]
+
+source_file="res://MUSIC/evil loser.mp3"
+dest_files=["res://.godot/imported/evil loser.mp3-9bd675e7e6bf717b93d73a7d922ffc8f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
