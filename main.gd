@@ -6,8 +6,7 @@ extends Node2D
 @onready var infder = $margenes/infder
 @onready var markerAgua = $markerAgua
 @onready var enemigos = $enemigos
-
-
+@onready var win_state = $winState
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,8 +20,14 @@ func _ready():
 		enemigo.limiteAltura = markerAgua.global_position	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
+func _physics_process(delta):
+	if player.inBoat:
+		win_state.get_child(0).set_deferred("disabled",false)
+
 func _input(event):
 	if event.is_action_pressed("camara"):
 		camerazoom.enabled = !camerazoom.enabled
 
 
+func _on_win_state_body_entered(body):
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=28 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -34,6 +34,9 @@ distance = 4.0
 size = Vector2(70, 509.5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0q6jp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sru6f"]
+size = Vector2(56.75, 48.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pw5bg")
@@ -256,7 +259,7 @@ position = Vector2(-48, 345.75)
 shape = SubResource("RectangleShape2D_qw7hx")
 
 [node name="boat" parent="." instance=ExtResource("5_hbsdf")]
-position = Vector2(251, 99)
+position = Vector2(32, 106)
 
 [node name="Player" parent="." instance=ExtResource("11_dshym")]
 z_index = 1
@@ -320,4 +323,13 @@ position = Vector2(344, 178)
 position = Vector2(365, 251)
 
 [node name="pez_linterna" parent="enemigos" instance=ExtResource("22_5fdrq")]
-position = Vector2(175, 297)
+position = Vector2(169, 297)
+
+[node name="winState" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="winState"]
+position = Vector2(-105, 64)
+shape = SubResource("RectangleShape2D_sru6f")
+disabled = true
+
+[connection signal="body_entered" from="winState" to="." method="_on_win_state_body_entered"]
