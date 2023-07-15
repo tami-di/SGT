@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqrelvmcxhdnv"]
+[gd_scene load_steps=6 format=3 uid="uid://dqrelvmcxhdnv"]
 
 [ext_resource type="Texture2D" uid="uid://7owlxtjhdvhc" path="res://art/art_enemy/pulpo/Idle.png" id="1_0ywd4"]
+[ext_resource type="Script" path="res://contadores/contador_pulpo.gd" id="1_bcec3"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_u7ah7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs2gh"]
@@ -22,6 +23,10 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorPulpo" type="CanvasLayer"]
+offset = Vector2(362, 8)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 362, 8)
+script = ExtResource("1_bcec3")
 
 [node name="Panel2" type="Panel" parent="."]
 offset_right = 65.0

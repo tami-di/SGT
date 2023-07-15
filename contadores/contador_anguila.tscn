@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dry5lgeiboron"]
+[gd_scene load_steps=6 format=3 uid="uid://dry5lgeiboron"]
 
+[ext_resource type="Script" path="res://contadores/contador_anguila.gd" id="1_1bx7w"]
 [ext_resource type="Texture2D" uid="uid://budfkrm0kt3xf" path="res://art/art_enemy/anguila/Idle.png" id="1_ahbyc"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_50ddy"]
 
@@ -22,6 +23,10 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorAnguila" type="CanvasLayer"]
+offset = Vector2(212, 8)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 212, 8)
+script = ExtResource("1_1bx7w")
 
 [node name="Panel2" type="Panel" parent="."]
 offset_right = 70.0

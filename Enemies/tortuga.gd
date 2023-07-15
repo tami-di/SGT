@@ -9,3 +9,6 @@ func _on_attack_player_body_entered(body):
 	body.take_damage(damage)
 	animation_player.play("attack")
 	print("ataque tortuga")
+
+func contar():
+	Contador.contador_tortuga+=1

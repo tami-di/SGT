@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wd7ueqyegd0v"]
+[gd_scene load_steps=6 format=3 uid="uid://wd7ueqyegd0v"]
 
 [ext_resource type="Texture2D" uid="uid://2v4chkd2mebm" path="res://art/art_enemy/tiburon/Idle.png" id="1_7ann8"]
+[ext_resource type="Script" path="res://contadores/contador_tiburon.gd" id="1_lk6td"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_622ah"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs2gh"]
@@ -22,6 +23,10 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorTiburon" type="CanvasLayer"]
+offset = Vector2(445, 30)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 445, 30)
+script = ExtResource("1_lk6td")
 
 [node name="Panel2" type="Panel" parent="."]
 offset_right = 84.0

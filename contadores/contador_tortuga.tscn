@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://4f0gvd4qbpua"]
+[gd_scene load_steps=6 format=3 uid="uid://4f0gvd4qbpua"]
 
+[ext_resource type="Script" path="res://contadores/contador_tortuga.gd" id="1_4t2u7"]
 [ext_resource type="Texture2D" uid="uid://v3t6hou3mq44" path="res://art/art_enemy/tortuga/Idle.png" id="1_l6nlh"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_bflc1"]
 
@@ -22,6 +23,10 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorTortuga" type="CanvasLayer"]
+offset = Vector2(264, 8)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 264, 8)
+script = ExtResource("1_4t2u7")
 
 [node name="Panel2" type="Panel" parent="."]
 offset_right = 65.0

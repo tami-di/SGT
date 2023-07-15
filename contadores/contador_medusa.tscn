@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnisleu5045dr"]
+[gd_scene load_steps=6 format=3 uid="uid://cnisleu5045dr"]
 
 [ext_resource type="Texture2D" uid="uid://b55i4jg5f0l5b" path="res://art/art_enemy/medusa/Idle.png" id="1_a0ql1"]
+[ext_resource type="Script" path="res://contadores/contador_medusa.gd" id="1_nneyb"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_caq5i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs2gh"]
@@ -22,6 +23,10 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorMedusa" type="CanvasLayer"]
+offset = Vector2(411, 8)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 411, 8)
+script = ExtResource("1_nneyb")
 
 [node name="Panel2" type="Panel" parent="."]
 offset_right = 65.0

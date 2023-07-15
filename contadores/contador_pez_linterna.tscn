@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc5o78c80wpku"]
+[gd_scene load_steps=6 format=3 uid="uid://bc5o78c80wpku"]
 
 [ext_resource type="Texture2D" uid="uid://buwk2eg36v2kr" path="res://art/art_enemy/pez_linterna/Idle.png" id="1_18g8b"]
+[ext_resource type="Script" path="res://contadores/contador_pez_linterna.gd" id="1_vi2bb"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_htbn7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs2gh"]
@@ -22,6 +23,10 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorPezLinterna" type="CanvasLayer"]
+offset = Vector2(313, 8)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 313, 8)
+script = ExtResource("1_vi2bb")
 
 [node name="Panel2" type="Panel" parent="."]
 offset_right = 65.0

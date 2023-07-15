@@ -45,6 +45,5 @@ func _on_area_fishing_body_entered(body):
 	elif not body.isAlive and not playerInBoat:
 		return
 	else:
+		body.contar()
 		body.delete()
-		Contador.contador += 1
-		print(Contador.contador)

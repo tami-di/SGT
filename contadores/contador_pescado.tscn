@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqsbvgd56ariy"]
 
-[ext_resource type="Script" path="res://CanvasLayer.gd" id="1_c066g"]
+[ext_resource type="Script" path="res://contadores/contador_pescado.gd" id="1_4rwlw"]
 [ext_resource type="Texture2D" uid="uid://dva6rhqx1xnxc" path="res://blobfish-pack/32bit-fish-blob-Sheet.png" id="2_r7p3p"]
 [ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="3_apjie"]
 
@@ -23,24 +23,25 @@ MarginContainer/constants/margin_right = 35
 MarginContainer/constants/margin_top = 35
 
 [node name="contadorPescado" type="CanvasLayer"]
-script = ExtResource("1_c066g")
+offset = Vector2(460, 8)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 460, 8)
+script = ExtResource("1_4rwlw")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 443.0
-offset_top = 4.0
-offset_right = 508.0
-offset_bottom = 31.0
+offset_right = 65.0
+offset_bottom = 27.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xy25y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(488, 17)
+position = Vector2(45, 14)
 texture = ExtResource("2_r7p3p")
 hframes = 3
 
 [node name="Label" type="Label" parent="."]
-offset_left = 453.0
-offset_top = 9.0
-offset_right = 477.0
-offset_bottom = 28.0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 34.0
+offset_bottom = 25.0
 theme = SubResource("Theme_rgbl8")
 text = "0"
