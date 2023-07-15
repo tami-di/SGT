@@ -325,7 +325,7 @@ position = Vector2(344, 178)
 position = Vector2(365, 251)
 
 [node name="pez_linterna" parent="enemigos" instance=ExtResource("22_5fdrq")]
-position = Vector2(169, 297)
+position = Vector2(206, 370)
 
 [node name="winState" type="Area2D" parent="."]
 collision_mask = 2
