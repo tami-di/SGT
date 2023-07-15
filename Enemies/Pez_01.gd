@@ -6,4 +6,4 @@ var damage = 1
 
 func _on_attack_player_body_entered(body):
 	print("mordio al pescador")
-	body.take_damage(damage)
+	body.take_damage(damage,self)
