@@ -894,6 +894,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionFish" type="CollisionShape2D" parent="flipHV/flipfish/Area2DFish"]
 shape = SubResource("CircleShape2D_txyrx")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -910,6 +911,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("12_6nghg")]
 
