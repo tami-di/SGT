@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var SPEED = 110.0
 @export var SPEED_ANGRY = 150.0
-@export var velMuerte = -10
+@export var velMuerte = -50
 @onready var collisionBody = $CollisionShape2D
 @onready var attack_Player = $pivote/attackPlayer/CollisionShape2D
 @onready var pivote = $pivote
@@ -43,21 +43,15 @@ func death():
 	velocity.y = velMuerte
 	isAlive = false
 	playback.call_deferred("travel", "death")
-	#animation_player.play("death")
-	#animation_player.stop()
-	
+
 func take_damage(damage,body):
 	if not isAlive:
 		return
 	health-=damage
 	playback.travel("hurt")
-	#animation_player.play("hurt")
-	#animation_player.play("walk")
 	prints("vida pescao:",health)
 	if health <= 0:
 		health=0
-		Contador.contador += 1
-		print(Contador.contador)
 		death()
 	else:
 		player = body
