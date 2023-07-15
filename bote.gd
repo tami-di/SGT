@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 
+
 @export var SPEED = 300.0
 @onready var collision_shape_bote = $Area2D/CollisionShape2D
 var velocity: Vector2
