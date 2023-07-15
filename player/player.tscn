@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=63 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bldfd1waje0x2" path="res://1 Fisherman/Fisherman_attack2.png" id="9_5uk2u"]
 [ext_resource type="Texture2D" uid="uid://baqewi43p7xt5" path="res://1 Fisherman/Fisherman_hurt.png" id="10_vwk3h"]
 [ext_resource type="PackedScene" uid="uid://dia7gudmqrd4i" path="res://hud.tscn" id="12_6nghg"]
+[ext_resource type="AudioStream" uid="uid://dybb04fhgfpfe" path="res://Sounds/blop2.mp3" id="13_ml4jb"]
+[ext_resource type="AudioStream" uid="uid://oa3q5y2cmahb" path="res://Sounds/hit1.mp3" id="14_6it38"]
+[ext_resource type="AudioStream" uid="uid://cl64pq3eoyisk" path="res://Sounds/hit2.mp3" id="14_d4ws2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yf0hx"]
 load_path = "res://.godot/imported/Fisherman_attack.png-65a14591e7478c5359a86ba560236fdd.ctex"
@@ -915,6 +918,20 @@ visible = false
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("12_6nghg")]
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
+offset_top = -1.5
+offset_bottom = 1.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ml4jb")
+volume_db = -20.445
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_d4ws2")
+volume_db = -22.243
+
+[node name="attack2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6it38")
+volume_db = -13.333
 
 [connection signal="body_entered" from="flipHV/attack1Area" to="." method="_on_attack_1_area_body_entered"]
 [connection signal="body_entered" from="flipHV/attack2Area" to="." method="_on_attack_2_area_body_entered"]

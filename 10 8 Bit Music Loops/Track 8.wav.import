@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ejwmvae8ktgy"
+path="res://.godot/imported/Track 8.wav-c758a35358421c35cc8c06e4253dd55e.sample"
+
+[deps]
+
+source_file="res://10 8 Bit Music Loops/Track 8.wav"
+dest_files=["res://.godot/imported/Track 8.wav-c758a35358421c35cc8c06e4253dd55e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

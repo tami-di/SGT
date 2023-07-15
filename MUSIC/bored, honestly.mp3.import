@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://33jx38thhsv4"
+path="res://.godot/imported/bored, honestly.mp3-00c48e3fcda59ed552f65754453ca4ce.mp3str"
+
+[deps]
+
+source_file="res://MUSIC/bored, honestly.mp3"
+dest_files=["res://.godot/imported/bored, honestly.mp3-00c48e3fcda59ed552f65754453ca4ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

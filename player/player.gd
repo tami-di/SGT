@@ -29,8 +29,14 @@ var gravity
 @onready var flipfish = $flipHV/flipfish
 @onready var area_2d_fish = $flipHV/flipfish/Area2DFish
 @onready var collision_fish = $flipHV/flipfish/Area2DFish/CollisionFish
-
 @onready var hud = $CanvasLayer/HUD
+@onready var audio_stream_player = $AudioStreamPlayer
+@onready var attack = $attack
+@onready var attack_2 = $attack2
+
+
+
+
 
 @export var damageA1 = 2
 
@@ -93,10 +99,12 @@ func _input(event):
 		return 
 	elif event.is_action_pressed("attack") and not inBoat:
 		_attack()
+		attack.play()
 	elif event.is_action_pressed("fish") and inBoat and not fishing and not inMovement: 
 		_fish()
 	elif event.is_action_pressed("attack_2") and not inBoat:
 		_attack_2()
+		attack_2.play()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -153,6 +161,7 @@ func _fish():
 	playback.travel("fish")
 	area_2d_fish.monitoring = true
 	area_2d_fish.monitorable = true
+	audio_stream_player.play()
 
 func death():
 	print("se murio")
