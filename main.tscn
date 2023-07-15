@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=21 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://blxfj25ip3yjq" path="res://art/rock.png" id="4_hoy2w"]
 [ext_resource type="PackedScene" uid="uid://bxgi3csgysvah" path="res://bote.tscn" id="5_hbsdf"]
 [ext_resource type="PackedScene" uid="uid://bky04epc6tu5h" path="res://dirt_road.tscn" id="6_uvuur"]
-[ext_resource type="PackedScene" uid="uid://o43r8icvy7kp" path="res://Enemies/Pez_01.tscn" id="10_1m20l"]
 [ext_resource type="PackedScene" uid="uid://coepl1vcfgsru" path="res://player/player.tscn" id="11_dshym"]
 [ext_resource type="PackedScene" uid="uid://dry5lgeiboron" path="res://contadores/contador_anguila.tscn" id="11_g81rr"]
 [ext_resource type="PackedScene" uid="uid://cdd1wrr5yr7kb" path="res://Muro/Muro.tscn" id="11_htl18"]
@@ -295,22 +294,6 @@ shape = SubResource("WorldBoundaryShape2D_0q6jp")
 [node name="contadorPescado" parent="contadores" instance=ExtResource("13_a2mo6")]
 
 [node name="enemigos" type="Node" parent="."]
-
-[node name="Pez_01" parent="enemigos" instance=ExtResource("10_1m20l")]
-z_index = 1
-position = Vector2(784, 222)
-
-[node name="Pez_02" parent="enemigos" instance=ExtResource("10_1m20l")]
-position = Vector2(1344, 440)
-
-[node name="Pez_03" parent="enemigos" instance=ExtResource("10_1m20l")]
-position = Vector2(2991, 307)
-
-[node name="Pez_04" parent="enemigos" instance=ExtResource("10_1m20l")]
-position = Vector2(215, 412)
-
-[node name="Pez_05" parent="enemigos" instance=ExtResource("10_1m20l")]
-position = Vector2(1900, 276)
 
 [node name="tortuga" parent="enemigos" instance=ExtResource("13_mkk4k")]
 position = Vector2(100, 208)
