@@ -1,5 +1,22 @@
-[gd_scene format=3 uid="uid://dm0lth42nh1ky"]
+[gd_scene load_steps=2 format=3 uid="uid://dm0lth42nh1ky"]
+
+[ext_resource type="Texture2D" uid="uid://dl2r6up7f87gm" path="res://instrucciones/Sprite-0001.png" id="1_j7d7j"]
 
 [node name="ataque2" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "attack 2"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(29, 41)
+texture = ExtResource("1_j7d7j")
+
+[node name="Label" type="Label" parent="Label/Sprite2D"]
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 34.0
+offset_bottom = 14.0
+text = "S"

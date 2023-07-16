@@ -1,5 +1,31 @@
-[gd_scene format=3 uid="uid://b88pmq71i7fh1"]
+[gd_scene load_steps=2 format=3 uid="uid://b88pmq71i7fh1"]
 
-[node name="MarginContainer" type="MarginContainer"]
+[ext_resource type="Texture2D" uid="uid://b0xs6gkdsqvmb" path="res://instrucciones/Sprite-00017.png" id="1_8245g"]
+
+[node name="space" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "JUMP"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(16, 48)
+texture = ExtResource("1_8245g")
+
+[node name="Label" type="Label" parent="Label/Sprite2D"]
+offset_left = -20.0
+offset_top = 11.0
+offset_right = 93.0
+offset_bottom = 63.0
+text = "* Enabled only 
+in the ocean"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 31.0
+offset_right = 34.0
+offset_bottom = 54.0
+text = "Space"
