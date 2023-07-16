@@ -55,27 +55,21 @@ layout_mode = 2
 theme = SubResource("Theme_78qjg")
 text = "            volume"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Volumen" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_6ptw5")
-text = "Play"
+value = 50.0
 
-[node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="pantalla" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_6ptw5")
-text = "Credits
-"
+text = "fullscreen"
 
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_6ptw5")
-text = "Exit"
+text = "Back"
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/Volumen" to="." method="_on_volumen_value_changed"]

@@ -8,11 +8,16 @@ extends Node2D
 @onready var enemigos = $enemigos
 @onready var win_state = $winState
 @onready var win_menu = $CanvasLayer/win_menu
+@onready var audio_stream_player = $AudioStreamPlayer
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio_stream_player.volume_db = Contador.getVolume()
+	print(audio_stream_player.volume_db)
+	print(Contador.getVolume())
+	#audio_stream_player.volume_db = 
 	Contador.restart()
 	# Inicializar ambas cámaras como visibles
 	camerazoom.enabled = true
@@ -20,10 +25,11 @@ func _ready():
 	player.set_camera_limits(supizq.position,infder.position)
 	prints("supizq:",supizq.position,"infder:",infder.position)
 	for enemigo in enemigos.get_children():
-		enemigo.limiteAltura = markerAgua.global_position	
+		enemigo.limiteAltura = markerAgua.global_position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _physics_process(delta):
+	audio_stream_player.volume_db = Contador.getVolume()
 	if player.inBoat:
 		win_state.get_child(0).set_deferred("disabled",false)
 

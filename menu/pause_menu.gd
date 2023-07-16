@@ -5,6 +5,7 @@ extends MarginContainer
 @onready var settings = %settings
 @onready var exit = %Exit
 
+signal setting
 
 func _ready():
 	resume.pressed.connect(_on_resume_pressed)
@@ -26,9 +27,11 @@ func _on_resume_pressed():
 func _on_retry_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
-	
+
+
 func _on_settings_pressed():
-	get_tree().change_scene_to_file("res://settings.tscn")
+	setting.emit()
 	
 func _on_exit_pressed():
 	get_tree().quit()
+

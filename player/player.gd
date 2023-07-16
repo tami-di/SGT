@@ -35,6 +35,7 @@ var gravity
 @onready var attack_2 = $attack2
 @onready var game_over = $CanvasLayer/GameOver
 @onready var oxigen=$CanvasLayer/MarginContainer
+@onready var settings = $CanvasLayer/Settings
 
 
 
@@ -74,6 +75,7 @@ func _ready():
 	area_2d_fish.monitoring = false
 	area_2d_fish.monitorable = false
 	gravity = gravityAir
+	settings.visible = false
 	
 func sumergir():
 	if isSumergido:
