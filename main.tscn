@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=36 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -24,6 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://diuxf38ewrl2x" path="res://Enemies/pez_linterna.tscn" id="22_5fdrq"]
 [ext_resource type="PackedScene" uid="uid://bg6gh73dnvnhx" path="res://menu/win_menu.tscn" id="23_j0ou1"]
 [ext_resource type="AudioStream" uid="uid://2yxeq6b7hnkw" path="res://MUSIC/chillmood-[AudioTrimmer.com].mp3" id="24_gp08r"]
+[ext_resource type="PackedScene" uid="uid://lo8vla6eh7db" path="res://right.tscn" id="24_t8sri"]
+[ext_resource type="PackedScene" uid="uid://b88pmq71i7fh1" path="res://space.tscn" id="25_l3omp"]
+[ext_resource type="Theme" uid="uid://blvgmeqsb5w2t" path="res://resources/theme_indic.tres" id="26_irjm2"]
+[ext_resource type="PackedScene" uid="uid://c11r7de6sabom" path="res://ataque2.tscn" id="26_j7xte"]
+[ext_resource type="PackedScene" uid="uid://0f5p7gnj7m2b" path="res://ataque1.tscn" id="27_csr6v"]
+[ext_resource type="PackedScene" uid="uid://bc47dh8jvvb2i" path="res://left.tscn" id="28_ht4fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpokv"]
 size = Vector2(44, 280)
@@ -349,5 +355,39 @@ offset_bottom = 11.0
 stream = ExtResource("24_gp08r")
 volume_db = -32.01
 autoplay = true
+
+[node name="ataque2" parent="AudioStreamPlayer" instance=ExtResource("26_j7xte")]
+offset_left = -460.0
+offset_top = 121.0
+offset_right = -391.0
+offset_bottom = 161.0
+
+[node name="space" parent="AudioStreamPlayer" instance=ExtResource("25_l3omp")]
+offset_left = -356.0
+offset_top = 122.0
+offset_right = -314.0
+offset_bottom = 162.0
+theme = ExtResource("26_irjm2")
+
+[node name="ataque1" parent="AudioStreamPlayer" instance=ExtResource("27_csr6v")]
+offset_left = -540.0
+offset_top = 121.0
+offset_right = -471.0
+offset_bottom = 161.0
+theme = ExtResource("26_irjm2")
+
+[node name="MarginContainer" parent="AudioStreamPlayer" instance=ExtResource("28_ht4fp")]
+offset_left = -661.0
+offset_top = 120.0
+offset_right = -621.0
+offset_bottom = 160.0
+theme = ExtResource("26_irjm2")
+
+[node name="right" parent="AudioStreamPlayer" instance=ExtResource("24_t8sri")]
+offset_left = -604.0
+offset_top = 121.0
+offset_right = -563.0
+offset_bottom = 161.0
+theme = ExtResource("26_irjm2")
 
 [connection signal="body_entered" from="winState" to="." method="_on_win_state_body_entered"]
