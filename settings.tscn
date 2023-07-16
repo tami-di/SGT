@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcgrhi51sl88t"]
+
+[ext_resource type="Theme" uid="uid://cq6bnj2euox0a" path="res://resources/themepause.tres" id="1_6ptw5"]
+[ext_resource type="Script" path="res://settings.gd" id="2_yftns"]
+[ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="3_aw7wl"]
+[ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="4_ctkfk"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="5_ehpk8"]
+
+[sub_resource type="Theme" id="Theme_78qjg"]
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("5_ehpk8")
+
+[node name="Settings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6ptw5")
+script = ExtResource("2_yftns")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(256.25, 143)
+scale = Vector2(1.03528, 1.05147)
+texture = ExtResource("3_aw7wl")
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(256, 116)
+scale = Vector2(1.04032, 1.26838)
+texture = ExtResource("4_ctkfk")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_6ptw5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6ptw5")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_78qjg")
+text = "            volume"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_6ptw5")
+text = "Play"
+
+[node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_6ptw5")
+text = "Credits
+"
+
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_6ptw5")
+text = "Exit"

@@ -28,7 +28,7 @@ func _on_retry_pressed():
 	get_tree().paused = false
 	
 func _on_settings_pressed():
-	pass
+	get_tree().change_scene_to_file("res://settings.tscn")
 	
 func _on_exit_pressed():
 	get_tree().quit()
