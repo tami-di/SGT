@@ -177,6 +177,7 @@ label_settings = SubResource("LabelSettings_s08i2")
 horizontal_alignment = 1
 
 [node name="prod" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 339.0
 offset_top = 120.0
 offset_right = 431.0
@@ -186,6 +187,7 @@ label_settings = SubResource("LabelSettings_s08i2")
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Panel/prod"]
+layout_mode = 0
 offset_left = -80.0
 offset_top = 16.0
 offset_right = 170.0
@@ -213,6 +215,7 @@ label_settings = SubResource("LabelSettings_ar0ow")
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 115.0
 offset_top = 232.0
 offset_right = 365.0

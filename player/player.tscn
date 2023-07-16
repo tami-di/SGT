@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=66 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dybb04fhgfpfe" path="res://Sounds/blop2.mp3" id="13_ml4jb"]
 [ext_resource type="AudioStream" uid="uid://oa3q5y2cmahb" path="res://Sounds/hit1.mp3" id="14_6it38"]
 [ext_resource type="AudioStream" uid="uid://cl64pq3eoyisk" path="res://Sounds/hit2.mp3" id="14_d4ws2"]
+[ext_resource type="PackedScene" uid="uid://bcgrhi51sl88t" path="res://settings.tscn" id="15_5l5d3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yf0hx"]
 load_path = "res://.godot/imported/Fisherman_attack.png-65a14591e7478c5359a86ba560236fdd.ctex"
@@ -930,6 +931,8 @@ offset_bottom = 1.5
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("11_y42um")]
 
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("15_5l5d3")]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ml4jb")
 volume_db = -20.445
@@ -945,3 +948,4 @@ volume_db = -13.333
 [connection signal="body_entered" from="flipHV/attack1Area" to="." method="_on_attack_1_area_body_entered"]
 [connection signal="body_entered" from="flipHV/attack2Area" to="." method="_on_attack_2_area_body_entered"]
 [connection signal="body_entered" from="flipHV/flipfish/Area2DFish" to="." method="_on_area_2d_fish_body_entered"]
+[connection signal="setting" from="CanvasLayer/Pausemenu" to="CanvasLayer/Settings" method="_on_pausemenu_setting"]

@@ -353,7 +353,7 @@ offset_bottom = 11.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_gp08r")
-volume_db = -32.01
+volume_db = -20.0
 autoplay = true
 
 [node name="ataque2" parent="AudioStreamPlayer" instance=ExtResource("26_j7xte")]
