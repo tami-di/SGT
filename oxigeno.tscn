@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceht4atu1n6fp"]
+
+[ext_resource type="Script" path="res://oxigeno.gd" id="1_o7tds"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="2_1jayg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g5km"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6quw0"]
+bg_color = Color(0.0980392, 0.054902, 0.545098, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_7sh4d"]
+ProgressBar/fonts/font = ExtResource("2_1jayg")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_6g5km")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_6quw0")
+
+[sub_resource type="Theme" id="Theme_2giuw"]
+Label/colors/font_color = Color(0, 0.670588, 0.694118, 0.835294)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/font_sizes/font_size = 15
+Label/fonts/font = ExtResource("2_1jayg")
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_o7tds")
+
+[node name="oxigen" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(150, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_7sh4d")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="oxigen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 45.0
+offset_bottom = 25.0
+theme = SubResource("Theme_2giuw")
+text = "O2"
