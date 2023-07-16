@@ -97,6 +97,7 @@ label_settings = SubResource("LabelSettings_ar0ow")
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 262.0
 offset_top = 46.0
 offset_right = 512.0
@@ -110,6 +111,7 @@ horizontal_alignment = 1
 metadata/_edit_group_ = true
 
 [node name="sprites2" type="Label" parent="Panel/Label3"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 13.0
 offset_right = 249.0
@@ -165,10 +167,72 @@ theme = SubResource("Theme_xr2g6")
 text = "back"
 
 [node name="music" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 363.0
 offset_top = 24.0
 offset_right = 409.0
 offset_bottom = 38.0
 text = "music"
 label_settings = SubResource("LabelSettings_s08i2")
+horizontal_alignment = 1
+
+[node name="prod" type="Label" parent="Panel"]
+offset_left = 339.0
+offset_top = 120.0
+offset_right = 431.0
+offset_bottom = 134.0
+text = "Production by"
+label_settings = SubResource("LabelSettings_s08i2")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/prod"]
+offset_left = -80.0
+offset_top = 16.0
+offset_right = 170.0
+offset_bottom = 217.0
+text = "SUPER GAMING TIME
+"
+label_settings = SubResource("LabelSettings_us0f5")
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="sprites2" type="Label" parent="Panel/prod/Label3"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 13.0
+offset_right = 249.0
+offset_bottom = 214.0
+text = "Scarleth Betancurt
+Tamara Dueñas
+Gustavo Joyo 
+
+
+
+"
+label_settings = SubResource("LabelSettings_ar0ow")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Panel"]
+offset_left = 115.0
+offset_top = 232.0
+offset_right = 365.0
+offset_bottom = 433.0
+text = "Special thanks to: 
+"
+label_settings = SubResource("LabelSettings_us0f5")
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="sprites2" type="Label" parent="Panel/Label5"]
+layout_mode = 0
+offset_left = 136.0
+offset_right = 202.0
+offset_bottom = 65.0
+text = "gago
+
+
+
+
+"
+label_settings = SubResource("LabelSettings_ar0ow")
 horizontal_alignment = 1
