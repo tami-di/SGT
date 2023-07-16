@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://caelxe4beqeeq"]
+[gd_scene load_steps=6 format=3 uid="uid://caelxe4beqeeq"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_huka3"]
 [ext_resource type="Theme" uid="uid://cq6bnj2euox0a" path="res://resources/themepause.tres" id="2_qjc71"]
+[ext_resource type="PackedScene" uid="uid://bcgrhi51sl88t" path="res://settings.tscn" id="3_3nor1"]
 [ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="3_fnhtr"]
 [ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="4_s46om"]
 
@@ -22,7 +23,7 @@ scale = Vector2(1.03528, 1.05147)
 texture = ExtResource("3_fnhtr")
 
 [node name="Background1" type="Sprite2D" parent="."]
-position = Vector2(256, 116)
+position = Vector2(256, 119)
 scale = Vector2(1.04032, 1.26838)
 texture = ExtResource("4_s46om")
 
@@ -73,3 +74,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_qjc71")
 text = "Exit"
+
+[node name="Settings" parent="." instance=ExtResource("3_3nor1")]
+layout_mode = 2
+
+[connection signal="escondido" from="Settings" to="." method="_on_settings_escondido"]

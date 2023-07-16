@@ -3,18 +3,20 @@ extends MarginContainer
 @onready var exit = %Exit
 @onready var pantalla = %pantalla
 
+signal escondido
+
 func _ready():
 	#volumen.pressed.connect(_on_volumen_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	pantalla.pressed.connect(_on_pantalla_pressed)
 	volumen.value = Contador.volumen
-	hide()
 #func _on_volumen_pressed():
 #	get_tree().change_scene_to_file("res://settings.tscn")
 
 
 func _on_exit_pressed():
 	hide()
+	escondido.emit()
 
 
 func _on_volumen_value_changed(value):
