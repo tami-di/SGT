@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://coepl1vcfgsru"]
+[gd_scene load_steps=65 format=3 uid="uid://coepl1vcfgsru"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_78y61"]
 [ext_resource type="PackedScene" uid="uid://dccneofneka52" path="res://fondo_cielo.tscn" id="2_nl2v7"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dn2lhj1aahem2" path="res://1 Fisherman/Fisherman_idle.png" id="7_76v02"]
 [ext_resource type="Texture2D" uid="uid://bldfd1waje0x2" path="res://1 Fisherman/Fisherman_attack2.png" id="9_5uk2u"]
 [ext_resource type="Texture2D" uid="uid://baqewi43p7xt5" path="res://1 Fisherman/Fisherman_hurt.png" id="10_vwk3h"]
+[ext_resource type="PackedScene" uid="uid://dht4q26bj3wo2" path="res://game_over.tscn" id="11_y42um"]
 [ext_resource type="PackedScene" uid="uid://dia7gudmqrd4i" path="res://hud.tscn" id="12_6nghg"]
+[ext_resource type="PackedScene" uid="uid://ceht4atu1n6fp" path="res://oxigeno.tscn" id="12_vl31d"]
 [ext_resource type="AudioStream" uid="uid://dybb04fhgfpfe" path="res://Sounds/blop2.mp3" id="13_ml4jb"]
 [ext_resource type="AudioStream" uid="uid://oa3q5y2cmahb" path="res://Sounds/hit1.mp3" id="14_6it38"]
 [ext_resource type="AudioStream" uid="uid://cl64pq3eoyisk" path="res://Sounds/hit2.mp3" id="14_d4ws2"]
@@ -914,11 +916,19 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7e8x0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="MarginContainer" parent="CanvasLayer" instance=ExtResource("12_vl31d")]
+offset_left = 10.0
+offset_top = 34.0
+offset_right = 160.0
+offset_bottom = 74.0
+
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("12_6nghg")]
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("3_rxgwb")]
 offset_top = -1.5
 offset_bottom = 1.5
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("11_y42um")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ml4jb")

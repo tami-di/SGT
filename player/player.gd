@@ -33,8 +33,8 @@ var gravity
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var attack = $attack
 @onready var attack_2 = $attack2
-
-
+@onready var game_over = $CanvasLayer/GameOver
+@onready var oxigen=$CanvasLayer/MarginContainer
 
 
 
@@ -140,6 +140,8 @@ func _physics_process(delta):
 				area_2d_fish.monitoring = false
 				area_2d_fish.monitorable = false
 				playback.travel("idle_remar")
+		if oxigen.set_oxigeno_actual() != -2:
+			oxigen.set_sumergido(-0.01)
 	else: 
 		if abs(velocity.x) !=0 and move_input:
 			playback.travel("run")
@@ -152,6 +154,11 @@ func _physics_process(delta):
 		sumergir()
 	else:
 		desumergir()
+	if isSumergido:
+		oxigen.set_sumergido(0.03)
+		#oxigen.set_oxigeno_actual()
+		if oxigen.set_oxigeno_actual() == -1:
+			death()
 	
 func _attack():
 	playback.call_deferred("travel", "attack")
@@ -173,6 +180,7 @@ func death():
 		return
 	velocity.x = 0
 	isAlive = false
+	game_over.visible = true
 
 func take_damage(damage,body):
 	print("recibi daño")

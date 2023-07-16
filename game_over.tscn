@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://dht4q26bj3wo2"]
+
+[ext_resource type="Theme" uid="uid://cq6bnj2euox0a" path="res://resources/themepause.tres" id="1_cwbqw"]
+[ext_resource type="FontFile" uid="uid://doj033v0d78vt" path="res://tipografias/clayborn/Clayborn.ttf" id="1_xm74t"]
+[ext_resource type="Script" path="res://game_over.gd" id="2_g7wf2"]
+[ext_resource type="Texture2D" uid="uid://b2kaftf2n5opu" path="res://Tiles/Assets/Background_2.png" id="2_x60cy"]
+[ext_resource type="Texture2D" uid="uid://crio4rjafiagb" path="res://Tiles/Assets/Background_1.png" id="3_t4w0m"]
+[ext_resource type="Theme" uid="uid://bcm8gj1g3hwnm" path="res://resources/theme.tres" id="4_ppin3"]
+[ext_resource type="Texture2D" uid="uid://dqnx45eb15w22" path="res://1 Fisherman/Fisherman_death.png" id="7_17isl"]
+
+[sub_resource type="Theme" id="Theme_vg1cw"]
+Button/font_sizes/font_size = 27
+Button/fonts/font = ExtResource("1_xm74t")
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_xm74t")
+MarginContainer/constants/margin_bottom = 25
+MarginContainer/constants/margin_left = 25
+MarginContainer/constants/margin_right = 25
+MarginContainer/constants/margin_top = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12g02"]
+bg_color = Color(0.380392, 0.0705882, 0.0431373, 1)
+
+[node name="GameOver" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_vg1cw")
+script = ExtResource("2_g7wf2")
+metadata/_edit_lock_ = true
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(263, 149)
+scale = Vector2(1.06049, 1.06985)
+texture = ExtResource("2_x60cy")
+
+[node name="Background1" type="Sprite2D" parent="Background2"]
+position = Vector2(0.425261, -30.2535)
+scale = Vector2(0.997831, 1.2251)
+texture = ExtResource("3_t4w0m")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_12g02")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_ppin3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cwbqw")
+text = "Game over
+
+"
+
+[node name="retry" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_cwbqw")
+text = "Retry"
+
+[node name="exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_cwbqw")
+text = "Exit"
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(113, 79)
+texture = ExtResource("7_17isl")
+hframes = 5
+
+[node name="Sprite2D2" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(151, 79)
+texture = ExtResource("7_17isl")
+hframes = 6
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(191, 79)
+texture = ExtResource("7_17isl")
+hframes = 6
+frame = 3

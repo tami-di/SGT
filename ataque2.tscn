@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c11r7de6sabom"]
+
+[ext_resource type="Theme" uid="uid://blvgmeqsb5w2t" path="res://resources/theme_indic.tres" id="1_800cr"]
+[ext_resource type="Texture2D" uid="uid://dl2r6up7f87gm" path="res://instrucciones/Sprite-0001.png" id="1_j7d7j"]
+[ext_resource type="Theme" uid="uid://hyf7nnuvj0ul" path="res://resources/theme2.tres" id="3_xawa7"]
+
+[node name="ataque2" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_800cr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_800cr")
+text = "attack 	2"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(32, 34)
+scale = Vector2(1.3125, 1.21875)
+texture = ExtResource("1_j7d7j")
+
+[node name="Label" type="Label" parent="Label/Sprite2D"]
+offset_left = -4.57143
+offset_top = -5.74359
+offset_right = 35.4286
+offset_bottom = 20.2564
+theme = ExtResource("3_xawa7")
+text = "S"

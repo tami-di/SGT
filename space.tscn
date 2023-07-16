@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b88pmq71i7fh1"]
+
+[ext_resource type="Texture2D" uid="uid://b0xs6gkdsqvmb" path="res://instrucciones/Sprite-00017.png" id="1_8245g"]
+[ext_resource type="Theme" uid="uid://blvgmeqsb5w2t" path="res://resources/theme_indic.tres" id="1_lffyc"]
+[ext_resource type="Theme" uid="uid://hyf7nnuvj0ul" path="res://resources/theme2.tres" id="3_e1vq2"]
+
+[sub_resource type="Theme" id="Theme_nn2wk"]
+Label/font_sizes/font_size = 7
+
+[node name="space" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_lffyc")
+text = "JUMP"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(25, 35)
+scale = Vector2(1.64062, 1)
+texture = ExtResource("1_8245g")
+
+[node name="Label" type="Label" parent="Label"]
+offset_left = 1.0
+offset_top = 21.0
+offset_right = 48.0
+offset_bottom = 47.0
+theme = ExtResource("3_e1vq2")
+text = "Space"
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 55.0
+offset_bottom = 55.0
+theme = SubResource("Theme_nn2wk")
+text = "* Enabled only 
+   in the ocean"
