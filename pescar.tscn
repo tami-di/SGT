@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b75ywcjl5jtjj"]
+
+[ext_resource type="Theme" uid="uid://blvgmeqsb5w2t" path="res://resources/theme_indic.tres" id="1_kyw5u"]
+[ext_resource type="Texture2D" uid="uid://ckkju8xrkdyhr" path="res://instrucciones/Sprite-0d0w0d2.png" id="2_7a6ir"]
+
+[node name="pescar" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_kyw5u")
+text = "Fish"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(18, 31)
+texture = ExtResource("2_7a6ir")
+
+[node name="Label" type="Label" parent="Label/Sprite2D"]
+offset_left = -17.0
+offset_top = 17.0
+offset_right = 23.0
+offset_bottom = 40.0
