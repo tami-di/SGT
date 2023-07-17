@@ -36,8 +36,7 @@ func _process(delta):
 	total.text = "Total score = " + str(getTotal())
 func _on_playAgain_pressed():
 	print("presionó el boton")
-	get_tree().reload_current_scene()
-	get_tree().paused = false
+	get_tree().change_scene_to_file("res://main.tscn")
 	
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu/main_menu.tscn")
