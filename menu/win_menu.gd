@@ -23,7 +23,6 @@ extends MarginContainer
 func _ready():
 	playAgain.pressed.connect(_on_playAgain_pressed)
 	main_menu.pressed.connect(_on_main_menu_pressed)
-	hide()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
