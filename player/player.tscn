@@ -851,9 +851,9 @@ graph_offset = Vector2(-1.391, 66.7941)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_78y61")
+underWaterColor = Color(0, 0.741176, 1, 1)
 JUMP_VELOCITY_WATER = -200.0
 HOOK_VELOCITY = 100
-gravityWater = 200
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(140.886, 1)

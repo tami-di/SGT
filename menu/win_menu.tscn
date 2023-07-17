@@ -22,9 +22,9 @@ region = Rect2(33, 9, 28, 11)
 [sub_resource type="LabelSettings" id="LabelSettings_tfmtt"]
 font_size = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4h3u"]
-atlas = ExtResource("5_rqtox")
-region = Rect2(66, 13, 14, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8wed"]
+atlas = ExtResource("8_atvmr")
+region = Rect2(3, 16, 30, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqt2h"]
 atlas = ExtResource("6_qji61")
@@ -34,17 +34,17 @@ region = Rect2(104, 17, 31, 14)
 atlas = ExtResource("7_2hrk3")
 region = Rect2(51, 20, 36, 11)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j8wed"]
-atlas = ExtResource("8_atvmr")
-region = Rect2(3, 16, 30, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5ch6"]
-atlas = ExtResource("9_37s84")
-region = Rect2(1, 13, 44, 22)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4h3u"]
+atlas = ExtResource("5_rqtox")
+region = Rect2(66, 13, 14, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4tard"]
 atlas = ExtResource("10_iomut")
 region = Rect2(3, 9, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5ch6"]
+atlas = ExtResource("9_37s84")
+region = Rect2(1, 13, 44, 22)
 
 [node name="win_menu" type="MarginContainer"]
 process_mode = 3
@@ -104,15 +104,14 @@ layout_mode = 2
 size_flags_horizontal = 10
 label_settings = SubResource("LabelSettings_tfmtt")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_c4h3u")
-stretch_mode = 1
+texture = SubResource("AtlasTexture_j8wed")
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 10
 label_settings = SubResource("LabelSettings_tfmtt")
@@ -141,26 +140,15 @@ layout_mode = 2
 size_flags_horizontal = 10
 label_settings = SubResource("LabelSettings_tfmtt")
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_j8wed")
+texture = SubResource("AtlasTexture_c4h3u")
+stretch_mode = 1
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 10
-label_settings = SubResource("LabelSettings_tfmtt")
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_c5ch6")
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 label_settings = SubResource("LabelSettings_tfmtt")
@@ -173,6 +161,18 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_4tard")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+label_settings = SubResource("LabelSettings_tfmtt")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_c5ch6")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 10
 label_settings = SubResource("LabelSettings_tfmtt")

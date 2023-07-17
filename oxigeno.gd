@@ -11,6 +11,7 @@ func set_sumergido(value):
 	if oxigen.value > 0:
 		oxigen.value -= value
 	
+	
 func set_oxigeno_actual():
 	if oxigen.value==0.0:
 		return -1
