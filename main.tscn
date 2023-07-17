@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dsp40t5dn2evn"]
+[gd_scene load_steps=37 format=3 uid="uid://dsp40t5dn2evn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pw5bg"]
 [ext_resource type="PackedScene" uid="uid://pnqiuryqad8g" path="res://fondo_oceano.tscn" id="4_2k1fi"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://2yxeq6b7hnkw" path="res://MUSIC/chillmood-[AudioTrimmer.com].mp3" id="24_gp08r"]
 [ext_resource type="PackedScene" uid="uid://lo8vla6eh7db" path="res://right.tscn" id="24_t8sri"]
 [ext_resource type="PackedScene" uid="uid://b88pmq71i7fh1" path="res://space.tscn" id="25_l3omp"]
+[ext_resource type="PackedScene" uid="uid://b75ywcjl5jtjj" path="res://pescar.tscn" id="25_mixg5"]
 [ext_resource type="Theme" uid="uid://blvgmeqsb5w2t" path="res://resources/theme_indic.tres" id="26_irjm2"]
 [ext_resource type="PackedScene" uid="uid://c11r7de6sabom" path="res://ataque2.tscn" id="26_j7xte"]
 [ext_resource type="PackedScene" uid="uid://0f5p7gnj7m2b" path="res://ataque1.tscn" id="27_csr6v"]
@@ -431,6 +432,12 @@ stream = ExtResource("24_gp08r")
 volume_db = -20.0
 autoplay = true
 
+[node name="pescar" parent="AudioStreamPlayer" instance=ExtResource("25_mixg5")]
+offset_left = -371.0
+offset_top = 122.0
+offset_right = -331.0
+offset_bottom = 162.0
+
 [node name="ataque2" parent="AudioStreamPlayer" instance=ExtResource("26_j7xte")]
 offset_left = -460.0
 offset_top = 121.0
@@ -438,9 +445,9 @@ offset_right = -391.0
 offset_bottom = 161.0
 
 [node name="space" parent="AudioStreamPlayer" instance=ExtResource("25_l3omp")]
-offset_left = -356.0
+offset_left = -313.0
 offset_top = 122.0
-offset_right = -314.0
+offset_right = -270.0
 offset_bottom = 162.0
 theme = ExtResource("26_irjm2")
 
