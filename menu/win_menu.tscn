@@ -61,7 +61,7 @@ script = ExtResource("2_7s81n")
 
 [node name="Background2" type="Sprite2D" parent="."]
 process_mode = 3
-position = Vector2(42, 152)
+position = Vector2(271, 153)
 scale = Vector2(1.34611, 1.37168)
 texture = ExtResource("3_dbp5l")
 metadata/_edit_group_ = true

@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://xvtuu3b3r3ah" path="res://Enemies/anguila.tscn" id="20_u0ku6"]
 [ext_resource type="PackedScene" uid="uid://dipfslqc1jtoa" path="res://Enemies/pulpo.tscn" id="21_66lpd"]
 [ext_resource type="PackedScene" uid="uid://diuxf38ewrl2x" path="res://Enemies/pez_linterna.tscn" id="22_5fdrq"]
-[ext_resource type="PackedScene" uid="uid://bg6gh73dnvnhx" path="res://menu/win_menu.tscn" id="23_j0ou1"]
+[ext_resource type="PackedScene" uid="uid://dfpsubkavcel4" path="res://choose_menu.tscn" id="23_sbh8l"]
 [ext_resource type="AudioStream" uid="uid://2yxeq6b7hnkw" path="res://MUSIC/chillmood-[AudioTrimmer.com].mp3" id="24_gp08r"]
 [ext_resource type="PackedScene" uid="uid://lo8vla6eh7db" path="res://right.tscn" id="24_t8sri"]
 [ext_resource type="PackedScene" uid="uid://b88pmq71i7fh1" path="res://space.tscn" id="25_l3omp"]
@@ -266,9 +266,6 @@ shape = SubResource("WorldBoundaryShape2D_4dclj")
 position = Vector2(-48, 345.75)
 shape = SubResource("RectangleShape2D_qw7hx")
 
-[node name="boat" parent="." instance=ExtResource("5_hbsdf")]
-position = Vector2(32, 106)
-
 [node name="contadores" type="Node" parent="."]
 
 [node name="contadorMedusa" parent="contadores" instance=ExtResource("12_fql41")]
@@ -286,6 +283,9 @@ layer = 0
 
 [node name="contadorPescado" parent="contadores" instance=ExtResource("13_a2mo6")]
 layer = 0
+
+[node name="boat" parent="." instance=ExtResource("5_hbsdf")]
+position = Vector2(42, 100)
 
 [node name="Player" parent="." instance=ExtResource("11_dshym")]
 z_index = 1
@@ -321,7 +321,7 @@ position = Vector2(62, 208)
 position = Vector2(133, 262)
 
 [node name="medusa" parent="enemigos" instance=ExtResource("18_pj2nb")]
-position = Vector2(272, 200)
+position = Vector2(280, 200)
 
 [node name="tiburon" parent="enemigos" instance=ExtResource("19_6mcub")]
 position = Vector2(256, 286)
@@ -407,6 +407,9 @@ position = Vector2(1618, 361)
 [node name="medusa4" parent="enemigos" instance=ExtResource("18_pj2nb")]
 position = Vector2(1978, 200)
 
+[node name="pulpo4" parent="enemigos" instance=ExtResource("21_66lpd")]
+position = Vector2(3372, 233)
+
 [node name="winState" type="Area2D" parent="."]
 collision_mask = 2
 
@@ -417,11 +420,11 @@ disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="win_menu" parent="CanvasLayer" instance=ExtResource("23_j0ou1")]
-offset_left = 180.0
-offset_top = -10.0
-offset_right = -169.0
-offset_bottom = 11.0
+[node name="choose_menu" parent="CanvasLayer" instance=ExtResource("23_sbh8l")]
+offset_left = -70.0
+offset_top = -81.0
+offset_right = 78.5
+offset_bottom = 46.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_gp08r")
@@ -461,8 +464,5 @@ offset_top = 121.0
 offset_right = -563.0
 offset_bottom = 161.0
 theme = ExtResource("26_irjm2")
-
-[node name="pulpo" parent="." instance=ExtResource("21_66lpd")]
-position = Vector2(3372, 233)
 
 [connection signal="body_entered" from="winState" to="." method="_on_win_state_body_entered"]

@@ -7,9 +7,9 @@ extends Node2D
 @onready var markerAgua = $markerAgua
 @onready var enemigos = $enemigos
 @onready var win_state = $winState
-@onready var win_menu = $CanvasLayer/win_menu
 @onready var audio_stream_player = $AudioStreamPlayer
 
+@onready var choose_menu = $CanvasLayer/choose_menu
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,8 +38,7 @@ func _input(event):
 		camerazoom.enabled = !camerazoom.enabled
 
 func _on_win_state_body_entered(body):
-	get_tree().paused = true
-	win_menu.visible = true
+	choose_menu.visible = true
 	
 
 
