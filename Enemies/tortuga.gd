@@ -2,7 +2,7 @@ extends EnemigoBase
 
 @onready var attack_player = $pivote/attackPlayer
 
-var damage = 2
+var damage = 5
 
 func _on_attack_player_body_entered(body):
 	print("mordio al pescador")

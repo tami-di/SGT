@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 @export var underWaterColor:= Color(0.00,0.74,1.00,1.00) #underWaterColor:Color = Color(0.00,0.74,1.00,1.00)
 var SPEED = 200.0
-@export var SPEED_WATER = 200.0
+@export var SPEED_WATER = 100.0
 @export var SPEED_AIRE = 200.0
 var JUMP_VELOCITY = -600.0
 @export var JUMP_VELOCITY_WATER = -600.0
 @export var JUMP_VELOCITY_AIRE = -600.0
 var ACCELERATION = 400
 @export var ACCELERATION_AIRE = 400
-@export var ACCELERATION_WATER = 400
+@export var ACCELERATION_WATER = 100
 
 @export var HOOK_VELOCITY= 10
 
@@ -19,7 +19,7 @@ var gravity
 
 @export var gravityAir = 500
 
-@export var gravityWater = 500
+@export var gravityWater = 200
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
@@ -85,6 +85,7 @@ func sumergir():
 	isSumergido = true
 	modulate = underWaterColor
 	gravity = gravityWater
+	ACCELERATION=ACCELERATION_WATER
 	velocity.y/=1000
 
 func desumergir():
@@ -95,6 +96,7 @@ func desumergir():
 	isSumergido = false
 	modulate = Color.WHITE
 	gravity = gravityAir
+	
 
 func _input(event):
 	if not isAlive:
@@ -107,6 +109,7 @@ func _input(event):
 	elif event.is_action_pressed("attack_2") and not inBoat:
 		_attack_2()
 		attack_2.play()
+		
 
 func _physics_process(delta):
 	collision_fish.set_deferred("disabled",true)
@@ -120,8 +123,8 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	
 	var move_input = Input.get_axis("move_left","move_right") if not inBoat else 0
-	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION)
-	
+	velocity.x = move_toward(clamp(velocity.x, 1, 70), move_input * SPEED, ACCELERATION)
+	#clamp(velocity.x, 1, 575
 	#animation
 	if move_input:
 		flip_hv.scale.x =  sign(move_input)
@@ -143,7 +146,7 @@ func _physics_process(delta):
 				area_2d_fish.monitorable = false
 				playback.travel("idle_remar")
 		if oxigen.set_oxigeno_actual() != -2:
-			oxigen.set_sumergido(-0.01)
+			oxigen.set_sumergido(-0.04)
 	else: 
 		if abs(velocity.x) !=0 and move_input:
 			playback.travel("run")
@@ -161,7 +164,9 @@ func _physics_process(delta):
 		#oxigen.set_oxigeno_actual()
 		if oxigen.set_oxigeno_actual() == -1:
 			death()
-	
+		if Input.is_action_pressed("attack_2"):
+			oxigen.set_sumergido(0.03)
+		
 func _attack():
 	playback.call_deferred("travel", "attack")
 func _attack_2():
@@ -241,4 +246,6 @@ func _on_attack_1_area_body_entered(body):
 
 
 func _on_attack_2_area_body_entered(body):
+	#oxigen.set_sumergido(0.02)
 	body.take_damage(damageA2,self)
+	

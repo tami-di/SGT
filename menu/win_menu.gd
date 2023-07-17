@@ -13,12 +13,12 @@ extends MarginContainer
 
 
 @export var pescadoValue = 10
-@export var medusaValue = 10
-@export var tortugaValue = 10
-@export var pezLinternaValue = 10
-@export var anguilaValue = 10
-@export var tiburonValue = 10
-@export var pulpoValue = 10
+@export var medusaValue = 200
+@export var tortugaValue = 100
+@export var pezLinternaValue = 50
+@export var anguilaValue = 100
+@export var tiburonValue = 500
+@export var pulpoValue = 250
 
 func _ready():
 	playAgain.pressed.connect(_on_playAgain_pressed)
